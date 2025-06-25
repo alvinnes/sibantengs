@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Login</title>
+    <!-- Link Css -->
+    <link rel="stylesheet" href="../assets/styles/login.css" />
+
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <form method="post" autocomplete="on">
+      <h2>Form Login</h2>
+      <label class="input-username">
+        <span class="label-input"><i class="ph ph-user"></i> Username</span>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Masukkan nama kamu disini"
+          autofocus
+        />
+      </label>
+      <p class="error-message-username"></p>
+      <label class="input-username">
+        <span class="label-input"><i class="ph ph-envelope"></i> Email</span>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="example@gmail.com"
+          required
+        />
+      </label>
+      <p class="error-message-email"></p>
+      <label class="input-username">
+        <span class="label-input"><i class="ph ph-phone-plus"></i> No Hp</span>
+        <input
+          type="number"
+          name="phone"
+          id="phone"
+          placeholder="+62 888-999-676"
+          required
+        />
+      </label>
+      <p class="error-message-phone"></p>
+      <label class="input-username">
+        <span class="label-input"><i class="ph ph-lock"></i> Password</span>
+        <div>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="********"
+          />
+          <span class="icon-eye"><i class="ph ph-eye-closed"></i></span>
+        </div>
+      </label>
+      <p class="error-message-password"></p>
+      <button class="btn-submit">Submit</button>
+      <p>Belum punya akun ? <a href="">daftar</a> sekarang</p>
+    </form>
+    <div class="modal-succes">
+      <i class="ph-fill ph-seal-check"></i> Berhasil mengirimkan data
+    </div>
+
+    <script src="../assets/script/login.js"></script>
+  </body>
+</html>
