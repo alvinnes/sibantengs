@@ -171,11 +171,11 @@ form .error-message-password {
   flex-direction: column;
   position: relative;
   z-index: 2;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .ilustration-form .container-img {
-  width: 70%;
+  width: 50%;
   position: relative;
 }
 
@@ -212,16 +212,29 @@ form .error-message-password {
 }
 
 .ilustration-form .decor-1 {
-  width: 10rem;
-  height: 10rem;
+  width: 7rem;
+  height: 7rem;
   right: 0;
   position: absolute;
-  bottom: -1rem;
+  bottom: -0.5rem;
 }
 
 @media (max-width: 1280px) {
   form .btn-submit {
     margin-top: 1rem;
+  }
+  .ilustration-form {
+    justify-content: space-evenly;
+  }
+  .ilustration-form .container-img {
+    width: 70%;
+  }
+  .ilustration-form .decor-1 {
+    width: 10rem;
+    height: 10rem;
+    right: 0;
+    position: absolute;
+    bottom: -1rem;
   }
 }
 

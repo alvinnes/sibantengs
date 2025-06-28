@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bg-primary: #5db996;
+  --bg-secondary: #ace238;
+  --text-color: #1d1d1d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: #1d1d1d;
+}
+
+nav {
+  width: 100%;
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(56, 193, 163);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid white;
+  margin-top: -3px;
+  transform-origin: left;
+  transition: 0.5s;
+  transform: scaleX(0);
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+nav .logo {
+  color: white;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+nav .logo img {
+  width: 8rem;
+  height: 4rem;
+  margin-top: -0.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons .btn-masuk {
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 6px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-masuk a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-buttons .btn-daftar {
+  background-color: white;
+  color: var(--text-color);
+  border: none;
+  outline: none;
+  padding: 6px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 0 5%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-text {
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.home-text h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.home-text h1 b {
+  font-size: 2.6rem;
+  font-weight: 650;
+}
+
+.home-text h1 span {
+  color: #1a1a1a;
+}
+
+.home-text p {
+  margin: 25px 0;
+  line-height: 1.6;
+  color: #555;
+  font-size: 0.9em;
+}
+
+.btn-primary {
+  background-color: #000;
+  color: #fff;
+  padding: 6px 10px;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  position: relative;
+}
+
+.btn-primary a {
+  text-decoration: none;
+}
+
+.btn-primary .indikator {
+  position: absolute;
+  left: 50%;
+  height: 0.4rem;
+  width: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: var(--bg-secondary);
+}
+
+.btn-primary i {
+  font-size: 2em;
+}
+
+.home-image {
+  text-align: center;
+  width: 35%;
+  position: relative;
+}
+
+.home-image img {
+  width: 25rem;
+}
+
+.home-image .growth {
+  background-color: white;
+  border-radius: 10rem;
+  display: flex;
+  justify-content: center;
+  width: 13rem;
+  align-items: center;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+  padding: 0.6rem;
+  text-align: left;
+  color: var(--text-color);
+  position: absolute;
+  top: 20%;
+}
+
+.growth span {
+  width: 2rem;
+  height: 2rem;
+  background-color: #000;
+  color: var(--bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.growth p {
+  width: 7rem;
+  font-size: 0.9em;
+}
+
+.trust-people {
+  display: flex;
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  padding: 0.4rem;
+  width: 14rem;
+  position: absolute;
+  right: 0;
+  bottom: 13rem;
+}
+
+.trust-people button {
+  border: none;
+  outline: none;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+}
+
+.trust-people button a {
+  color: black;
+  text-decoration: none;
+}
+
+.text-trust-people {
+  color: white;
+}
+
+.text-trust-people h3 {
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.text-trust-people p {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats .stat-1 h3,
+.stats .stat-2 h3 {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.stats .line {
+  width: 1rem;
+  border-right: 1px solid black;
+  height: 4rem;
+}
+
+.stats .stat-1 p,
+.stats .stat-2 p {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #1d1d1d;
+}
