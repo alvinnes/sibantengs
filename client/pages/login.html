@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Login</title>
     <!-- Link Css -->
-    <link rel="stylesheet" href="../assets/styles/login.css" />
+    <link rel="stylesheet" href="../public/styles/login.css" />
 
     <!-- Link Phosphor Icons -->
     <link
@@ -20,61 +20,57 @@
     />
   </head>
   <body>
-    <form method="post" autocomplete="on">
-      <h2>Form Login</h2>
-      <label class="input-username">
-        <span class="label-input"><i class="ph ph-user"></i> Username</span>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Masukkan nama kamu disini"
-          autofocus
-        />
-      </label>
-      <p class="error-message-username"></p>
-      <label class="input-username">
-        <span class="label-input"><i class="ph ph-envelope"></i> Email</span>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="example@gmail.com"
-          required
-        />
-      </label>
-      <p class="error-message-email"></p>
-      <label class="input-username">
-        <span class="label-input"><i class="ph ph-phone-plus"></i> No Hp</span>
-        <input
-          type="number"
-          name="phone"
-          id="phone"
-          placeholder="+62 888-999-676"
-          required
-        />
-      </label>
-      <p class="error-message-phone"></p>
-      <label class="input-username">
-        <span class="label-input"><i class="ph ph-lock"></i> Password</span>
-        <div>
+    <div class="container-form">
+      <form method="post" autocomplete="on">
+        <img src="../public/img/slice-logo.png" alt="" />
+        <h2>Hai, selamat datang kembali!</h2>
+        <p class="sub-text">Bersama kita bisa lebih baik!</p>
+        <label class="input-username">
+          <span class="label-input"><i class="ph ph-user"></i> Username</span>
           <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="********"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Masukkan nama kamu disini"
+            autofocus
           />
-          <span class="icon-eye"><i class="ph ph-eye-closed"></i></span>
-        </div>
-      </label>
-      <p class="error-message-password"></p>
-      <button class="btn-submit">Submit</button>
-      <p>Belum punya akun ? <a href="">daftar</a> sekarang</p>
-    </form>
+        </label>
+        <p class="error-message-username"></p>
+        <label class="input-username">
+          <span class="label-input"><i class="ph ph-lock"></i> Password</span>
+          <div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+            />
+            <span class="icon-eye"><i class="ph ph-eye-closed"></i></span>
+          </div>
+        </label>
+        <p class="error-message-password"></p>
+        <button class="btn-submit">Submit</button>
+        <p>Belum punya akun ? <a href="">daftar</a> sekarang</p>
+      </form>
+    </div>
+    <div class="ilustration-form">
+      <div class="container-img">
+        <img src="../public/img/ilustration-login.png" alt="" />
+        <img src="../public/img/bracil-coin.png" alt="" class="decor-1" />
+      </div>
+      <div class="text-login">
+        <h4>Mudah, Aman, Sesuai Syariah.</h4>
+        <h3>Login dan kelola keuangan Anda dengan aman dan nyaman.</h3>
+        <p>
+          Nikmati kemudahan mengakses layanan perbankan syariah yang transparan
+          dan terpercaya cukup dari genggaman Anda.
+        </p>
+      </div>
+    </div>
     <div class="modal-succes">
       <i class="ph-fill ph-seal-check"></i> Berhasil mengirimkan data
     </div>
 
-    <script src="../assets/script/login.js"></script>
+    <script src="../public/script/login.js"></script>
   </body>
 </html>
