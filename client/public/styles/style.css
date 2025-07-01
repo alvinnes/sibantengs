@@ -103,6 +103,11 @@ nav .logo img {
   cursor: pointer;
 }
 
+.nav-buttons .btn-daftar a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
 .home-section {
   width: 100%;
   height: 100vh;
@@ -142,10 +147,9 @@ nav .logo img {
 .btn-primary {
   background-color: #000;
   color: #fff;
-  padding: 6px 10px;
+  padding: 6px 8px;
   font-weight: 600;
   border-radius: 4px;
-  font-size: 1em;
   transition: 0.3s;
   display: inline-flex;
   align-items: center;
@@ -219,7 +223,7 @@ nav .logo img {
   display: flex;
   border-radius: 0.5rem;
   background-color: var(--bg-primary);
-  padding: 0.4rem;
+  padding: 0.5rem;
   width: 14rem;
   position: absolute;
   right: 0;
@@ -234,8 +238,9 @@ nav .logo img {
 }
 
 .trust-people button a {
-  color: black;
+  color: #1d1d1d;
   text-decoration: none;
+  font-size: 0.9em;
 }
 
 .text-trust-people {
@@ -244,11 +249,11 @@ nav .logo img {
 
 .text-trust-people h3 {
   font-weight: 300;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 .text-trust-people p {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   margin-top: 0.2rem;
 }

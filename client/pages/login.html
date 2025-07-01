@@ -26,16 +26,18 @@
         <h2>Hai, selamat datang kembali!</h2>
         <p class="sub-text">Bersama kita bisa lebih baik!</p>
         <label class="input-username">
-          <span class="label-input"><i class="ph ph-user"></i> Username</span>
+          <span class="label-input"
+            ><i class="ph ph-identification-card"></i> NIK</span
+          >
           <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Masukkan nama kamu disini"
+            type="number"
+            name="nik"
+            id="nik"
+            placeholder="33400212121220003"
             autofocus
           />
         </label>
-        <p class="error-message-username"></p>
+        <p class="error-message-nik"></p>
         <label class="input-username">
           <span class="label-input"><i class="ph ph-lock"></i> Password</span>
           <div>
@@ -50,7 +52,7 @@
         </label>
         <p class="error-message-password"></p>
         <button class="btn-submit">Submit</button>
-        <p>Belum punya akun ? <a href="">daftar</a> sekarang</p>
+        <p>Belum punya akun ? <a href="./register.html">daftar</a> sekarang</p>
       </form>
     </div>
     <div class="ilustration-form">
@@ -68,9 +70,10 @@
       </div>
     </div>
     <div class="modal-succes">
-      <i class="ph-fill ph-seal-check"></i> Berhasil mengirimkan data
+      <i class="ph-fill ph-seal-check"></i> Berhasil login
     </div>
 
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
     <script src="../public/script/login.js"></script>
   </body>
 </html>

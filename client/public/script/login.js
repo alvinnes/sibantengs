@@ -4,78 +4,81 @@ const btnSubmit = document.querySelector(".btn-submit");
 const showPassword = document.querySelector(".icon-eye");
 const iconEye = document.querySelector(".icon-eye i");
 
-const inputUsername = document.getElementById("username");
+const inputNik = document.getElementById("nik");
 const inputPassword = document.getElementById("password");
 
-const errorMessageUsername = document.querySelector(".error-message-username");
+const errorMessageNik = document.querySelector(".error-message-nik");
 const errorMessagePassword = document.querySelector(".error-message-password");
+
+let existData = "";
+let existDataAdmin = "";
+
+window.addEventListener("load", async () => {
+  try {
+    const urlAdmin = "http://localhost:3000/data/admin";
+    const url = "http://localhost:3000/data/register";
+    const responseAdmin = await fetch(urlAdmin);
+    const response = await fetch(url);
+    const resultAdmin = await responseAdmin.json();
+    const result = await response.json();
+    existDataAdmin = resultAdmin.payload;
+    existData = result.payload;
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   try {
-    if (inputUsername.value.length === 0) {
-      errorMessageUsername.textContent = "Username tidak boleh kosong!";
-    } else if (inputUsername.value.length < 3) {
-      errorMessageUsername.textContent = "Username minimal 3 karakter!";
-    } else if (inputUsername.value.length > 20) {
-      errorMessageUsername.textContent = "Username maximal 20 karakter!";
+    const matchedNik = existData.find(
+      (item) => item.kk_number === e.target.nik.value
+    );
+    const matchedPassword = existData.find(
+      (item) => item.password === e.target.password.value
+    );
+    const matchedNikAdmin = existDataAdmin.find(
+      (item) => item.nik == e.target.nik.value
+    );
+    const matchedPasswordAdmin = existDataAdmin.find(
+      (item) => item.password === e.target.password.value
+    );
+    if (matchedNikAdmin && matchedPasswordAdmin) {
+      console.log("Berhasil Login");
+      setTimeout(() => {
+        window.location.href = "/client/pages/dashboardAdmin.html";
+      }, 2000);
     } else {
-      errorMessageUsername.textContent = "";
-    }
-
-    const digits = inputPassword.value.match(/\d/g);
-    const symbols = inputPassword.value.match(/[@#$_-]/g);
-
-    const hasNumbers = digits && digits.length > 2;
-    const hasSymbol = symbols && symbols.length > 0;
-
-    if (inputPassword.value.length === 0) {
-      errorMessagePassword.textContent = "Password tidak boleh kosong!";
-    } else if (inputPassword.value.length < 8) {
-      errorMessagePassword.textContent = "Password minimal 8 karakter!";
-    } else if (!hasSymbol) {
-      errorMessagePassword.textContent = "Password harus memiliki symbol";
-    } else if (!hasNumbers) {
-      errorMessagePassword.textContent =
-        "Password harus memiliki minimal 3 angka";
-    } else {
-      errorMessageUsername.textContent = "";
+      if (!matchedNik && !matchedPassword) {
+        errorMessageNik.textContent = "NIK tidak ditemukan!";
+        errorMessagePassword.textContent = "Password salah!";
+        return;
+      } else {
+        console.log("Berhasil Login");
+        errorMessageNik.textContent = "";
+        errorMessagePassword.textContent = "";
+        setTimeout(() => {
+          window.location.href = "/client/pages/dashboardUser.html";
+        }, 2000);
+      }
     }
 
     btnSubmit.textContent = "Loading...";
     btnSubmit.setAttribute("disabled", "true");
     btnSubmit.classList.add("btn-disabled");
 
-    const url = "http://localhost:3000/data";
-    const data = {
-      username: e.target.username.value.trim(),
-      password: e.target.password.value.trim(),
-    };
-    const request = new Request(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const response = await fetch(request);
-    const result = await response.json();
-    const error = result.errors?.forEach((item) => console.log(item));
-    console.log(error);
-  } catch (err) {
-    console.error(err);
-  } finally {
-    inputUsername.value = "";
+    inputNik.value = "";
     inputPassword.value = "";
-
-    btnSubmit.removeAttribute("disabled");
-    btnSubmit.classList.remove("btn-disabled");
-
-    btnSubmit.textContent = "Submit";
     modalSucces.classList.add("show-modal");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal");
     }, 1000);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    btnSubmit.removeAttribute("disabled");
+    btnSubmit.classList.remove("btn-disabled");
+    btnSubmit.textContent = "Submit";
   }
 });
 
