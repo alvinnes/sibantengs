@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(220, 220, 220, 0.2);
+  color: #1d1d1d;
+}
+
+.container-form {
+  width: 60%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 3rem 0.2rem;
+  flex-wrap: wrap;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+form .input-item {
+  width: 45%;
+}
+
+.input-item .label-form,
+.input-date .label-form,
+.input-rekening .label-form {
+  font-size: 0.9em;
+  margin-left: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-item input,
+.input-date input {
+  width: 100%;
+  border: 1px solid rgba(220, 220, 220, 0.5);
+  outline: none;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+}
+
+form .input-date {
+  width: 45%;
+}
+
+form .input-rekening {
+  width: 45%;
+}
+
+.input-rekening select {
+  width: 100%;
+  border: 1px solid rgba(220, 220, 220, 0.5);
+  outline: none;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+}
+
+.container-input-file {
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-item {
+  width: 12rem;
+  height: 7rem;
+  border: 1px dashed rgba(220, 220, 220, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.file-item img {
+  width: 90%;
+  height: 90%;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.file-item i {
+  font-size: 2.5em;
+}
+
+.file-item p {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.file-item input {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+}
+
+.confirm-agree {
+  width: 92%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.confirm-agree input {
+  width: 1rem;
+  height: 1rem;
+  outline: none;
+  border: 1px solid rgba(220, 220, 220, 0.5);
+  cursor: pointer;
+}
+
+form .btn-submit {
+  border: none;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 1em;
+  position: relative;
+  width: 93%;
+  padding: 0.7rem 0;
+  border-radius: 0.2rem;
+  background-color: #1d1d1d;
+  cursor: pointer;
+}
+
+.ilustration-register {
+  width: 40%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ilustration-register img {
+  width: 100%;
+  margin-top: -2rem;
+}
+
+.ilustration-register h3 {
+  width: 25rem;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.modal-loading,
+.modal-succes {
+  width: 20rem;
+  background-color: white;
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.8rem;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.modal-loading img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.modal-loading.show-modal-loading,
+.modal-succes.show-modal-succes {
+  top: 5rem;
+  visibility: visible;
+  opacity: 100;
+}
+
+.modal-succes i {
+  font-size: 2em;
+  color: lightgreen;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-left: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.container-file {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 884px) {
+  .file-item {
+    width: 7.5rem;
+  }
+  .file-item p {
+    font-size: 0.7em;
+  }
+  .ilustration-register {
+    width: 50%;
+  }
+  form {
+    width: 95%;
+  }
+  .ilustration-register h3 {
+    width: 90%;
+    font-size: 1.4em;
+  }
+  .ilustration-register p {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .container-input-file {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .file-item {
+    width: 95%;
+    height: 10rem;
+    margin-bottom: 1rem;
+  }
+  .file-item p {
+    font-size: 1em;
+  }
+  .container-form {
+    width: 100%;
+  }
+  .ilustration-register {
+    width: 100%;
+    height: 100vh;
+  }
+  .ilustration-register img {
+    width: 80%;
+    margin-top: -2rem;
+  }
+  .ilustration-register h3 {
+    width: 70%;
+    font-size: 1.8em;
+    margin-top: -3rem;
+  }
+  .ilustration-register p {
+    width: 70%;
+  }
+}
+
+@media (max-width: 576px) {
+  .ilustration-register img {
+    width: 100%;
+  }
+  form {
+    width: 95%;
+    gap: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+  .ilustration-register h3 {
+    width: 90%;
+    font-size: 1.4em;
+    margin-top: 0;
+  }
+  .ilustration-register p {
+    width: 90%;
+  }
+}
+
+@media (max-width: 428px) {
+  form {
+    width: 100%;
+    gap: 1rem;
+  }
+  .ilustration-register {
+    width: 100%;
+    height: 75vh;
+  }
+  form .input-item {
+    width: 95%;
+  }
+}

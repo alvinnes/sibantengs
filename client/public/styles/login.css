@@ -156,7 +156,7 @@ form p {
   top: 2rem;
 }
 
-form .error-message-username,
+form .error-message-nik,
 form .error-message-password {
   color: red;
   align-self: start;
