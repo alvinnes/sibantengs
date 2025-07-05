@@ -17,13 +17,13 @@
 body {
   width: 100%;
   min-height: 100vh;
-  box-sizing: border-box;
   color: #1d1d1d;
+  overflow-x: hidden;
 }
 
 nav {
   width: 100%;
-  padding: 1rem 5%;
+  padding: 0.5rem 5%;
   position: fixed;
   top: 0;
   left: 0;
@@ -71,8 +71,31 @@ nav .logo {
 
 nav .logo img {
   width: 8rem;
-  height: 4rem;
+  height: 4.5rem;
   margin-top: -0.5rem;
+}
+
+nav .profile {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+nav .profile a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 500;
+  background-color: lightblue;
+  border-radius: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-buttons {
@@ -242,6 +265,7 @@ nav .logo img {
   color: #1d1d1d;
   text-decoration: none;
   font-size: 0.9em;
+  font-weight: 600;
 }
 
 .text-trust-people {
@@ -290,9 +314,14 @@ nav .logo img {
   display: flex;
   justify-content: center;
   gap: 50px;
-  background-color: #eeeeee;
+  background-color: #80808010;
   padding: 25px;
   align-items: center;
+}
+
+.logo-perusahaan h3 {
+  font-weight: 500;
+  font-size: 0.8em;
 }
 
 .logo-perusahaan img {
@@ -334,7 +363,8 @@ nav .logo img {
 .title-about h2,
 .layanan h2,
 .reason h2,
-.products h2 {
+.products h2,
+.works h2 {
   width: 50%;
   font-size: 2.8em;
   font-weight: 400;
@@ -368,7 +398,7 @@ nav .logo img {
 
 .tentang-container {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
   gap: 80px;
   margin-top: 100px;
 }
@@ -377,7 +407,6 @@ nav .logo img {
   width: 550px;
   height: 35rem;
   object-fit: cover;
-  margin-left: 100px;
 }
 
 .about .text-about {
@@ -399,7 +428,7 @@ nav .logo img {
   display: flex;
   color: white;
   width: 15rem;
-  padding: 1rem;
+  padding: 0.8rem;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
@@ -435,7 +464,12 @@ nav .logo img {
   gap: 2rem;
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  margin: 5rem 0 3rem;
+}
+
+.container-item a {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 .layanan .decor {
@@ -448,7 +482,7 @@ nav .logo img {
   position: absolute;
   right: 5rem;
   top: -1rem;
-  transform: rotate(180deg);
+  transform: rotate(200deg);
 }
 
 .container-item .item {
@@ -456,8 +490,7 @@ nav .logo img {
   height: 18rem;
   background: #ffffff;
   border-radius: 8px;
-  padding: 14px;
-  margin: 0 10px;
+  padding: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .item h4 {
@@ -466,7 +499,7 @@ nav .logo img {
 }
 
 .layanan .btn-full {
-  width: 17rem;
+  width: 16rem;
   justify-content: center;
 }
 
@@ -520,20 +553,17 @@ nav .logo img {
   width: 50%;
 }
 
-.numbered-list {
-  list-style: decimal-leading-zero;
-  padding-left: 20px;
-}
 .numbered-list li {
   margin-bottom: 20px;
   border-bottom: 2px solid #dddddd75;
   padding: 20px;
   font-size: 20px;
-  margin-right: 100px;
 }
+
 .numbered-list li:last-child {
   border: none;
 }
+
 .right {
   width: 25%;
 }
@@ -541,30 +571,41 @@ nav .logo img {
   display: flex;
   gap: 0.5rem;
 }
+
+.photo-box {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  padding: 10px;
+  background: #80808010;
+  border-radius: 16px;
+}
+
 .photo-box img {
   width: 100%;
-  background: #eeeeee;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  height: 100%;
 }
+
 .info-boxes {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
 }
+
 .badge {
   padding: 10px 16px;
   border-radius: 10px;
   font-weight: 600;
 }
+
 .badge.light {
   background: #f0ffd4;
   height: 4.5rem;
   margin-top: 1rem;
-  width: 8rem;
+  width: 35%;
 }
+
 .badge.blue {
   background: #b2ebe6;
   height: 5rem;
@@ -572,8 +613,9 @@ nav .logo img {
   font-weight: 700;
   color: white;
   font-size: 1.1em;
-  width: 16rem;
+  width: 70%;
 }
+
 .highlight {
   background: #6dc8a4;
   color: white;
@@ -625,6 +667,8 @@ nav .logo img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #80808010;
+  padding: 4rem 0;
 }
 
 .product-grid {
@@ -632,10 +676,11 @@ nav .logo img {
   flex-wrap: wrap;
   width: 90%;
   row-gap: 7rem;
-  column-gap: 15rem;
+  column-gap: 12rem;
   justify-content: center;
   margin-top: 4rem;
 }
+
 .product {
   text-align: center;
   width: 20rem;
@@ -654,13 +699,7 @@ nav .logo img {
 }
 
 .works h2 {
-  font-size: 40px;
-  max-width: 600px;
-  margin: 0 auto;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-top: 30px;
-  margin-bottom: 80px;
+  margin: 10px 0 50px;
 }
 
 .works {
@@ -668,9 +707,8 @@ nav .logo img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 250px;
+  padding: 250px 0;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .tab-container {
@@ -680,15 +718,26 @@ nav .logo img {
 }
 
 .tab {
-  padding: 10px 20px;
-  border: 1px solid #ccc;
-  background-color: #e6e6e6;
-  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  background-color: #80808020;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.tab:hover {
+  background-color: var(--bg-primary);
+  color: white;
 }
 
 .tab.active {
-  background-color: var(--bg-secondary);
-  border-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 hr {
@@ -706,6 +755,14 @@ hr {
   gap: 60px 150px;
   max-width: 1000px;
   margin: 0 auto;
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.steps-container.hide-step {
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 .step {
@@ -721,7 +778,7 @@ hr {
 }
 
 .step h3 {
-  margin: 10px 0 5px;
+  margin: 0 0 5px;
   font-size: 18px;
 }
 
@@ -731,7 +788,7 @@ hr {
 }
 
 .testimoni {
-  background-color: #eeeeee;
+  background-color: #80808010;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -917,7 +974,7 @@ hr {
 .footer {
   background-color: #61bea2;
   color: white;
-  padding: 50px 10px 10px;
+  padding: 30px 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -932,7 +989,6 @@ hr {
 }
 
 .footer-col {
-  margin-right: 50px;
   display: flex;
   flex-direction: column;
 }
@@ -951,6 +1007,11 @@ hr {
   text-decoration: none;
   color: white;
   font-weight: 300;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  transform: translateX(0.3rem);
 }
 
 .footer-col i {
@@ -991,8 +1052,7 @@ hr {
 }
 
 .container-contact {
-  width: 70%;
-  height: 45rem;
+  width: 80%;
   background-color: white;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
@@ -1006,7 +1066,6 @@ hr {
 
 .information-contact {
   width: 40%;
-  height: 100%;
   background-color: #011c2b;
   color: white;
   padding: 2.5rem;
@@ -1096,20 +1155,20 @@ hr {
 }
 
 .contact .decor-bg {
-  width: 20rem;
-  height: 20rem;
-  filter: blur(9rem);
+  width: 10rem;
+  height: 10rem;
+  filter: blur(13rem);
   position: absolute;
   z-index: -1;
   background-color: var(--bg-secondary);
   bottom: 1rem;
-  left: 8rem;
+  left: 5rem;
 }
 
 .contact .decor-bg-2 {
-  width: 15rem;
-  height: 15rem;
-  filter: blur(10rem);
+  width: 10rem;
+  height: 10rem;
+  filter: blur(13rem);
   position: absolute;
   z-index: -1;
   background-color: var(--bg-secondary);
@@ -1122,15 +1181,13 @@ hr {
   top: 6rem;
   transform: rotate(190deg);
   right: 8rem;
-  z-index: -1;
 }
 
 .decor-arrow-2 {
   position: absolute;
-  bottom: -1rem;
+  bottom: -1.5rem;
   left: 8rem;
-  transform: rotate(10deg);
-  z-index: -1;
+  transform: rotate(20deg);
 }
 
 .container-contact .form-contact {
@@ -1140,7 +1197,7 @@ hr {
   flex-direction: column;
   align-items: center;
   padding: 2rem 0;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .form-contact label {
@@ -1161,7 +1218,7 @@ hr {
   border: 1px solid #80808030;
   border-radius: 0.5rem;
   outline: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .form-contact button {
@@ -1173,5 +1230,105 @@ hr {
   border-radius: 0.5rem;
   font-weight: bold;
   font-size: 1em;
+  cursor: pointer;
   background-color: var(--text-color);
+}
+
+.contact .modal-succes,
+.contact .modal-loading {
+  position: absolute;
+  top: 10rem;
+  padding: 1rem 2rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+.contact .modal-succes.show-modal,
+.contact .modal-loading.show-modal-loading {
+  opacity: 1;
+  visibility: visible;
+  top: 12rem;
+}
+
+.modal-succes i {
+  color: lightseagreen;
+  font-size: 1.6em;
+}
+
+.modal-loading img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.error-message-fullname,
+.error-message-email,
+.error-message-phone,
+.error-message {
+  color: red;
+  margin-top: -8px;
+}
+
+@media (max-width: 1280px) {
+  .reason .title-reason h2 {
+    width: 40%;
+  }
+
+  .logo-perusahaan {
+    gap: 30px;
+  }
+
+  .perusahaan img.logo-7 {
+    width: 150px;
+  }
+
+  .tentang-container img {
+    width: 500px;
+  }
+
+  .layanan .container-item {
+    width: 100%;
+  }
+
+  .container-item .item {
+    width: 15rem;
+  }
+
+  .right {
+    width: 30%;
+  }
+
+  .reason .container-reason {
+    justify-content: space-around;
+  }
+
+  .products h2,
+  .about h2,
+  .works h2 {
+    width: 60%;
+  }
+
+  .container-contact {
+    width: 80%;
+  }
+
+  .contact .information-contact {
+    width: 45%;
+  }
+
+  .decor-arrow-2 {
+    left: 1rem;
+  }
+
+  .decor-arrow-1 {
+    right: 2rem;
+    top: 7rem;
+  }
 }

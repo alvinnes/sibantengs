@@ -1,0 +1,26 @@
+[
+  {
+    "img": "public/img/cara_kerjanya/foto_work_1.png",
+    "title": "1. Registrasi",
+    "step": "Nasabah memasukkan kartu ATM ke mesin, memilih menu registrasi, lalu memilih layanan mobile banking dan memasukkan nomor HP yang akan digunakan.",
+    "category": "Internet Banking"
+  },
+  {
+    "img": "public/img/cara_kerjanya/foto_work_2.png",
+    "title": "2. Unduh Aplikasi Bima Mobile",
+    "step": "Nasabah mengunduh aplikasi 'Bima Mobile' melalui Google Play Store atau App Store dan membuka aplikasi tersebut.",
+    "category": "Internet Banking"
+  },
+  {
+    "img": "public/img/cara_kerjanya/foto_work_3.png",
+    "title": "3. Aktivasi Akun",
+    "step": "Nasabah memasukkan data seperti nomor rekening, 4 digit terakhir kartu ATM, dan nomor HP, lalu memverifikasi kode OTP dan membuat kata sandi serta MPIN.",
+    "category": "Internet Banking"
+  },
+  {
+    "img": "public/img/cara_kerjanya/foto_work_4.png",
+    "title": "4. Gunakan Layanan",
+    "step": "Setelah berhasil login, nasabah dapat mengakses berbagai fitur seperti cek saldo, transfer dana, pembayaran tagihan, dan tarik tunai tanpa kartu.",
+    "category": "Internet Banking"
+  }
+]

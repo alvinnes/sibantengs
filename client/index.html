@@ -25,9 +25,11 @@
 
   <body>
     <!--Navbar Start-->
-    <nav>
+    <nav data-aos="fade-down">
       <div class="logo">
-        <img src="public/img/logo bank jateng syariah.png" alt="" />
+        <a href="/client/index.html">
+          <img src="public/img/logo-bjs.png" alt="logo bank jateng syariah" />
+        </a>
       </div>
 
       <ul>
@@ -40,12 +42,14 @@
 
       <div class="nav-buttons">
         <button class="btn-masuk">
-          <a href="./pages/login.html">MASUK</a>
+          <a href="./pages/form/login.html">MASUK</a>
         </button>
         <button class="btn-daftar">
-          <a href="pages/register.html">DAFTAR</a>
+          <a href="pages/form/register.html">DAFTAR</a>
         </button>
       </div>
+
+      <div class="profile"></div>
     </nav>
     <!--Navbar End-->
 
@@ -72,7 +76,7 @@
       </div>
 
       <div class="home-image" data-aos="zoom-in-down">
-        <img src="public/img/logo menu home.png" alt="Ilustrasi Bank" />
+        <img src="public/img/logo-home.png" alt="Ilustrasi Bank" />
         <div class="stats">
           <div class="stat-1">
             <h3>Orang-orang bergabung</h3>
@@ -89,7 +93,9 @@
           <p>Pertumbuhan Tabungan</p>
         </div>
         <div class="trust-people">
-          <button><a href="pages/register.html">Gabung Sekarang</a></button>
+          <button>
+            <a href="pages/form/register.html">Gabung Sekarang</a>
+          </button>
           <div class="text-trust-people">
             <h3>Dipercaya Pengguna</h3>
             <p>632 RB</p>
@@ -101,36 +107,36 @@
 
     <!--Logo Start -->
     <section class="logo-perusahaan" data-aos="fade-right" data-aos-delay="200">
-      <h3>Dipercaya Oleh.</h3>
+      <h3>Dipercaya Oleh :</h3>
       <img
-        src="public/img/logo perusahaan/logo perusahaan 1.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_1.png"
         alt="logo 1"
         class="logo-1"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 2.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_2.png"
         alt="logo 2"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 3.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_3.png"
         alt="logo 3"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 4.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_4.png"
         alt="logo 4"
         class="logo-4"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 5.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_5.png"
         alt="logo 5"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 6.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_6.png"
         alt="logo 6"
         class="logo-6"
       />
       <img
-        src="public/img/logo perusahaan/logo perusahaan 7.png"
+        src="public/img/logo_perusahaan/logo_perusahaan_7.png"
         alt="logo 7"
         class="logo-7"
       />
@@ -149,8 +155,12 @@
       </div>
       <div class="tentang-container">
         <div class="about-img">
-          <img src="public/img/perusahaan bjs.png" alt="foto perusahaan"/
-          data-aos="zoom-in-down" data-aos-delay="200">
+          <img
+            src="public/img/perusahaan-bjs.png"
+            alt="foto perusahaan"
+            data-aos="zoom-in-down"
+            data-aos-delay="200"
+          />
         </div>
         <div class="text-about" data-aos="fade-left" data-aos-delay="200">
           <div class="container-paragraf">
@@ -187,70 +197,83 @@
 
     <!-- Layanan Start -->
     <section class="layanan" id="layanan">
-      <img src="../client/public/img/decor.png" alt="" class="decor" /
-      data-aos="fade-down"> <img src="../client/public/img/decor.png" alt=""
-      class="decor-2" / data-aos="fade-down">
-      <!-- Element 1 -->
+      <img
+        src="../client/public/img/decor.png"
+        alt="foto dekorasi"
+        class="decor"
+      />
+      <img
+        src="../client/public/img/decor.png"
+        alt="foto-dekorasi"
+        class="decor-2"
+      />
       <div class="subtitle" data-aos="fade-down">
         <span class="bulat"></span>
         <h3>Layanan Kami</h3>
         <span class="bulat"></span>
       </div>
-      <!-- Element 2 -->
       <h2 data-aos="fade-down">
         Temukan Kemudahan Hidup Lewat Layanan Syariah Kami
       </h2>
-      <!-- Element -->
       <div class="container-item" data-aos="fade-up">
-        <div class="item">
-          <img
-            src="public/img/layanan bank/layanan 1.png"
-            alt="layanan"
-            class="layanan-img"
-          />
-          <h4>Internet Banking</h4>
-          <p>
-            kemudahan yang diberikan bagi pengguna individu yang akrab dengan
-            teknologi seperti Anda
-          </p>
-        </div>
-        <div class="item">
-          <img
-            src="public/img/layanan bank/layanan 2.png"
-            alt="layanan"
-            class="layanan-img"
-          />
-          <h4>Pengajuan Kredit Online</h4>
-          <p>
-            layanan pengajuan kredit Bank Jateng berbasis online khusus untuk
-            produk Kredit Ritel, Unit Layanan Mikro, dan Konsumer.
-          </p>
-        </div>
-        <div class="item">
-          <img
-            src="public/img/layanan bank/layanan 3.png"
-            alt="layanan"
-            class="layanan-img"
-          />
-          <h4>Tarik Tunai Tanpa Kartu</h4>
-          <p>
-            layanan tarik tunai tanpa kartu BPD Card yang dihadirkan melalui
-            salah satu menu di dalam internet banking Lakukan transaksi tarik
-            tunai tanpa perlu membawa kartu BPD card. Santai aja!
-          </p>
-        </div>
-        <div class="item">
-          <img
-            src="public/img/layanan bank/layanan 4.png"
-            alt="layanan"
-            class="layanan-img"
-          />
-          <h4>Bima Mobile</h4>
-          <p>
-            layanan Mobile Banking resmi dari Bank Jateng. Hadir melangkah
-            dengan fitur lebih banyak, lebih optimal dan nyaman digunakan.
-          </p>
-        </div>
+        <a href="">
+          <div class="item">
+            <img
+              src="public/img/layanan_bank/layanan_1.png"
+              alt="layanan"
+              class="layanan-img"
+            />
+            <h4>Internet Banking</h4>
+            <p>
+              kemudahan yang diberikan bagi pengguna individu yang akrab dengan
+              teknologi seperti Anda
+            </p>
+          </div>
+        </a>
+        <a href="">
+          <div class="item">
+            <img
+              src="public/img/layanan_bank/layanan_3.png"
+              alt="layanan"
+              class="layanan-img"
+            />
+            <h4>Pengajuan Kredit Online</h4>
+            <p>
+              layanan pengajuan kredit Bank Jateng berbasis online khusus untuk
+              produk Kredit Ritel, Unit Layanan Mikro, dan Konsumer.
+            </p>
+          </div>
+        </a>
+        <a href="">
+          <div class="item">
+            <img
+              src="public/img/layanan_bank/layanan_4.png"
+              alt="layanan"
+              class="layanan-img"
+            />
+            <h4>Tarik Tunai Tanpa Kartu</h4>
+            <p>
+              layanan tarik tunai tanpa kartu BPD Card yang dihadirkan melalui
+              salah satu menu di dalam internet banking Lakukan transaksi tarik
+              tunai tanpa perlu membawa kartu BPD card. Santai aja!
+            </p>
+          </div></a
+        >
+        <a href="">
+          <div class="item">
+            <img
+              src="public/img/layanan_bank/layanan_2.png"
+              alt="layanan"
+              class="layanan-img"
+            />
+
+            <h4>Bima Mobile</h4>
+            <p>
+              layanan Mobile Banking resmi dari Bank Jateng. Hadir melangkah
+              dengan fitur lebih banyak, lebih optimal dan nyaman digunakan.
+            </p>
+          </div>
+        </a>
       </div>
       <div class="btn-full" data-aos="fade-up">
         <a href="#products">
@@ -261,7 +284,7 @@
     </section>
     <!-- Layanan End -->
 
-    <!-- Pilih BJS Star -->
+    <!-- Pilih BJS Start -->
 
     <section class="reason">
       <div class="title-reason" data-aos="fade-down">
@@ -289,7 +312,7 @@
         </div>
         <div class="right" data-aos="fade-left" data-aos-delay="300">
           <div class="photo-box">
-            <img src="public/img/pilihan/foto pelayanan.png" alt="Layanan" />
+            <img src="public/img/pilihan/foto-pelayanan.png" alt="Layanan" />
           </div>
           <div class="info-boxes">
             <div class="container-description">
@@ -306,10 +329,10 @@
           <div class="people-join">
             <p>/100k+ People Join</p>
             <div class="avatars">
-              <img src="public/img/people join/people 1.png" alt="User 1" />
-              <img src="public/img/people join/people 2.png" alt="User 2" />
-              <img src="public/img/people join/people 3.png" alt="User 3" />
-              <img src="public/img/people join/people 4.png" alt="User 4" />
+              <img src="public/img/people_join/people_1.png" alt="User 1" />
+              <img src="public/img/people_join/people_2.png" alt="User 2" />
+              <img src="public/img/people_join/people_3.png" alt="User 3" />
+              <img src="public/img/people_join/people_4.png" alt="User 4" />
             </div>
           </div>
         </div>
@@ -317,7 +340,7 @@
     </section>
     <!-- Pilih BJS End -->
 
-    <!-- Produk Favorit Star -->
+    <!-- Produk Favorit Start -->
 
     <section class="products" id="products">
       <div class="subtitle" data-aos="fade-down">
@@ -356,7 +379,7 @@
 
     <!-- Produk Favorit End -->
 
-    <!-- Cara Kerjanya Star -->
+    <!-- Cara Kerjanya Start -->
 
     <section class="works">
       <div class="subtitle" data-aos="fade-down">
@@ -370,63 +393,15 @@
       </h2>
 
       <div class="tab-container" data-aos="fade-up">
-        <span class="tab active">Internet Banking</span>
-        <span class="tab">Pengajuan Kredit Online</span>
-        <span class="tab">Tarik Tunai Tanpa Kartu</span>
-        <span class="tab">Bima Mobile</span>
+        <button class="tab active">Internet Banking</button>
+        <button class="tab">Pengajuan Kredit Online</button>
+        <button class="tab">Tarik Tunai Tanpa Kartu</button>
+        <button class="tab">Bima Mobile</button>
       </div>
 
       <hr />
 
-      <div class="steps-container" data-aos="fade-up">
-        <div class="step">
-          <img
-            src="public/img/cara kerjanya/Foto work 1.png"
-            alt="Registrasi"
-          />
-          <h3>1. Registrasi</h3>
-          <p>
-            Nasabah memasukkan kartu ATM ke mesin, memilih menu registrasi, lalu
-            memilih layanan mobile banking dan memasukkan nomor HP yang akan
-            digunakan.
-          </p>
-        </div>
-        <div class="step">
-          <img
-            src="public/img/cara kerjanya/Foto work 2.png"
-            alt="Unduh Aplikasi Bima Mobile"
-          />
-          <h3>2. Unduh Aplikasi Bima Mobile</h3>
-          <p>
-            Nasabah mengunduh aplikasi "Bima Mobile" melalui Google Play Store
-            atau App Store dan membuka aplikasi tersebut.
-          </p>
-        </div>
-        <div class="step">
-          <img
-            src="public/img/cara kerjanya/Foto work 3.png"
-            alt="Aktivasi Akun"
-          />
-          <h3>3. Aktivasi Akun</h3>
-          <p>
-            Nasabah memasukkan data seperti nomor rekening, 4 digit terakhir
-            kartu ATM, dan nomor HP, lalu memverifikasi kode OTP dan membuat
-            kata sandi serta MPIN.
-          </p>
-        </div>
-        <div class="step">
-          <img
-            src="public/img/cara kerjanya/Foto work 4.png"
-            alt="Gunakan Layanan"
-          />
-          <h3>4. Gunakan Layanan</h3>
-          <p>
-            Setelah berhasil login, nasabah dapat mengakses berbagai fitur
-            seperti cek saldo, transfer dana, pembayaran tagihan, dan tarik
-            tunai tanpa kartu.
-          </p>
-        </div>
-      </div>
+      <div class="steps-container" data-aos="fade-up"></div>
     </section>
     <!-- Cara Kerjanya End -->
 
@@ -449,7 +424,7 @@
           </p>
           <hr />
           <div class="profile">
-            <img src="public/img/client.png" alt="Alvin" />
+            <img src="public/img/people_join/people_3.png" alt="Alvin" />
             <div>
               <strong>Alvin.</strong><br />
               <span>Student</span>
@@ -465,7 +440,7 @@
           </p>
           <hr />
           <div class="profile">
-            <img src="public/img/client.png" alt="Nayga" />
+            <img src="public/img/people_join/people_3.png" alt="Nayga" />
             <div>
               <strong>Nayga</strong><br />
               <span>Student</span>
@@ -481,7 +456,7 @@
           </p>
           <hr />
           <div class="profile">
-            <img src="public/img/client.png" alt="Arridlo" />
+            <img src="public/img/people_join/people_3.png" alt="Arridlo" />
             <div>
               <strong>Arridlo</strong><br />
               <span>Student</span>
@@ -510,10 +485,7 @@
           href="https://bankjateng.co.id/guru-sd-di-brebes-menang-mobil-listrik-dari-undian-tabungan-bima-bank-jateng"
         >
           <div class="news-card">
-            <img
-              src="public/img/penghargaan bjs/penghargaan 1.png"
-              alt="Berita 1"
-            />
+            <img src="public/img/berita_bjs/berita_1.png" alt="Berita 1" />
             <div class="news-content">
               <p class="tanggal">12 Juni 2025</p>
               <p class="kategori">Berita</p>
@@ -529,10 +501,7 @@
           href="https://bankjateng.co.id/bank-jateng-tingkatkan-kepercayaan-nasabah-lewat-program-undian-tabungan-bima-nasabah-di-klaten-raih-hadiah-mobil-listrik-wuling-air-ev"
         >
           <div class="news-card">
-            <img
-              src="public/img/penghargaan bjs/penghargaan 2.png"
-              alt="Berita 2"
-            />
+            <img src="public/img/berita_bjs/berita_2.png" alt="Berita 2" />
             <div class="news-content">
               <p class="tanggal">09 Juni 2025</p>
               <p class="kategori">Berita</p>
@@ -549,10 +518,7 @@
           href="https://bankjateng.co.id/bank-jateng-wonosobo-serahkan-hadiah-undian-tabungan-bima-periode-ii-tahun-2024"
         >
           <div class="news-card">
-            <img
-              src="public/img/penghargaan bjs/penghargaan 3.png"
-              alt="Berita 3"
-            />
+            <img src="public/img/berita_bjs/berita_3.png" alt="Berita 3" />
             <div class="news-content">
               <p class="tanggal">08 Juni 2025</p>
               <p class="kategori">Berita</p>
@@ -616,7 +582,7 @@
           <div class="decor-1"></div>
           <div class="decor-2"></div>
         </div>
-        <form class="form-contact">
+        <form class="form-contact" method="post">
           <label>
             <p>Nama Lengkap</p>
             <input
@@ -625,6 +591,7 @@
               id="fullname"
               placeholder="Masukkan nama lengkap anda..."
             />
+            <p class="error-message-fullname"></p>
           </label>
           <label>
             <p>Email</p>
@@ -634,6 +601,7 @@
               id="email"
               placeholder="Masukkan email anda..."
             />
+            <p class="error-message-email"></p>
           </label>
           <label>
             <p>No. Telepon/Hp</p>
@@ -643,12 +611,19 @@
               id="phone"
               placeholder="Masukkan nomer hp anda..."
             />
+            <p class="error-message-phone"></p>
           </label>
           <label>
             <p>Pesan</p>
-            <textarea name="message" id="message" rows="6"></textarea>
+            <textarea
+              name="message"
+              id="message"
+              rows="6"
+              placeholder="Tulis pesan disini..."
+            ></textarea>
+            <p class="error-message"></p>
           </label>
-          <button>Kirim Pesan</button>
+          <button id="btnSubmit">Kirim Pesan</button>
         </form>
         <div class="decor-bg"></div>
         <div class="decor-bg-2"></div>
@@ -658,6 +633,12 @@
         <div class="decor-arrow-2">
           <img src="public/img/decor.png" alt="" />
         </div>
+      </div>
+      <div class="modal-loading">
+        <img src="public/img/loader.svg" alt="" /> Loading...
+      </div>
+      <div class="modal-succes">
+        <i class="ph-fill ph-seal-check"></i> Berhasil mengirim
       </div>
     </section>
 
@@ -725,16 +706,26 @@
       </div>
 
       <div class="footer-logo">
-        <img
-          src="public/img/logo bank jateng syariah.png"
-          alt="Bank Jateng Syariah"
-        />
+        <img src="public/img/logo-bjs.png" alt="Bank Jateng Syariah" />
         <p>@DebugBoys | All Right Reserved</p>
       </div>
     </footer>
 
     <!-- Footer End -->
 
+    <script src="public/script/script.js" type="module"></script>
+    <script type="module" src="public/data/dataSteps.js"></script>
+
+    <!-- Script Validation -->
+    <script
+      type="module"
+      src="public/script/validation/validateMessage.js"
+    ></script>
+
+    <!-- Script validator.js -->
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+
+    <!-- Script AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ringkasan</title>
+    <!-- Link Css -->
+    <link
+      rel="stylesheet"
+      href="../../public/styles/dashboardAdmin/dashboardOverview.css"
+    />
+
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <main class="container-dashboard">
+      <nav>
+        <span class="hamburger-menu">
+          <i class="ph ph-list"></i>
+        </span>
+        <div class="profile">
+          <p class="img-profile"></p>
+          <div class="option-logout">
+            <p onclick="deleteSession()">
+              <i class="ph ph-sign-out"></i> Keluar
+            </p>
+          </div>
+        </div>
+        <div class="info-role">
+          <p id="username"></p>
+          <p id="role"></p>
+        </div>
+      </nav>
+
+      <aside class="sidebar">
+        <div class="logo">
+          <a href="/client/index.html">
+            <img src="../../public/img/logo-bjs.png" alt="" />
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminOverview.html"
+              ><i class="ph ph-squares-four"></i> Ringkasan</a
+            >
+          </li>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminManage.html"
+              ><i class="ph ph-credit-card"></i> Daftar Nasabah
+            </a>
+          </li>
+          <li>
+            <a href=""><i class="ph ph-mailbox"></i> Pesan</a>
+          </li>
+          <li>
+            <a href=""><i class="ph ph-user-circle"></i> Profile</a>
+          </li>
+        </ul>
+      </aside>
+      <section class="main-content">
+        <div class="container-card">
+          <div class="card-item">
+            <span class="icon-card"><i class="ph-fill ph-users"></i></span>
+            <div class="text-card">
+              <p>3,002</p>
+              <h3>Nasabah Aktif</h3>
+            </div>
+          </div>
+          <div class="card-item transaction">
+            <span class="icon-card"><i class="ph-fill ph-hand-coins"></i></span>
+            <div class="text-card">
+              <p>Rp. 40 juta</p>
+              <h3>Total Transaksi</h3>
+            </div>
+          </div>
+          <div class="card-item transaction">
+            <span class="icon-card"><i class="ph-fill ph-user-plus"></i></span>
+            <div class="text-card">
+              <p>30</p>
+              <h3>Nasabah Terdaftar</h3>
+            </div>
+          </div>
+          <div class="card-item">
+            <span class="icon-card"
+              ><i class="ph-fill ph-bell-ringing"></i
+            ></span>
+            <div class="text-card">
+              <p>4,560</p>
+              <h3>Notifikasi Masuk</h3>
+            </div>
+          </div>
+        </div>
+        <div class="chart-pie-line">
+          <div class="container-chart-line">
+            <div class="chart-line">
+              <canvas id="chartLine"></canvas>
+            </div>
+          </div>
+          <div class="container-pie-chart">
+            <h3>Status Akun Nasabah</h3>
+            <div class="container-content-pie">
+              <div class="pie-chart">
+                <canvas id="chartPie"></canvas>
+              </div>
+              <ul>
+                <li>
+                  <span class="color"></span>Aktif
+                  <span class="percentage">50%</span>
+                </li>
+                <li>
+                  <span class="color"></span>Tidak Aktif
+                  <span class="percentage">35%</span>
+                </li>
+                <li>
+                  <span class="color"></span>Ditangguhkan
+                  <span class="percentage">15%</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container-chart-bar">
+          <div class="chart-bar">
+            <canvas id="chartBar"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../public/script/dashboardAdmin/adminOverview.js"></script>
+    <script src="../../public/script/dashboardAdmin/chartAdmin.js"></script>
+  </body>
+</html>

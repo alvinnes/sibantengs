@@ -1,6 +1,7 @@
+const windowLocation = "/client/pages/dashboardAdmin/adminOverview.html";
+
 const navItem = document.querySelectorAll("aside ul li");
 const navLink = document.querySelectorAll("aside ul li a");
-const windowLocation = "/client/pages/dashboardUser/dashboardUser.html";
 
 if (window.location.pathname === windowLocation) {
   navItem[0].classList.add("active");
@@ -28,15 +29,16 @@ const role = document.getElementById("role");
 const imgProfile = document.querySelector(".img-profile");
 
 window.addEventListener("load", async () => {
-  const nik = JSON.parse(localStorage.getItem("nikUser"));
+  const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
-    const url = `http://localhost:3000/data/userNik?nik=${nik}`;
+    const url = `http://localhost:3000/data/userNikAdmin?nik=${nik}`;
     const response = await fetch(url);
     const result = await response.json();
     result.payload.forEach((item) => {
-      const firstLetter = item.fullname.slice(0, 1).toUpperCase();
+      const firstLetter = item.username.slice(0, 1).toUpperCase();
+
       imgProfile.textContent = firstLetter;
-      username.textContent = item.fullname;
+      username.textContent = item.username;
       role.textContent = item.role;
     });
   } catch (err) {
@@ -45,7 +47,7 @@ window.addEventListener("load", async () => {
 });
 
 const deleteSession = () => {
-  localStorage.removeItem("nikUser");
+  localStorage.removeItem("nikAdmin");
   console.log("deleted");
   setTimeout(() => {
     window.location.href = "/client/index.html";
