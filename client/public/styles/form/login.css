@@ -24,7 +24,7 @@ body {
   width: 45%;
   height: 100vh;
   background-color: #5db996;
-  /* background: linear-gradient(160deg, cornflowerblue, white); */
+  background: linear-gradient(160deg, cornflowerblue, white); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,7 +164,7 @@ form .error-message-password {
 }
 
 .ilustration-form {
-  width: 60%;
+  width: 50%;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -175,7 +175,7 @@ form .error-message-password {
 }
 
 .ilustration-form .container-img {
-  width: 50%;
+  width: 40%;
   position: relative;
 }
 
@@ -267,46 +267,46 @@ form .error-message-password {
     min-height: 80vh;
     justify-content: space-between;
   }
-  .text-login h3 {
-    font-size: 1.1em;
+  .ilustration-form .text-login {
+    width: 75%;
   }
   form h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
   }
   form p {
-    font-size: 0.9em;
+    font-size: 0.5em;
   }
   .container-form .sub-text {
     margin-top: -1.5rem;
   }
   .ilustration-form .decor-1 {
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 390px) {
   .ilustration-form {
     justify-content: space-evenly;
   }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 350px) {
   .ilustration-form {
-    height: 80vh;
+    height: 10vh;
   }
   .ilustration-form .decor-1 {
-    width: 6rem;
-    height: 6rem;
+    width: 2rem;
+    height: 2rem;
   }
   .text-login h3 {
     font-size: 1.1em;
   }
   .text-login p {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
   .text-login h4 {
-    font-size: 0.9em;
+    font-size: 10em;
   }
   form {
     padding: 3rem 1.5rem;
