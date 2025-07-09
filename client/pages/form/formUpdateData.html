@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Link Css -->
+    <link rel="stylesheet" href="../../public/styles/form/formAddData.css" />
+
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+
+  <body>
+    <form method="post">
+      <h1>Update Data Nasabah</h1>
+      <div class="container-form">
+        <div class="container-input">
+          <label class="input-item">
+            <p class="label-form">Nama Lengkap</p>
+            <input type="text" name="fullname" id="fullname" autofocus />
+            <p class="error-message error-message-fullname"></p>
+          </label>
+          <label class="input-item">
+            <p class="label-form">No .Hp</p>
+            <input type="number" name="phone" id="phone" />
+            <p class="error-message error-message-phone"></p>
+          </label>
+          <label class="input-item">
+            <p class="label-form">Email</p>
+            <input type="email" name="email" id="email" />
+            <p class="error-message error-message-email"></p>
+          </label>
+
+          <label class="input-item">
+            <p class="label-form">Alamat</p>
+            <input type="text" name="addres" id="addres" />
+            <p class="error-message error-message-address"></p>
+          </label>
+          <label class="input-item">
+            <p class="label-form">Password</p>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+            />
+            <p class="error-message error-message-password"></p>
+          </label>
+          <label class="input-item">
+            <p class="label-form">Ulangi Password</p>
+            <input
+              type="password"
+              name="repeat_password"
+              id="repeat_password"
+              placeholder="Ulangi paswword kamu..."
+            />
+            <p class="error-message error-message-repeat-password"></p>
+          </label>
+          <label class="input-date">
+            <p class="label-form">Tanggal Lahir</p>
+            <input type="date" name="birtdate" id="birtdate" />
+          </label>
+          <label class="input-rekening">
+            <p class="label-form">Pilih Jenis Rekening</p>
+            <select name="rekening" id="rekening">
+              <option value="Tabungan Bima">Tabungan Bima</option>
+              <option value="Tabungan Bima Platinum">
+                Tabungan Bima Platinum
+              </option>
+              <option value="Giro">Giro</option>
+              <option value="Tabungan Simpeda">Tabungan Simpeda</option>
+              <option value="Tabungan Bima Kencana">
+                Tabungan Bima Kencana
+              </option>
+              <option value="DPLK Setia">DPLK Setia</option>
+              <option value="Deposito Berjangka">Deposito Berjangka</option>
+              <option value="Simpel (Simpanan Pelajar)">
+                Simpel (Simpanan Pelajar)
+              </option>
+              <option value="Tabunganku">Tabunganku</option>
+              <option value="Bima Rencana">Bima Rencana</option>
+            </select>
+          </label>
+          <label class="input-item">
+            <p class="label-form">Nomor KTP</p>
+            <input type="number" name="ktp" id="ktp_number" />
+            <p class="error-message error-message-ktp"></p>
+          </label>
+          <label class="input-item">
+            <p class="label-form">NIK</p>
+            <input type="number" name="kk_number" id="kk_number" />
+            <p class="error-message error-message-kk"></p>
+          </label>
+        </div>
+        <div class="container-input-file">
+          <div class="container-file">
+            <div class="file-item">
+              <i class="ph ph-identification-card"></i>
+              <p class="label-file">Upload Foto KTP</p>
+              <img src="" alt="" id="preview-ktp" />
+              <input type="file" name="img-ktp" id="img_ktp" accept="image/*" />
+            </div>
+            <p class="error-message error-message-img-ktp"></p>
+          </div>
+          <div class="container-file">
+            <div class="file-item">
+              <i class="ph ph-cards"></i>
+              <p class="label-file">Upload Foto KK</p>
+              <img src="" alt="" id="preview-kk" />
+              <input type="file" name="img-kk" id="img_kk" accept="image/*" />
+            </div>
+            <p class="error-message error-message-img-kk"></p>
+          </div>
+          <div class="container-file">
+            <div class="file-item">
+              <i class="ph ph-user-rectangle"></i>
+              <p class="label-file">Upload Foto Selfie Dengan KTP</p>
+              <img src="" alt="" id="preview-ktp-person" />
+              <input
+                type="file"
+                name="img-ktp-person"
+                id="img_ktp_person"
+                accept="image/*"
+              />
+            </div>
+            <p class="error-message error-message-img-ktp-person"></p>
+          </div>
+          <button class="btn-submit">Update</button>
+        </div>
+      </div>
+    </form>
+    <div class="modal-loading">
+      <img src="../public/img/loader.svg" alt="" />
+      <p>Loading...</p>
+    </div>
+    <div class="modal-succes">
+      <i class="ph-fill ph-seal-check"></i>
+      <p>Update berhasil...</p>
+    </div>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script
+      src="../../public/script/form/formUpdateData.js"
+      type="module"
+    ></script>
+    <script src="../../public/script/form/fileInput.js"></script>
+
+    <!-- Validasi Form Register -->
+    <script
+      type="module"
+      src="../../public/script/validation/validateFullname.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validatePhone.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateEmail.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateAddress.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validatePassword.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateKtpNumber.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateKkNumber.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateImgFile.js"
+    ></script>
+  </body>
+</html>

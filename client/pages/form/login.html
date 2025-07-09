@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Login</title>
+    <!-- Link Css -->
+    <link rel="stylesheet" href="../../public/styles/form/login.css" />
+
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <div class="container-form">
+      <form method="post" autocomplete="on">
+        <img src="../../public/img/slice-logo.png" alt="" />
+        <h2>Hai, selamat datang kembali!</h2>
+        <p class="sub-text">Bersama kita bisa lebih baik!</p>
+        <label class="input-username">
+          <span class="label-input"
+            ><i class="ph ph-identification-card"></i> NIK</span
+          >
+          <input
+            type="number"
+            name="nik"
+            id="nik"
+            placeholder="33400212121220003"
+            autofocus
+          />
+        </label>
+        <p class="error-message-nik"></p>
+        <label class="input-username">
+          <span class="label-input"><i class="ph ph-lock"></i> Password</span>
+          <div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+            />
+            <span class="icon-eye"><i class="ph ph-eye-closed"></i></span>
+          </div>
+        </label>
+        <p class="error-message-password"></p>
+        <button class="btn-submit">Submit</button>
+        <p>Belum punya akun ? <a href="./register.html">daftar</a> sekarang</p>
+      </form>
+    </div>
+    <div class="ilustration-form">
+      <div class="container-img">
+        <img src="../../public/img/ilustration-login.png" alt="" />
+        <img src="../../public/img/bracil-coin.png" alt="" class="decor-1" />
+      </div>
+      <div class="text-login">
+        <h4>Mudah, Aman, Sesuai Syariah.</h4>
+        <h3>Login dan kelola keuangan Anda dengan aman dan nyaman.</h3>
+        <p>
+          Nikmati kemudahan mengakses layanan perbankan syariah yang transparan
+          dan terpercaya cukup dari genggaman Anda.
+        </p>
+      </div>
+    </div>
+    <div class="modal-succes">
+      <i class="ph-fill ph-seal-check"></i> Berhasil login
+    </div>
+
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="../../public/script/form/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* background-color: #80808020; */
+  background-color: lightskyblue;
+}
+
+.container-profile {
+  width: 80%;
+  height: 70vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container-profile .card-img-profile {
+  width: 60%;
+  height: 9rem;
+  display: flex;
+  padding: 2rem;
+  position: relative;
+  border-bottom: 2px dashed #80808030;
+}
+
+.card-img-profile .header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-img-profile .img-profile {
+  width: 6rem;
+  height: 6rem;
+  background-color: #80808030;
+  border-radius: 50%;
+  position: relative;
+}
+.img-profile .status {
+  background-color: #1d1d1d;
+  color: white;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.7em;
+  padding: 0.2rem 1rem;
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.status .indikator {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background-color: lime;
+}
+
+.header .text-header h3 {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.container-profile .created {
+  position: absolute;
+  bottom: 2rem;
+  left: 2.5rem;
+  color: #80808090;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.text-header p {
+  color: #80808070;
+  font-size: 0.8em;
+  margin-bottom: 0.1rem;
+}
+
+.container-profile .general-information {
+  width: 60%;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.general-information label {
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 45%;
+}
+
+label p {
+  color: grey;
+  margin-left: 0.1rem;
+}
+
+label input {
+  border: 1px solid #80808030;
+  outline: none;
+  background-color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.container-profile .information-img {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(to top left, dodgerblue, lightskyblue);
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-top-left-radius: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 2rem;
+  color: white;
+  overflow: hidden;
+}
+
+.information-img h3 {
+  font-weight: 500;
+  font-size: 1.7em;
+}
+
+.information-img .container-file {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container-file .file-item {
+  width: 100%;
+  border-radius: 1rem;
+  height: 9.5rem;
+  background-color: white;
+}
+
+.information-img .decor {
+  position: absolute;
+  bottom: -4rem;
+  right: -4rem;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  background-color: #ffffff20;
+}

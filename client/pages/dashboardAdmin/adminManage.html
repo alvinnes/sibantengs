@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../../public/styles/dashboardAdmin/dashboardManage.css"
+    />
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <main class="container-dashboard">
+      <nav>
+        <span class="hamburger-menu">
+          <i class="ph ph-list"></i>
+        </span>
+        <div class="profile">
+          <p class="img-profile"></p>
+          <div class="option-logout">
+            <p onclick="deleteSession()">
+              <i class="ph ph-sign-out"></i> Keluar
+            </p>
+          </div>
+        </div>
+        <div class="info-role">
+          <p id="username"></p>
+          <p id="role"></p>
+        </div>
+      </nav>
+
+      <aside class="sidebar">
+        <div class="logo">
+          <a href="/client/index.html">
+            <img src="../../public/img/logo-bjs.png" alt="" />
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminOverview.html"
+              ><i class="ph ph-squares-four"></i> Ringkasan</a
+            >
+          </li>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminManage.html"
+              ><i class="ph ph-credit-card"></i> Daftar Nasabah
+            </a>
+          </li>
+          <li>
+            <a href=""><i class="ph ph-mailbox"></i> Pesan</a>
+          </li>
+          <li>
+            <a href=""><i class="ph ph-user-circle"></i> Profile</a>
+          </li>
+        </ul>
+      </aside>
+      <section class="main-content">
+        <div class="search-item">
+          <label class="input-search">
+            <p>Semua Data</p>
+            <div class="input-item">
+              <i class="ph ph-magnifying-glass"></i>
+              <input
+                type="seacrh"
+                name="search"
+                id="search"
+                placeholder="cari data..."
+              />
+            </div>
+          </label>
+          <label class="select-item">
+            <p>Urutkan Berdasarkan</p>
+            <div class="input-select">
+              <p>Urutkan</p>
+              <i class="ph ph-caret-down"></i>
+              <div class="option">
+                <p onclick="sortByDate()">
+                  <i class="ph ph-calendar"></i> Tanggal
+                </p>
+                <p onclick="sortByAlpha()">
+                  <i class="ph ph-text-aa"></i> Huruf
+                </p>
+                <p onclick="sortByNik()">
+                  <i class="ph ph-identification-card"></i> NIK
+                </p>
+              </div>
+            </div>
+          </label>
+          <button class="btn-add-data">
+            <a href="../form/formCreateData.html"
+              ><i class="ph ph-plus"></i> Tambah Nasabah</a
+            >
+          </button>
+        </div>
+
+        <table id="tableData">
+          <thead>
+            <tr>
+              <th id="select">Pilih</th>
+              <th>No</th>
+              <th>Nama Lengkap</th>
+              <th>Email</th>
+              <th>No. Hp</th>
+              <th>Dibuat</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="data-not-found">
+          <i class="ph ph-prohibit"></i>
+          <h3>Data tidak ditemukan!</h3>
+        </div>
+        <div class="data-null">
+          <i class="ph ph-prohibit"></i>
+          <h3>Data masih kosong</h3>
+        </div>
+        <div class="btn-pagination">
+          <p class="info-pagination"></p>
+          <button onclick="prevPagination()">
+            <i class="ph ph-arrow-left"></i>
+          </button>
+          <button onclick="nextPagination()">
+            <i class="ph ph-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+      <div class="container-modal-confirm">
+        <div class="modal-confirm">
+          <i class="ph ph-warning"></i>
+          <h3>Yakin mau hapus data ?</h3>
+          <p>Perlu diingat data yang sudah dihapus tidak bisa di kembalikan!</p>
+          <div class="container-btn">
+            <button id="agree">Ya</button>
+            <button id="disagree">Tidak</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../../public/script/dashboardAdmin/adminManage.js"></script>
+  </body>
+</html>
