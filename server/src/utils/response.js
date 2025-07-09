@@ -1,8 +1,9 @@
-const response = (res, data, message) => {
+const response = (res, data, totalData, message) => {
   return res.json({
+    status: res.statusCode,
+    totalData: totalData,
     payload: data,
     message,
-    status: res.statusCode,
   });
 };
 

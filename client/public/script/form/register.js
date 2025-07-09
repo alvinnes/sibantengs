@@ -33,8 +33,6 @@ agree.onclick = () => {
 
 const modalLoading = document.querySelector(".modal-loading");
 const modalSucces = document.querySelector(".modal-succes");
-const previewKtp = document.getElementById("preview-ktp");
-console.log(previewKtp.getAttribute("src"));
 
 form.addEventListener("submit", async (e) => {
   const fullname = e.target.fullname.value;
@@ -47,6 +45,8 @@ form.addEventListener("submit", async (e) => {
   const kk_number = e.target.kk_number.value;
 
   e.preventDefault();
+
+  const datasForm = new FormData(e.target);
   try {
     if (!validateFullname(fullname)) return;
     if (!validatePhone(phone)) return;
@@ -60,32 +60,15 @@ form.addEventListener("submit", async (e) => {
     if (!validateImgKk(e.target.img_kk.value)) return;
     if (!validateImgKtpPerson(e.target.img_ktp_person.value)) return;
 
+    console.log("Submitted");
     modalLoading.classList.add("show-modal-loading");
-    const data = {
-      fullname: fullname,
-      phone: phone,
-      email: email,
-      addres: address,
-      password: password,
-      repeat_password: repeat_password,
-      birtdate: e.target.birtdate.value,
-      rekening: e.target.rekening.value,
-      ktp_number: ktp_number,
-      kk_number: kk_number,
-      img_ktp: e.target.img_ktp.value,
-      img_kk: e.target.img_kk.value,
-      img_ktp_person: e.target.img_ktp_person.value,
-    };
-    console.log(data);
 
     const urlPostData = "http://localhost:3000/data/register";
     const request = await fetch(urlPostData, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: datasForm,
     });
+
     const response = await request.json();
     console.log(response);
 
@@ -93,9 +76,7 @@ form.addEventListener("submit", async (e) => {
     modalSucces.classList.add("show-modal-succes");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal-succes");
-    }, 1000);
-    setTimeout(() => {
-      window.location.href = "/client/pages/login.html";
+      window.location.href = "/client/pages/form/login.html";
     }, 1000);
   } catch (err) {
     console.error(err);

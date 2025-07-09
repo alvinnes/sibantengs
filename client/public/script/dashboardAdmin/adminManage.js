@@ -16,6 +16,8 @@ const titleTable = document.getElementById("select");
 
 let datasNasabah = [];
 let page = 1;
+let currentPagination = null;
+let totalPage = null;
 
 const btnDelete = document.querySelector(".btn-delete");
 const username = document.getElementById("username");
@@ -40,8 +42,11 @@ window.addEventListener("load", async () => {
     const dateNow = result.payload.sort(
       (a, b) => new Date(b.created_at) - new Date(a.created_at)
     );
-    console.log(result.pagination);
+
+    currentPagination = result.pagination.currentPage;
+    totalPage = result.pagination.totalPage;
     infoPagination.textContent = `Halaman ${result.pagination.currentPage} dari ${result.pagination.totalPage}`;
+
     resultProfile.payload.forEach((item) => {
       const firstLetter = item.username.slice(0, 1).toUpperCase();
 
@@ -90,10 +95,6 @@ const dataNasabah = (data, index) => {
             </div></td>
               </tr>
               `;
-};
-
-const selectItem = (data) => {
-  console.log(data);
 };
 
 const searchInput = document.getElementById("search");
@@ -207,13 +208,18 @@ const handleDeleteData = async (nik) => {
 
 // Function untuk menangani halaman selanjutnya
 const nextPagination = async () => {
+  if (page > totalPage - 1) return;
   page += 1;
+
   try {
     const url = `http://localhost:3000/data/userAll?page=${page}`;
     const response = await fetch(url);
     const result = await response.json();
 
+    currentPagination = result.pagination.currentPage;
+    totalPage = result.pagination.totalPage;
     infoPagination.textContent = `Halaman ${result.pagination.currentPage} dari ${result.pagination.totalPage}`;
+
     tableData.innerHTML = "";
     result.payload.forEach((item, index) => {
       element = dataNasabah(item, index);
@@ -225,13 +231,18 @@ const nextPagination = async () => {
 };
 
 const prevPagination = async () => {
+  if (page < 2) return;
   page -= 1;
+
   try {
     const url = `http://localhost:3000/data/userAll?page=${page}`;
     const response = await fetch(url);
     const result = await response.json();
 
+    currentPagination = result.pagination.currentPage;
+    totalPage = result.pagination.totalPage;
     infoPagination.textContent = `Halaman ${result.pagination.currentPage} dari ${result.pagination.totalPage}`;
+
     tableData.innerHTML = "";
     result.payload.forEach((item, index) => {
       element = dataNasabah(item, index);

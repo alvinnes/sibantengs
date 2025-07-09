@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daftar Nasabah</title>
+    <title>Pesan</title>
     <!-- Link Css -->
     <link
       rel="stylesheet"
-      href="../../public/styles/dashboardAdmin/dashboardManage.css"
+      href="/client/public/styles/dashboardAdmin/dashboardMessage.css"
     />
     <link
       rel="stylesheet"
@@ -75,6 +75,7 @@
           </li>
         </ul>
       </aside>
+
       <section class="main-content">
         <div class="search-item">
           <label class="input-search">
@@ -85,49 +86,35 @@
                 type="seacrh"
                 name="search"
                 id="search"
-                placeholder="cari data..."
+                placeholder="cari pesan..."
               />
             </div>
           </label>
-          <label class="select-item">
-            <p>Urutkan Berdasarkan</p>
-            <div class="input-select">
-              <p>Urutkan</p>
-              <i class="ph ph-caret-down"></i>
-              <div class="option">
-                <p onclick="sortByDate()">
-                  <i class="ph ph-calendar"></i> Tanggal
-                </p>
-                <p onclick="sortByAlpha()">
-                  <i class="ph ph-text-aa"></i> Huruf
-                </p>
-                <p onclick="sortByNik()">
-                  <i class="ph ph-identification-card"></i> NIK
-                </p>
+          <div class="container-actions">
+            <label class="select-item">
+              <p class="subtitle">Urutkan Berdasarkan</p>
+              <div class="input-select">
+                <p>Urutkan</p>
+                <i class="ph ph-caret-down"></i>
+                <div class="option">
+                  <p onclick="sortByDate()" id="date">
+                    <i class="ph ph-calendar"></i> Tanggal
+                  </p>
+                  <p onclick="sortByAlpha()" id="alpha">
+                    <i class="ph ph-text-aa"></i> Huruf
+                  </p>
+                </div>
               </div>
+            </label>
+            <div class="btn-actions">
+              <button class="btn-delete"><i class="ph ph-trash"></i></button>
+              <button class="delete-all">Hapus Semua</button>
             </div>
-          </label>
-          <button class="btn-add-data">
-            <a href="../form/formCreateData.html"
-              ><i class="ph ph-plus"></i> Tambah Nasabah</a
-            >
-          </button>
+          </div>
         </div>
-
-        <table id="tableData">
-          <thead>
-            <tr>
-              <th id="select">Pilih</th>
-              <th>No</th>
-              <th>Nama Lengkap</th>
-              <th>Email</th>
-              <th>No. Hp</th>
-              <th>Dibuat</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+        <div class="hide-datas">
+          <div class="container-data"></div>
+        </div>
         <div class="data-not-found">
           <img src="/client/public/img/404.png" alt="" />
         </div>
@@ -136,10 +123,10 @@
         </div>
         <div class="btn-pagination">
           <p class="info-pagination"></p>
-          <button onclick="prevPagination()">
+          <button id="btn-prev">
             <i class="ph ph-arrow-left"></i>
           </button>
-          <button onclick="nextPagination()">
+          <button id="btn-next">
             <i class="ph ph-arrow-right"></i>
           </button>
         </div>
@@ -147,7 +134,7 @@
       <div class="container-modal-confirm">
         <div class="modal-confirm">
           <i class="ph ph-warning"></i>
-          <h3>Yakin mau hapus data ?</h3>
+          <h3>Yakin mau hapus semua data ?</h3>
           <p>Perlu diingat data yang sudah dihapus tidak bisa di kembalikan!</p>
           <div class="container-btn">
             <button id="agree">Ya</button>
@@ -157,6 +144,29 @@
       </div>
     </main>
 
-    <script src="../../public/script/dashboardAdmin/adminManage.js"></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/adminMessage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/usePagination.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useCheckbox.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useMonth.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useElement.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useSearch.js"
+    ></script>
   </body>
 </html>

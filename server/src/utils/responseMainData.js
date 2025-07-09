@@ -1,7 +1,7 @@
 const responseMainData = (
   res,
   data,
-  { totalPage, totalData, page, limit },
+  { totalPage, totalData, page },
   message
 ) => {
   return res.json({

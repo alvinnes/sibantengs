@@ -27,7 +27,7 @@
       <p>Tanpa riba, tanpa gharar – sesuai kaidah syariah</p>
     </div>
     <div class="container-form">
-      <form method="post">
+      <form enctype="multipart/form-data">
         <label class="input-item">
           <p class="label-form">Nama Lengkap</p>
           <input
@@ -122,7 +122,7 @@
           <p class="label-form">Nomor KTP</p>
           <input
             type="number"
-            name="ktp"
+            name="ktp_number"
             id="ktp_number"
             placeholder="Masukkan nomor ktp anda.."
           />
@@ -144,7 +144,7 @@
               <i class="ph ph-identification-card"></i>
               <p class="label-file">Upload Foto KTP</p>
               <img src="" alt="" id="preview-ktp" />
-              <input type="file" name="img-ktp" id="img_ktp" accept="image/*" />
+              <input type="file" name="img_ktp" id="img_ktp" accept="image/*" />
             </div>
             <p class="error-message error-message-img-ktp"></p>
           </div>
@@ -153,7 +153,7 @@
               <i class="ph ph-cards"></i>
               <p class="label-file">Upload Foto KK</p>
               <img src="" alt="" id="preview-kk" />
-              <input type="file" name="img-kk" id="img_kk" accept="image/*" />
+              <input type="file" name="img_kk" id="img_kk" accept="image/*" />
             </div>
             <p class="error-message error-message-img-kk"></p>
           </div>
@@ -164,7 +164,7 @@
               <img src="" alt="" id="preview-ktp-person" />
               <input
                 type="file"
-                name="img-ktp-person"
+                name="img_ktp_person"
                 id="img_ktp_person"
                 accept="image/*"
               />

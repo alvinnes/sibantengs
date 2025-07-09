@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="../../public/styles/dashboardAdmin/dashboardOverview.css"
     />
+    <link
+      rel="stylesheet"
+      href="/client/public/styles/dashboardAdmin/navigation.css"
+    />
 
     <!-- Link Phosphor Icons -->
     <link
@@ -60,10 +64,14 @@
             </a>
           </li>
           <li>
-            <a href=""><i class="ph ph-mailbox"></i> Pesan</a>
+            <a href="/client/pages/dashboardAdmin/adminMessage.html"
+              ><i class="ph ph-mailbox"></i> Pesan</a
+            >
           </li>
           <li>
-            <a href=""><i class="ph ph-user-circle"></i> Profile</a>
+            <a href="/client/pages/dashboardAdmin/adminProfile.html"
+              ><i class="ph ph-user-circle"></i> Profile</a
+            >
           </li>
         </ul>
       </aside>
@@ -86,7 +94,7 @@
           <div class="card-item transaction">
             <span class="icon-card"><i class="ph-fill ph-user-plus"></i></span>
             <div class="text-card">
-              <p>30</p>
+              <p class="total-user"></p>
               <h3>Nasabah Terdaftar</h3>
             </div>
           </div>
@@ -95,8 +103,8 @@
               ><i class="ph-fill ph-bell-ringing"></i
             ></span>
             <div class="text-card">
-              <p>4,560</p>
-              <h3>Notifikasi Masuk</h3>
+              <p class="total-message"></p>
+              <h3>Pesan Masuk</h3>
             </div>
           </div>
         </div>

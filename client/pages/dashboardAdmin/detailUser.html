@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <div class="container-profile">
+    <main class="container-profile">
       <div class="card-img-profile">
         <div class="header">
           <div class="img-profile">
@@ -36,18 +36,38 @@
           </div>
         </div>
       </div>
-      <div class="general-information"></div>
-      <p class="created"><i class="ph ph-calendar"></i> Dibuat pada tanggal</p>
-      <div class="information-img">
-        <h3>File Gambar</h3>
-        <div class="container-file">
-          <div class="file-item"></div>
-          <div class="file-item"></div>
-          <div class="file-item"></div>
+      <div class="container-card">
+        <div class="general-information"></div>
+        <div class="information-img">
+          <h3>File Gambar</h3>
+          <div class="container-file">
+            <div class="file-item">
+              <h2>Foto KTP</h2>
+              <img src="" alt="foto-ktp" class="preview" />
+              <div class="icon"><i class="ph ph-arrows-out"></i></div>
+            </div>
+            <div class="file-item">
+              <h2>Foto KK</h2>
+              <img src="" alt="foto-kk" class="preview" />
+              <div class="icon"><i class="ph ph-arrows-out"></i></div>
+            </div>
+            <div class="file-item">
+              <h2>Foto Selfie Dengan KTP</h2>
+              <img src="" alt="foto selfie dengan ktp" class="preview" />
+              <div class="icon"><i class="ph ph-arrows-out"></i></div>
+            </div>
+          </div>
+          <div class="decor"></div>
         </div>
-        <div class="decor"></div>
       </div>
-    </div>
+      <p class="created"><i class="ph ph-calendar"></i> Dibuat pada tanggal</p>
+      <div class="container-detail-img">
+        <div class="detail-img">
+          <img src="/server/public/images/IMG_KK-1752050757522.png" alt="" />
+          <button class="btn-close"><i class="ph ph-x"></i></button>
+        </div>
+      </div>
+    </main>
     <script src="../../public/script/dashboardAdmin/detailUser.js"></script>
   </body>
 </html>

@@ -25,6 +25,8 @@ const inputEmail = document.getElementById("email");
 const inputAddres = document.getElementById("addres");
 const inputKk = document.getElementById("kk_number");
 const inputKtp = document.getElementById("ktp_number");
+const inputPassword = document.getElementById("password");
+const inputRepeatPassword = document.getElementById("repeat_password");
 
 const previewKtp = document.getElementById("preview-ktp");
 
@@ -35,10 +37,19 @@ window.addEventListener("load", async () => {
     const response = await fetch(url);
     const result = await response.json();
     const data = result.payload[0];
+    const hidePassword = data.password.slice(0, 3) + "****";
+
     inputFullname.value = data.fullname;
     inputPhone.value = data.phone;
     inputEmail.value = data.email;
     inputAddres.value = data.addres;
+
+    inputPassword.setAttribute("type", "text");
+    inputRepeatPassword.setAttribute("type", "text");
+
+    inputPassword.value = hidePassword;
+    inputRepeatPassword.value = hidePassword;
+
     inputKtp.value = data.ktp_number;
     inputKk.value = data.kk_number;
   } catch (err) {
@@ -106,9 +117,9 @@ form.addEventListener("submit", async (e) => {
     setTimeout(() => {
       modalSucces.classList.remove("show-modal-succes");
     }, 1000);
-    // setTimeout(() => {
-    //   window.location.href = "/client/pages/dashboardAdmin/adminManage.html";
-    // }, 1000);
+    setTimeout(() => {
+      window.location.href = "/client/pages/dashboardAdmin/adminManage.html";
+    }, 1000);
   } catch (err) {
     console.error(err);
   }

@@ -99,8 +99,8 @@ const dataChartLine = {
   datasets: [
     {
       label: "Nasabah",
-      data: [3000, 2500, 5000, 6000, 3200, 4500, 4000],
-      tension: 0.6,
+      data: [1000, 3000, 1000, 6000, 3000, 4500, 4000],
+      tension: 0.3,
       fill: true,
       backgroundColor: (context) => {
         if (!context.chart.chartArea) return;

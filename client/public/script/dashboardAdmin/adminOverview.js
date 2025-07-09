@@ -28,12 +28,24 @@ const username = document.getElementById("username");
 const role = document.getElementById("role");
 const imgProfile = document.querySelector(".img-profile");
 
+const totalMessage = document.querySelector(".total-message");
+const totalUser = document.querySelector(".total-user");
+
 window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
     const url = `http://localhost:3000/data/userNikAdmin?nik=${nik}`;
+    const urlMessage = "http://localhost:3000/data/message";
+    const urlRegister = "http://localhost:3000/data/register";
+
+    const responseMessage = await fetch(urlMessage);
     const response = await fetch(url);
+    const responseRegister = await fetch(urlRegister);
+
     const result = await response.json();
+    const resultMessage = await responseMessage.json();
+    const resultRegister = await responseRegister.json();
+
     result.payload.forEach((item) => {
       const firstLetter = item.username.slice(0, 1).toUpperCase();
 
@@ -41,6 +53,9 @@ window.addEventListener("load", async () => {
       username.textContent = item.username;
       role.textContent = item.role;
     });
+
+    totalUser.textContent = resultRegister.totalData;
+    totalMessage.textContent = resultMessage.totalData;
   } catch (err) {
     console.error(err);
   }

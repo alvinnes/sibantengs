@@ -14,13 +14,12 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  /* background-color: #80808020; */
   background-color: lightskyblue;
 }
 
 .container-profile {
   width: 80%;
-  height: 70vh;
+  min-height: 85vh;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -50,6 +49,15 @@ body {
   border-radius: 50%;
   position: relative;
 }
+
+.container-card {
+  display: flex;
+  width: 100%;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .img-profile .status {
   background-color: #1d1d1d;
   color: white;
@@ -79,10 +87,12 @@ body {
 }
 
 .container-profile .created {
+  width: fit-content;
   position: absolute;
-  bottom: 2rem;
+  bottom: 0;
   left: 2.5rem;
   color: #80808090;
+  position: relative;
   font-size: 0.8em;
   display: flex;
   align-items: center;
@@ -127,9 +137,8 @@ label input {
 .container-profile .information-img {
   width: 40%;
   height: 100%;
-  position: relative;
-  background: linear-gradient(to top left, dodgerblue, lightskyblue);
   position: absolute;
+  background: linear-gradient(to top left, dodgerblue, lightskyblue);
   right: 0;
   top: 0;
   border-top-left-radius: 10rem;
@@ -139,7 +148,6 @@ label input {
   padding: 2rem 0;
   gap: 2rem;
   color: white;
-  overflow: hidden;
 }
 
 .information-img h3 {
@@ -149,24 +157,243 @@ label input {
 
 .information-img .container-file {
   width: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
 }
 
 .container-file .file-item {
   width: 100%;
   border-radius: 1rem;
-  height: 9.5rem;
+  height: 10rem;
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.file-item img {
+  width: 100%;
+  height: 88%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.container-file h2 {
+  font-weight: 500;
+  font-size: 0.8em;
+  text-align: center;
+  align-self: center;
+  color: #1d1d1d;
+  padding-bottom: 0.3rem;
   background-color: white;
 }
 
-.information-img .decor {
+.file-item .icon {
   position: absolute;
-  bottom: -4rem;
-  right: -4rem;
-  width: 25rem;
-  height: 25rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.file-item:hover .icon {
+  opacity: 1;
+}
+
+.file-item .icon i {
+  font-size: 2.5em;
+}
+
+.container-profile .container-detail-img {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000020;
+  z-index: 9;
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.container-profile .container-detail-img.show-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.container-detail-img .detail-img {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.detail-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.detail-img button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
   border-radius: 50%;
-  background-color: #ffffff20;
+  top: -0.5rem;
+  position: absolute;
+  right: -0.5rem;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.detail-img button:hover {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1190px) {
+  .container-profile {
+    width: 95%;
+    min-height: 70vh;
+    margin: 0.5rem 0;
+  }
+
+  .container-card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin-bottom: -2rem;
+  }
+
+  .container-profile .information-img {
+    position: static;
+    width: 100%;
+    border-top-right-radius: 10rem;
+  }
+
+  .container-profile .card-img-profile {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .container-profile .general-information {
+    width: 100%;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    justify-content: center;
+  }
+
+  .general-information label {
+    width: 47%;
+  }
+
+  .information-img .container-file {
+    flex-direction: row;
+    gap: 1rem;
+    width: 90%;
+  }
+
+  .container-profile .created {
+    color: white;
+    left: 50%;
+    bottom: 0.3rem;
+    transform: translateX(-50%);
+  }
+
+  .container-detail-img .detail-img {
+    height: 70%;
+    width: 85%;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .container-detail-img .detail-img {
+    height: 50%;
+    width: 90%;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 610px) {
+  .container-file h2 {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -1.5rem;
+  }
+
+  .container-file .file-item {
+    height: 12rem;
+  }
+
+  .information-img .container-file {
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+  }
+
+  .container-profile .general-information {
+    width: 100%;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .general-information label {
+    width: 100%;
+  }
+
+  .container-profile .created {
+    bottom: 1rem;
+  }
+
+  .container-detail-img .detail-img {
+    height: 50%;
+    width: 95%;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 428px) {
+  .container-profile {
+    width: 100%;
+    margin: 0;
+  }
+
+  .container-profile .general-information {
+    padding: 2rem 1rem;
+  }
+
+  .container-detail-img .detail-img {
+    height: 40%;
+    width: 95%;
+    padding: 0.5rem;
+  }
 }

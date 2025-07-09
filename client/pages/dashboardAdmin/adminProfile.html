@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+
+    <!-- Link Css -->
+    <link
+      rel="stylesheet"
+      href="../../public/styles/dashboardAdmin/dashboardProfile.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/client/public/styles/dashboardAdmin/navigation.css"
+    />
+
+    <!-- Link Phosphor Icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+  </head>
+  <body>
+    <main class="container-dashboard">
+      <nav>
+        <span class="hamburger-menu">
+          <i class="ph ph-list"></i>
+        </span>
+        <div class="profile">
+          <p class="img-profile"></p>
+          <div class="option-logout">
+            <p onclick="deleteSession()">
+              <i class="ph ph-sign-out"></i> Keluar
+            </p>
+          </div>
+        </div>
+        <div class="info-role">
+          <p id="username"></p>
+          <p id="role"></p>
+        </div>
+      </nav>
+
+      <aside class="sidebar">
+        <div class="logo">
+          <a href="/client/index.html">
+            <img src="../../public/img/logo-bjs.png" alt="" />
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminOverview.html"
+              ><i class="ph ph-squares-four"></i> Ringkasan</a
+            >
+          </li>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminManage.html"
+              ><i class="ph ph-credit-card"></i> Daftar Nasabah
+            </a>
+          </li>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminMessage.html"
+              ><i class="ph ph-mailbox"></i> Pesan</a
+            >
+          </li>
+          <li>
+            <a href="/client/pages/dashboardAdmin/adminProfile.html"
+              ><i class="ph ph-user-circle"></i> Profile</a
+            >
+          </li>
+        </ul>
+      </aside>
+
+      <section class="main-content">
+        <div class="profile-admin">
+          <div class="profile">
+            <p class="img-profile-admin"></p>
+            <button class="btn-edit">
+              <i class="ph ph-pencil-simple"></i> Edit
+            </button>
+          </div>
+        </div>
+        <div class="information-admin">
+          <form method="post" class="container-input">
+            <label>
+              <p>Nama</p>
+              <input type="text" id="inputUsername" disabled />
+            </label>
+            <label>
+              <p>NIK</p>
+              <input type="text" id="inputNik" disabled />
+            </label>
+            <label>
+              <p>Email</p>
+              <input type="text" id="inputEmail" disabled />
+            </label>
+            <label>
+              <p>Password</p>
+              <input type="text" id="inputPassword" disabled />
+            </label>
+            <button class="btn-upload">Simpan</button>
+          </form>
+        </div>
+        <div class="modal-loading">
+          <img src="../../public/img/loader.svg" alt="loading" /> Loading...
+        </div>
+        <div class="modal-succes">
+          <i class="ph-fill ph-seal-check"></i> Berhasil merubah data
+        </div>
+      </section>
+    </main>
+
+    <script src="../../public/script/dashboardAdmin/adminProfile.js"></script>
+  </body>
+</html>

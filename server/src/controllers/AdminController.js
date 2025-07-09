@@ -3,7 +3,7 @@ import response from "../utils/response.js";
 
 export const getDataAdmin = (req, res) => {
   const sql = "SELECT ?? FROM ??;";
-  const column = ["nik", "password", "username", "role"];
+  const column = ["nik", "password", "username", "role", "email"];
 
   db.query(sql, [column, "admin"], (err, result) => {
     if (err) throw err;
@@ -18,4 +18,27 @@ export const getDataByNikAdmin = (req, res) => {
     if (err) throw err;
     response(res, result, "Berhasil mengambil data dengan nik");
   });
+};
+
+export const updateAdmin = (req, res) => {
+  const editedData = req.body;
+  console.log(editedData);
+  const sqlUpdateData =
+    "UPDATE ?? SET username = ?,nik = ?,password = ?,email = ? where ?? = ?;";
+  db.query(
+    sqlUpdateData,
+    [
+      "admin",
+      editedData.username,
+      editedData.nik,
+      editedData.password,
+      editedData.email,
+      "nik",
+      req.query.nik,
+    ],
+    (err, result) => {
+      if (err) return res.status(500).json({ error: "Terjadi kesalahan" });
+      response(res, result, "Berhasil update data admin");
+    }
+  );
 };

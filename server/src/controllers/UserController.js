@@ -5,22 +5,52 @@ import responseMainData from "../utils/responseMainData.js";
 
 export const getAllDataRegister = (req, res) => {
   const sqlGetData = "SELECT * FROM register;";
-  return db.query(sqlGetData, (err, result) => {
-    if (err) throw err;
-    response(res, result, "Berhail mengambil data register");
+  const sqlGetTotalData = "SELECT COUNT(*) as total FROM ??;";
+  db.query(sqlGetTotalData, ["register"], (err, result) => {
+    const totalData = result[0].total;
+
+    db.query(sqlGetData, (err, result) => {
+      if (err) throw err;
+      response(res, result, totalData, "Berhail mengambil data register");
+    });
   });
 };
 
 export const postDataRegister = (req, res) => {
   const receivedData = req.body;
+  const receivedImg = req.files;
+
+  const imgKtp = receivedImg.img_ktp[0].path;
+  const imgKk = receivedImg.img_kk[0].path;
+  const imgKtpPerson = receivedImg.img_ktp_person[0].path;
+
   const result = validationResult(req);
   if (result.isEmpty()) {
-    const sqlPostData = `INSERT INTO register (kk_number,fullname,phone,email,addres,password,repeat_password,birtdate,rekening,ktp_number,img_ktp,img_kk,img_ktp_person) VALUES (${receivedData.kk_number},"${receivedData.fullname}", ${receivedData.phone},"${receivedData.email}", "${receivedData.addres}","${receivedData.password}","${receivedData.repeat_password}", ${receivedData.birtdate}, "${receivedData.rekening}",${receivedData.ktp_number},"${receivedData.img_ktp}","${receivedData.img_kk}","${receivedData.img_ktp_person}");`;
-    return db.query(sqlPostData, (err, result) => {
-      if (err) throw err;
-      console.log(result);
-      response(res, result, "Berhasil mengirim data register");
-    });
+    const sqlPostData = `INSERT INTO ?? (kk_number,fullname,phone,email,addres,password,repeat_password,birtdate,rekening,ktp_number,img_ktp,img_kk,img_ktp_person) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+
+    db.query(
+      sqlPostData,
+      [
+        "register",
+        receivedData.kk_number,
+        receivedData.fullname,
+        receivedData.phone,
+        receivedData.email,
+        receivedData.addres,
+        receivedData.password,
+        receivedData.repeat_password,
+        receivedData.birtdate,
+        receivedData.rekening,
+        receivedData.ktp_number,
+        imgKtp,
+        imgKk,
+        imgKtpPerson,
+      ],
+      (err, result) => {
+        if (err) throw err;
+        response(res, result, "Berhasil mengirim data register");
+      }
+    );
   }
   res.send("Something error", { errors: result.array().msg });
 };

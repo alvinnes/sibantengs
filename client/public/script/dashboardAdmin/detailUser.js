@@ -7,6 +7,12 @@ const email = document.getElementById("email");
 const addres = document.getElementById("addres");
 const created = document.querySelector(".created");
 
+const containerModal = document.querySelector(".container-detail-img");
+const modal = document.querySelector(".detail-img");
+const btnClose = document.querySelector(".btn-close");
+const preview = document.querySelectorAll(".preview");
+const fileItem = document.querySelectorAll(".file-item");
+
 window.addEventListener("load", async () => {
   try {
     const url = `http://localhost:3000/data/userNik?nik=${nik}`;
@@ -21,12 +27,39 @@ window.addEventListener("load", async () => {
     addres.textContent = data.addres;
     created.innerHTML += date;
 
+    preview[0].setAttribute("src", `http://localhost:3000/${data.img_ktp}`);
+    preview[1].setAttribute("src", `http://localhost:3000/${data.img_kk}`);
+    preview[2].setAttribute(
+      "src",
+      `http://localhost:3000/${data.img_ktp_person}`
+    );
+
     const element = elementInput(data);
     profile.innerHTML += element;
   } catch (err) {
     console.error(err);
   }
 });
+
+fileItem.forEach((item) => {
+  item.addEventListener("click", () => {
+    containerModal.classList.add("show-modal");
+
+    document.onclick = (e) => {
+      if (
+        !item.contains(e.target) &&
+        !btnClose.contains(e.target) &&
+        !modal.contains(e.target)
+      ) {
+        containerModal.classList.remove("show-modal");
+      }
+    };
+  });
+});
+
+btnClose.onclick = () => {
+  containerModal.classList.remove("show-modal");
+};
 
 const elementInput = (data) => {
   return `
