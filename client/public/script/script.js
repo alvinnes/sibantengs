@@ -156,3 +156,10 @@ formContact.addEventListener("submit", async (e) => {
     console.error(error);
   }
 });
+
+const btnIcon = document.querySelector(".icon");
+const navbar = document.querySelector("nav ul");
+
+btnIcon.addEventListener("click", () => {
+  navbar.classList.toggle("show-navbar")
+});
