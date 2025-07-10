@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: end;
+  position: relative;
 }
 
 .container-dashboard nav {
@@ -185,7 +186,6 @@ nav .info-role p:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
   gap: 1rem;
   position: relative;
 }
@@ -263,10 +263,22 @@ nav .info-role p:last-child {
   .container-dashboard .sidebar {
     width: 58%;
   }
+
+  .container-dashboard nav {
+    width: 93%;
+  }
 }
 
 @media (max-width: 428px) {
   .container-dashboard .sidebar {
     width: 70%;
+  }
+}
+
+@media (max-width: 320px) {
+  .container-dashboard nav {
+    width: 95%;
+    right: 1rem;
+    transform: translateX(0);
   }
 }

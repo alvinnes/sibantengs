@@ -3,20 +3,30 @@ const modalConfirm = document.querySelector(".modal-confirm");
 const btnDelete = document.querySelector(".btn-delete");
 const btnAgree = document.getElementById("agree");
 const btnDisagree = document.getElementById("disagree");
+const btnNext = document.getElementById("btn-next");
+const btnPrev = document.getElementById("btn-prev");
+const sortByAlpha = document.getElementById("alpha");
+const sortByDate = document.getElementById("date");
 
-const useCheckbox = (objIsChecked) => {
+const useCheckbox = () => {
   const checkbox = document.querySelectorAll("#check");
   checkbox.forEach((btn) => {
     const wrapperItem = document.querySelectorAll(`[data-item="${btn.value}"]`);
 
     btn.onclick = (e) => {
       if (e.target.checked == true) {
-        objIsChecked.isChecked = true;
+        sortByDate.setAttribute("disabled", true);
+        sortByAlpha.setAttribute("disabled", true);
+        btnNext.setAttribute("disabled", true);
+        btnPrev.setAttribute("disabled", true);
         wrapperItem.forEach((list) => {
           list.style.backgroundColor = "#87cefa10";
         });
       } else {
-        objIsChecked.isChecked = false;
+        btnNext.removeAttribute("disabled");
+        btnPrev.removeAttribute("disabled");
+        sortByAlpha.removeAttribute("disabled");
+        sortByDate.removeAttribute("disabled");
         wrapperItem.forEach((list) => {
           list.style.backgroundColor = "white";
         });
@@ -28,8 +38,8 @@ const useCheckbox = (objIsChecked) => {
         containerModal.classList.add("show-modal");
         wrapperItem.forEach((item) => {
           btnDeleteAgree(item);
-          btnDeleteDisagree(btn);
-          btnDeleteDoc(btn);
+          btnDeleteDisagree(btn, wrapperItem);
+          btnDeleteDoc(btn, wrapperItem);
         });
       }
     });
@@ -52,28 +62,34 @@ const btnDeleteAgree = (item) => {
   };
 };
 
-const btnDeleteDisagree = (btn) => {
+const btnDeleteDisagree = (btn, wrapperItem) => {
   btnDisagree.onclick = () => {
-    if (btn.checked == true) {
-      btn.checked = false;
-    } else {
-      btn.checked = true;
-    }
+    btn.checked = false;
+    btnNext.removeAttribute("disabled");
+    btnPrev.removeAttribute("disabled");
+    sortByAlpha.removeAttribute("disabled");
+    sortByDate.removeAttribute("disabled");
+    wrapperItem.forEach((list) => {
+      list.style.backgroundColor = "white";
+    });
   };
 };
 
-const btnDeleteDoc = (btn) => {
+const btnDeleteDoc = (btn, wrapperItem) => {
   document.onclick = (e) => {
     if (
       !modalConfirm.contains(e.target) &&
       !btnDelete.contains(e.target) &&
       !btn.contains(e.target)
     ) {
-      if (btn.checked == true) {
-        btn.checked = false;
-      } else {
-        btn.checked = true;
-      }
+      btn.checked = false;
+      btnNext.removeAttribute("disabled");
+      btnPrev.removeAttribute("disabled");
+      sortByAlpha.removeAttribute("disabled");
+      sortByDate.removeAttribute("disabled");
+      wrapperItem.forEach((list) => {
+        list.style.backgroundColor = "white";
+      });
     }
   };
 };

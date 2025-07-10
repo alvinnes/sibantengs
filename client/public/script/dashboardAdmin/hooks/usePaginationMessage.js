@@ -1,15 +1,11 @@
 import useCheckbox from "./useCheckbox.js";
-import useElement from "./useElement.js";
+import useElementMessage from "./useElementMessage.js";
 import useMonth from "./useMonth.js";
+
 const containerData = document.querySelector(".container-data");
 const infoPagination = document.querySelector(".info-pagination");
 
-const usePagination = async (
-  page,
-  totalPage,
-  currentPagination,
-  objIsChecked
-) => {
+const usePaginationMessage = async (page, totalPage, currentPagination) => {
   try {
     const url = `http://localhost:3000/data/message?page=${page}`;
     const response = await fetch(url);
@@ -25,13 +21,13 @@ const usePagination = async (
       const month = useMonth(date.getMonth());
       const time = `${date.getDate()}  ${month}`;
 
-      containerData.innerHTML += useElement(message, time);
+      containerData.innerHTML += useElementMessage(message, time);
     });
 
-    useCheckbox(objIsChecked);
+    useCheckbox();
   } catch (error) {
     console.error(error);
   }
 };
 
-export default usePagination;
+export default usePaginationMessage;

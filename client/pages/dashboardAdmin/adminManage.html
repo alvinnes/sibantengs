@@ -76,58 +76,64 @@
         </ul>
       </aside>
       <section class="main-content">
-        <div class="search-item">
-          <label class="input-search">
-            <p>Semua Data</p>
-            <div class="input-item">
-              <i class="ph ph-magnifying-glass"></i>
-              <input
-                type="seacrh"
-                name="search"
-                id="search"
-                placeholder="cari data..."
-              />
-            </div>
-          </label>
-          <label class="select-item">
-            <p>Urutkan Berdasarkan</p>
-            <div class="input-select">
-              <p>Urutkan</p>
-              <i class="ph ph-caret-down"></i>
-              <div class="option">
-                <p onclick="sortByDate()">
-                  <i class="ph ph-calendar"></i> Tanggal
-                </p>
-                <p onclick="sortByAlpha()">
-                  <i class="ph ph-text-aa"></i> Huruf
-                </p>
-                <p onclick="sortByNik()">
-                  <i class="ph ph-identification-card"></i> NIK
-                </p>
+        <div class="header-content">
+          <div class="search-item">
+            <label class="input-search">
+              <p>Semua Data</p>
+              <div class="input-item">
+                <i class="ph ph-magnifying-glass"></i>
+                <input
+                  type="seacrh"
+                  name="search"
+                  id="search"
+                  placeholder="cari data..."
+                />
               </div>
+            </label>
+            <div class="container-actions">
+              <label class="select-item">
+                <p class="hide-label">Urutkan Berdasarkan</p>
+                <div class="input-select">
+                  <p>Urutkan</p>
+                  <i class="ph ph-caret-down"></i>
+                  <div class="option">
+                    <button id="date">
+                      <i class="ph ph-calendar"></i> Tanggal
+                    </button>
+                    <button id="alpha">
+                      <i class="ph ph-text-aa"></i> Huruf
+                    </button>
+                    <button id="nik">
+                      <i class="ph ph-identification-card"></i> NIK
+                    </button>
+                  </div>
+                </div>
+              </label>
+              <button class="btn-add-data">
+                <a href="../form/formCreateData.html"
+                  ><i class="ph ph-plus"></i> Tambah Nasabah</a
+                >
+              </button>
             </div>
-          </label>
-          <button class="btn-add-data">
-            <a href="../form/formCreateData.html"
-              ><i class="ph ph-plus"></i> Tambah Nasabah</a
-            >
-          </button>
-        </div>
+          </div>
 
-        <table id="tableData">
-          <thead>
-            <tr>
-              <th id="select">Pilih</th>
-              <th>No</th>
-              <th>Nama Lengkap</th>
-              <th>Email</th>
-              <th>No. Hp</th>
-              <th>Dibuat</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+          <div class="container-table">
+            <table id="tableData">
+              <thead>
+                <tr>
+                  <th id="select">Pilih</th>
+                  <th>No</th>
+                  <th>Nama Lengkap</th>
+                  <th>Email</th>
+                  <th>No. Hp</th>
+                  <th>Dibuat</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
         <div class="data-not-found">
           <img src="/client/public/img/404.png" alt="" />
         </div>
@@ -136,12 +142,14 @@
         </div>
         <div class="btn-pagination">
           <p class="info-pagination"></p>
-          <button onclick="prevPagination()">
-            <i class="ph ph-arrow-left"></i>
-          </button>
-          <button onclick="nextPagination()">
-            <i class="ph ph-arrow-right"></i>
-          </button>
+          <div class="container-btn-page">
+            <button id="btn-prev">
+              <i class="ph ph-arrow-left"></i>
+            </button>
+            <button id="btn-next">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
         </div>
       </section>
       <div class="container-modal-confirm">
@@ -157,6 +165,25 @@
       </div>
     </main>
 
-    <script src="../../public/script/dashboardAdmin/adminManage.js"></script>
+    <script
+      type="module"
+      src="../../public/script/dashboardAdmin/adminManage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/usePaginationManage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useSortManage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useElementManage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useSearchManage.js"
+    ></script>
   </body>
 </html>

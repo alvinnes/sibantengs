@@ -1,3 +1,13 @@
+import useDeleteDataManage from "./hooks/useDeleteDataManage.js";
+import useElementManage from "./hooks/useElementManage.js";
+import usePaginationManage from "./hooks/usePaginationManage.js";
+import useSearchManage from "./hooks/useSearchManage.js";
+import {
+  sortedDataByAlpha,
+  sortedDataByDate,
+  sortedDataByNik,
+} from "./hooks/useSortManage.js";
+
 const windowLocation = "/client/pages/dashboardAdmin/adminManage.html";
 
 const navItem = document.querySelectorAll("aside ul li");
@@ -11,15 +21,26 @@ if (window.location.pathname === windowLocation) {
   navLink[1].classList.remove("active");
 }
 
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const sidebar = document.querySelector(".sidebar");
+
+hamburgerMenu.addEventListener("click", () => {
+  sidebar.classList.toggle("show-sidebar");
+});
+
+document.addEventListener("click", (e) => {
+  if (!hamburgerMenu.contains(e.target) && !sidebar.contains(e.target)) {
+    sidebar.classList.remove("show-sidebar");
+  }
+});
+
 const tableData = document.querySelector("#tableData tbody");
-const titleTable = document.getElementById("select");
 
 let datasNasabah = [];
 let page = 1;
 let currentPagination = null;
 let totalPage = null;
 
-const btnDelete = document.querySelector(".btn-delete");
 const username = document.getElementById("username");
 const role = document.getElementById("role");
 const imgProfile = document.querySelector(".img-profile");
@@ -60,9 +81,16 @@ window.addEventListener("load", async () => {
     } else {
       dataNull.style.display = "none";
       dateNow.forEach((item, index) => {
-        const element = dataNasabah(item, index);
+        const element = useElementManage(item, index);
         tableData.innerHTML += element;
         datasNasabah.push(item);
+
+        const btnDelete = document.querySelectorAll(".btn-delete");
+        btnDelete.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            useDeleteDataManage(item.kk_number, datasNasabah, btn)
+          );
+        });
       });
     }
   } catch (err) {
@@ -70,187 +98,55 @@ window.addEventListener("load", async () => {
   }
 });
 
-const dataNasabah = (data, index) => {
-  return `
-             <tr>
-              <td id="check" onclick="selectItem(${data.kk_number})">
-                <input type="checkbox" name="check" />
-              </td>
-              <td>${index + 1}</td>
-              <td id="fullname"><a href="./detailUser.html?nik=${
-                data.kk_number
-              }">${data.fullname}</a></td>
-              <td>${data.email}</td>
-              <td>${data.phone}</td>
-              <td>${data.created_at.substring(0, 10)}</td>
-              <td><div class="btn-action">
-              <button class="btn-update">
-                <a href="../form/formUpdateData.html?nik=${data.kk_number}">
-                  <i class="ph ph-pencil-simple"></i>
-                </a>
-              </button>
-              <button onclick="handleDeleteData(${
-                data.kk_number
-              })"><i class="ph ph-trash"></i></button>
-            </div></td>
-              </tr>
-              `;
-};
-
 const searchInput = document.getElementById("search");
-
 searchInput.addEventListener("input", async (e) => {
-  const url = `http://localhost:3000/data/userAll`;
-  const request = await fetch(url);
-  const result = await request.json();
-  if (e.target.value === "") {
-    tableData.innerHTML = "";
-    result.payload.forEach((item, index) => {
-      const element = dataNasabah(item, index);
-      tableData.innerHTML += element;
-    });
-  }
-  if (result.payload.length !== 0 && e.target.value == "") {
-    handelDataNotFound.style.display = "none";
+  try {
+    if (e.target.value === "") {
+      const url = `http://localhost:3000/data/userAll`;
+      useSearchManage(url);
+    }
+  } catch (error) {
+    console.error(error);
   }
 });
-
-const handelDataNotFound = document.querySelector(".data-not-found");
 
 searchInput.addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
-    const url = `http://localhost:3000/data/user?nama=${e.target.value}`;
-    const request = await fetch(url);
-    const result = await request.json();
-    if (e.target.value !== "") {
-      tableData.innerHTML = "";
-      result.payload.forEach((item, index) => {
-        const element = dataNasabah(item, index);
-        tableData.innerHTML += element;
-      });
-    }
-    if (result.payload.length === 0) {
-      console.log("Data not found");
-      handelDataNotFound.style.display = "flex";
+    try {
+      if (e.target.value !== "") {
+        const url = `http://localhost:3000/data/user?nama=${e.target.value}`;
+        useSearchManage(url);
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 });
 
-const sortByAlpha = () => {
-  const sortedByAlpha = datasNasabah.sort((a, b) =>
-    a.fullname.localeCompare(b.fullname)
-  );
-  tableData.innerHTML = "";
-  sortedByAlpha.forEach((item, index) => {
-    const element = dataNasabah(item, index);
-    tableData.innerHTML += element;
-  });
-};
+const sortByNik = document.getElementById("nik");
+const sortByAlpha = document.getElementById("alpha");
+const sortByDate = document.getElementById("date");
 
-const sortByNik = () => {
-  const sortedByNik = datasNasabah.sort((a, b) => a.kk_number - b.kk_number);
-  tableData.innerHTML = "";
-  sortedByNik.forEach((item, index) => {
-    const element = dataNasabah(item, index);
-    tableData.innerHTML += element;
-  });
-};
+const btnNext = document.getElementById("btn-next");
+const btnPrev = document.getElementById("btn-prev");
 
-const sortByDate = () => {
-  const sortedByDate = datasNasabah.sort(
-    (a, b) => new Date(b.created_at) - new Date(a.created_at)
-  );
-  tableData.innerHTML = "";
-  sortedByDate.forEach((item, index) => {
-    const element = dataNasabah(item, index);
-    tableData.innerHTML += element;
-  });
-};
+// Fungsi untuk mengurutkan data
+sortByDate.addEventListener("click", () => sortedDataByDate(datasNasabah));
+sortByAlpha.addEventListener("click", () => sortedDataByAlpha(datasNasabah));
+sortByNik.addEventListener("click", () => sortedDataByNik(datasNasabah));
 
-const containerModalConfirm = document.querySelector(
-  ".container-modal-confirm"
-);
-const modalConfirm = document.querySelector(".modal-confirm");
-const btnAgree = document.getElementById("agree");
-const btnDisagree = document.getElementById("disagree");
-
-const handleDeleteData = async (nik) => {
-  containerModalConfirm.classList.add("show-modal");
-  btnDisagree.onclick = () => {
-    containerModalConfirm.classList.remove("show-modal");
-  };
-  document.onclick = (e) => {
-    if (
-      !modalConfirm.contains(e.target) &&
-      containerModalConfirm.contains(e.target)
-    ) {
-      containerModalConfirm.classList.remove("show-modal");
-    }
-  };
-  btnAgree.addEventListener("click", async () => {
-    try {
-      const deletedData = datasNasabah.filter((item) => item.kk_number !== nik);
-      tableData.innerHTML = "";
-      deletedData.forEach((item, index) => {
-        const element = dataNasabah(item, index);
-        tableData.innerHTML += element;
-      });
-      containerModalConfirm.classList.remove("show-modal");
-      const url = `http://localhost:3000/data/userAll?nik=${nik}`;
-      const request = await fetch(url, { method: "DELETE" });
-      const result = await request.json();
-      console.log(result);
-    } catch (err) {
-      console.error(err);
-    }
-  });
-};
-
-// Function untuk menangani halaman selanjutnya
-const nextPagination = async () => {
+// Function untuk menangani pagination
+btnNext.onclick = async () => {
   if (page > totalPage - 1) return;
   page += 1;
-
-  try {
-    const url = `http://localhost:3000/data/userAll?page=${page}`;
-    const response = await fetch(url);
-    const result = await response.json();
-
-    currentPagination = result.pagination.currentPage;
-    totalPage = result.pagination.totalPage;
-    infoPagination.textContent = `Halaman ${result.pagination.currentPage} dari ${result.pagination.totalPage}`;
-
-    tableData.innerHTML = "";
-    result.payload.forEach((item, index) => {
-      element = dataNasabah(item, index);
-      tableData.innerHTML += element;
-    });
-  } catch (error) {
-    console.error(error);
-  }
+  usePaginationManage(page, totalPage, currentPagination);
 };
 
-const prevPagination = async () => {
+btnPrev.onclick = async () => {
   if (page < 2) return;
+  if (totalPage < 1) return (page = 1);
   page -= 1;
-
-  try {
-    const url = `http://localhost:3000/data/userAll?page=${page}`;
-    const response = await fetch(url);
-    const result = await response.json();
-
-    currentPagination = result.pagination.currentPage;
-    totalPage = result.pagination.totalPage;
-    infoPagination.textContent = `Halaman ${result.pagination.currentPage} dari ${result.pagination.totalPage}`;
-
-    tableData.innerHTML = "";
-    result.payload.forEach((item, index) => {
-      element = dataNasabah(item, index);
-      tableData.innerHTML += element;
-    });
-  } catch (error) {
-    console.error(error);
-  }
+  usePaginationManage(page, totalPage, currentPagination);
 };
 
 // Function untuk menangani logout

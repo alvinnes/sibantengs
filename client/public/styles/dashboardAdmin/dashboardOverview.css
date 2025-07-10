@@ -223,6 +223,11 @@
     width: 70%;
   }
 
+  .container-pie-chart .pie-chart {
+    height: 50%;
+    margin-left: 1rem;
+  }
+
   .main-content .container-pie-chart {
     width: 30%;
   }

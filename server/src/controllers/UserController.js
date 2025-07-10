@@ -127,11 +127,10 @@ export const getUserByName = (req, res) => {
 };
 
 export const deleteDataByNik = (req, res) => {
-  const nik = req.query.nik;
-  console.log(nik);
-  const sql = `DELETE FROM register WHERE kk_number = ${nik};`;
-  db.query(sql, (err, result) => {
+  const nik = parseInt(req.query.nik);
+  const sql = "DELETE FROM ?? WHERE ?? = ?;";
+  db.query(sql, ["register", "kk_number", nik], (err, result) => {
     if (err) throw err;
-    console.log(result);
+    response(res, result, "Berhasil menghapus data");
   });
 };

@@ -77,43 +77,45 @@
       </aside>
 
       <section class="main-content">
-        <div class="search-item">
-          <label class="input-search">
-            <p>Semua Data</p>
-            <div class="input-item">
-              <i class="ph ph-magnifying-glass"></i>
-              <input
-                type="seacrh"
-                name="search"
-                id="search"
-                placeholder="cari pesan..."
-              />
-            </div>
-          </label>
-          <div class="container-actions">
-            <label class="select-item">
-              <p class="subtitle">Urutkan Berdasarkan</p>
-              <div class="input-select">
-                <p>Urutkan</p>
-                <i class="ph ph-caret-down"></i>
-                <div class="option">
-                  <p onclick="sortByDate()" id="date">
-                    <i class="ph ph-calendar"></i> Tanggal
-                  </p>
-                  <p onclick="sortByAlpha()" id="alpha">
-                    <i class="ph ph-text-aa"></i> Huruf
-                  </p>
-                </div>
+        <div class="wrapper-datas">
+          <div class="search-item">
+            <label class="input-search">
+              <p>Semua Data</p>
+              <div class="input-item">
+                <i class="ph ph-magnifying-glass"></i>
+                <input
+                  type="seacrh"
+                  name="search"
+                  id="search"
+                  placeholder="cari pesan..."
+                />
               </div>
             </label>
-            <div class="btn-actions">
-              <button class="btn-delete"><i class="ph ph-trash"></i></button>
-              <button class="delete-all">Hapus Semua</button>
+            <div class="container-actions">
+              <label class="select-item">
+                <p class="subtitle">Urutkan Berdasarkan</p>
+                <div class="input-select">
+                  <p>Urutkan</p>
+                  <i class="ph ph-caret-down"></i>
+                  <div class="option">
+                    <button id="date">
+                      <i class="ph ph-calendar"></i> Tanggal
+                    </button>
+                    <button id="alpha">
+                      <i class="ph ph-text-aa"></i> Huruf
+                    </button>
+                  </div>
+                </div>
+              </label>
+              <div class="btn-actions">
+                <button class="btn-delete"><i class="ph ph-trash"></i></button>
+                <button class="delete-all">Hapus Semua</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="hide-datas">
-          <div class="container-data"></div>
+          <div class="hide-datas">
+            <div class="container-data"></div>
+          </div>
         </div>
         <div class="data-not-found">
           <img src="/client/public/img/404.png" alt="" />
@@ -123,12 +125,14 @@
         </div>
         <div class="btn-pagination">
           <p class="info-pagination"></p>
-          <button id="btn-prev">
-            <i class="ph ph-arrow-left"></i>
-          </button>
-          <button id="btn-next">
-            <i class="ph ph-arrow-right"></i>
-          </button>
+          <div class="container-btn-page">
+            <button id="btn-prev">
+              <i class="ph ph-arrow-left"></i>
+            </button>
+            <button id="btn-next">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
         </div>
       </section>
       <div class="container-modal-confirm">
@@ -150,7 +154,7 @@
     ></script>
     <script
       type="module"
-      src="/client/public/script/dashboardAdmin/hooks/usePagination.js"
+      src="/client/public/script/dashboardAdmin/hooks/usePaginationMessage.js"
     ></script>
     <script
       type="module"
@@ -162,11 +166,15 @@
     ></script>
     <script
       type="module"
-      src="/client/public/script/dashboardAdmin/hooks/useElement.js"
+      src="/client/public/script/dashboardAdmin/hooks/useElementMessage.js"
     ></script>
     <script
       type="module"
-      src="/client/public/script/dashboardAdmin/hooks/useSearch.js"
+      src="/client/public/script/dashboardAdmin/hooks/useSearchMessage.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useSortMessage.js"
     ></script>
   </body>
 </html>

@@ -11,12 +11,25 @@ if (window.location.pathname === windowLocation) {
   navLink[2].classList.remove("active");
 }
 
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const sidebar = document.querySelector(".sidebar");
+
+hamburgerMenu.addEventListener("click", () => {
+  sidebar.classList.toggle("show-sidebar");
+});
+
+document.addEventListener("click", (e) => {
+  if (!hamburgerMenu.contains(e.target) && !sidebar.contains(e.target)) {
+    sidebar.classList.remove("show-sidebar");
+  }
+});
+
 import useCheckbox from "./hooks/useCheckbox.js";
-import useSort from "./hooks/useSort.js";
-import usePagination from "./hooks/usePagination.js";
-import useSearch from "./hooks/useSearch.js";
-import useElement from "./hooks/useElement.js";
+import { sortedDataByAlpha, sortedDataByDate } from "./hooks/useSortMessage.js";
 import useMonth from "./hooks/useMonth.js";
+import usePaginationMessage from "./hooks/usePaginationMessage.js";
+import useElementMessage from "./hooks/useElementMessage.js";
+import useSearchMessage from "./hooks/useSearchMessage.js";
 
 // Profile di navbar
 const username = document.getElementById("username");
@@ -40,8 +53,6 @@ let dataMessages = [];
 let page = 1;
 let currentPagination = null;
 let totalPage = null;
-let objIsNullData = { isNullData: false };
-let objIsChecked = { isChecked: false };
 
 window.addEventListener("load", async () => {
   try {
@@ -85,7 +96,7 @@ window.addEventListener("load", async () => {
         const month = useMonth(date.getMonth());
         const time = `${date.getDate()}  ${month}`;
 
-        containerData.innerHTML += useElement(message, time);
+        containerData.innerHTML += useElementMessage(message, time);
         dataMessages.push(message);
       });
 
@@ -112,7 +123,7 @@ window.addEventListener("load", async () => {
         });
       });
 
-      useCheckbox(objIsChecked);
+      useCheckbox();
     }
   } catch (err) {
     console.error(err);
@@ -153,7 +164,7 @@ searchInput.oninput = async (e) => {
   try {
     if (e.target.value == "") {
       const url = "http://localhost:3000/data/message";
-      useSearch(url, currentPagination, totalPage, objIsNullData);
+      useSearchMessage(url);
     }
   } catch (error) {
     console.error(error);
@@ -165,7 +176,7 @@ searchInput.onkeydown = async (e) => {
     try {
       if (e.target.value !== "") {
         const url = `http://localhost:3000/data/queryMessage?q=${e.target.value}&page=${page}`;
-        useSearch(url, currentPagination, totalPage, objIsNullData);
+        useSearchMessage(url);
       }
     } catch (error) {
       console.error(error);
@@ -179,38 +190,20 @@ const sortByDate = document.getElementById("date");
 const btnNext = document.getElementById("btn-next");
 const btnPrev = document.getElementById("btn-prev");
 
-sortByDate.onclick = () => {
-  const sortedByDate = dataMessages.sort(
-    (a, b) => new Date(b.created_at) - new Date(a.created_at)
-  );
-  useSort(sortedByDate, objIsNullData);
-};
-
-sortByAlpha.onclick = () => {
-  const sortedMsgByAlpha = dataMessages.sort((a, b) =>
-    a.fullname.localeCompare(b.fullname)
-  );
-  useSort(sortedMsgByAlpha, objIsNullData);
-};
+sortByDate.addEventListener("click", () => sortedDataByDate(dataMessages));
+sortByAlpha.addEventListener("click", () => sortedDataByAlpha(dataMessages));
 
 btnNext.onclick = async () => {
-  if (objIsNullData.isNullData) return;
-  if (objIsChecked.isChecked) return;
-
   if (page > totalPage - 1) return;
   page += 1;
-  usePagination(page, totalPage, currentPagination, objIsChecked);
+  usePaginationMessage(page, totalPage, currentPagination);
 };
 
 btnPrev.onclick = async () => {
-  console.log(objIsNullData);
-  if (objIsNullData.isNullData) return;
-  if (objIsChecked.isChecked) return;
-
   if (page < 2) return;
   if (totalPage < 1) return (page = 1);
   page -= 1;
-  usePagination(page, totalPage, currentPagination, objIsChecked);
+  usePaginationMessage(page, totalPage, currentPagination);
 };
 
 // Function untuk menangani logout

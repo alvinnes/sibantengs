@@ -1,4 +1,4 @@
-const useElement = (data, time) => {
+const useElementMessage = (data, time) => {
   const firstLetter = data.fullname.slice(0, 1).toUpperCase();
   return `
           <div class="wrapper-item" data-item=${data.created_at}>
@@ -16,4 +16,4 @@ const useElement = (data, time) => {
     `;
 };
 
-export default useElement;
+export default useElementMessage;
