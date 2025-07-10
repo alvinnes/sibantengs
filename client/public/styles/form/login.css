@@ -17,14 +17,14 @@ body {
   width: 100%;
   min-height: 100vh;
   display: flex;
+  justify-content: space-between;
   position: relative;
 }
 
 .container-form {
   width: 45%;
   height: 100vh;
-  background-color: #5db996;
-  background: linear-gradient(160deg, cornflowerblue, white); 
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +47,8 @@ form h2 {
   font-weight: 300;
   line-height: 1.3;
   margin-bottom: 2rem;
+  align-self: start;
+  width: 80%;
   margin-top: -1.5rem;
 }
 
@@ -175,7 +177,7 @@ form .error-message-password {
 }
 
 .ilustration-form .container-img {
-  width: 40%;
+  width: 80%;
   position: relative;
 }
 
@@ -219,42 +221,64 @@ form .error-message-password {
   bottom: -0.5rem;
 }
 
-@media (max-width: 1280px) {
-  form .btn-submit {
-    margin-top: 1rem;
+@media (max-width: 1190px) {
+  form {
+    width: 26rem;
+    margin: 2rem 1rem;
   }
+
   .ilustration-form {
+    width: 48%;
+    padding: 1rem;
     justify-content: space-evenly;
   }
-  .ilustration-form .container-img {
-    width: 70%;
+
+  .container-form {
+    width: 52%;
+    min-height: 100vh;
   }
-  .ilustration-form .decor-1 {
-    width: 10rem;
-    height: 10rem;
-    right: 0;
-    position: absolute;
-    bottom: -1rem;
+
+  .ilustration-form .container-img {
+    width: 80%;
+  }
+
+  .ilustration-form .text-login {
+    width: 95%;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 900px) {
   body {
     flex-direction: column-reverse;
   }
+
   .container-form {
     width: 100%;
   }
+  form h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  form {
+    width: 55%;
+    gap: 1.5rem;
+    margin: 1rem;
+    padding: 2rem;
+    justify-content: space-between;
+  }
+
   .ilustration-form {
     width: 100%;
     height: 100vh;
     justify-content: space-around;
   }
+
   .ilustration-form .container-img {
-    width: 90%;
+    width: 65%;
   }
+
   .ilustration-form .text-login {
-    width: 90%;
+    width: 60%;
   }
 
   .modal-succes {
@@ -262,57 +286,117 @@ form .error-message-password {
   }
 }
 
-@media (max-width: 418px) {
-  form {
-    min-height: 80vh;
-    justify-content: space-between;
+@media (max-width: 768px) {
+  .container-form {
+    width: 100%;
   }
+
+  form {
+    width: 65%;
+    padding: 1.5rem;
+  }
+
+  form h2 {
+    font-size: 1.5em;
+    margin-bottom: 2rem;
+  }
+
+  .ilustration-form {
+    justify-content: space-around;
+  }
+
+  .ilustration-form .container-img {
+    width: 70%;
+  }
+
   .ilustration-form .text-login {
     width: 75%;
   }
-  form h2 {
-    margin-bottom: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  form {
+    width: 85%;
+    padding: 1.5rem;
   }
+
+  .ilustration-form .container-img {
+    width: 90%;
+  }
+
+  .ilustration-form .text-login {
+    width: 90%;
+  }
+}
+
+@media (max-width: 428px) {
+  form {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
   form p {
-    font-size: 0.5em;
+    margin-top: 0;
   }
-  .container-form .sub-text {
-    margin-top: -1.5rem;
+
+  .ilustration-form h3 {
+    font-size: 1.5em;
   }
+
   .ilustration-form .decor-1 {
     width: 5rem;
     height: 5rem;
   }
+
+  .register {
+    font-size: 0.8em;
+  }
 }
 
-@media (max-width: 390px) {
-  .ilustration-form {
-    justify-content: space-evenly;
-  }
-}
-
-@media (max-width: 350px) {
-  .ilustration-form {
-    height: 10vh;
-  }
-  .ilustration-form .decor-1 {
-    width: 2rem;
-    height: 2rem;
-  }
-  .text-login h3 {
-    font-size: 1.1em;
-  }
-  .text-login p {
-    font-size: 0.6em;
-  }
-  .text-login h4 {
-    font-size: 10em;
-  }
+@media (max-width: 360px) {
   form {
-    padding: 3rem 1.5rem;
+    margin: .5rem;
   }
-  .modal-succes {
-    width: 95%;
+
+  form h2 {
+    margin-bottom: 3rem;
+  }
+
+  .ilustration-form .text-login {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .container-form {
+    padding: 1rem 0;
+  }
+
+  .btn-submit {
     font-size: 0.9em;
+    padding: 0.5rem 0;
+  }
+
+  form {
+    margin: 0.5rem;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .ilustration-form h3 {
+    font-size: 0.9em;
+  }
+
+  .ilustration-form .container-img {
+    width: 70%;
+  }
+
+  .ilustration-form p {
+    font-size: 0.7em;
+  }
+
+  .ilustration-form h4 {
+    font-size: 0.8em;
+    margin-top: 1rem;
   }
 }

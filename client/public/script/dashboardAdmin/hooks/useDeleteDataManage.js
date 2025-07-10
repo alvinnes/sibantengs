@@ -32,6 +32,8 @@ const useDeleteDataManage = (nik, datasNasabah, btn) => {
       const request = await fetch(url, { method: "DELETE" });
       const result = await request.json();
       console.log(result);
+
+      location.reload();
     } catch (err) {
       console.error(err);
     }

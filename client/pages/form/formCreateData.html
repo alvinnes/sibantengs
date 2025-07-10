@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <form method="post">
+    <form enctype="multipart/form-data">
       <h1>Tambah Data Nasabah</h1>
       <div class="container-form">
         <div class="container-input">
@@ -116,7 +116,7 @@
             <p class="label-form">Nomor KTP</p>
             <input
               type="number"
-              name="ktp"
+              name="ktp_number"
               id="ktp_number"
               placeholder="Masukkan nomor ktp.."
             />
@@ -139,7 +139,7 @@
               <i class="ph ph-identification-card"></i>
               <p class="label-file">Upload Foto KTP</p>
               <img src="" alt="" id="preview-ktp" />
-              <input type="file" name="img-ktp" id="img_ktp" accept="image/*" />
+              <input type="file" name="img_ktp" id="img_ktp" accept="image/*" />
             </div>
             <p class="error-message error-message-img-ktp"></p>
           </div>
@@ -148,7 +148,7 @@
               <i class="ph ph-cards"></i>
               <p class="label-file">Upload Foto KK</p>
               <img src="" alt="" id="preview-kk" />
-              <input type="file" name="img-kk" id="img_kk" accept="image/*" />
+              <input type="file" name="img_kk" id="img_kk" accept="image/*" />
             </div>
             <p class="error-message error-message-img-kk"></p>
           </div>
@@ -159,7 +159,7 @@
               <img src="" alt="" id="preview-ktp-person" />
               <input
                 type="file"
-                name="img-ktp-person"
+                name="img_ktp_person"
                 id="img_ktp_person"
                 accept="image/*"
               />

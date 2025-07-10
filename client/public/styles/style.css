@@ -116,6 +116,10 @@ nav .profile a {
   text-decoration: none;
 }
 
+.nav-buttons i {
+  display: none;
+}
+
 .nav-buttons .btn-daftar {
   background-color: white;
   color: var(--text-color);
@@ -312,11 +316,11 @@ nav .profile a {
 .logo-perusahaan {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
   background-color: #80808010;
   padding: 25px;
-  overflow-x: auto;
   align-items: center;
 }
 
@@ -365,7 +369,9 @@ nav .profile a {
 .layanan h2,
 .reason h2,
 .products h2,
-.works h2 {
+.works h2,
+.testimoni h2,
+.news h2 {
   width: 50%;
   font-size: 2.8em;
   font-weight: 400;
@@ -373,7 +379,8 @@ nav .profile a {
 }
 
 .subtitle,
-.title-reason .subtitle {
+.title-reason .subtitle,
+.testimoni .subtitle {
   background-color: var(--text-color);
   color: white;
   display: flex;
@@ -687,15 +694,18 @@ nav .profile a {
   text-align: center;
   width: 20rem;
 }
+
 .product i {
   font-size: 120px;
   color: #000;
   margin-bottom: 14px;
 }
+
 .product h3 {
   font-size: 18px;
   margin: 8px 0 6px;
 }
+
 .product p {
   color: #555;
 }
@@ -721,7 +731,12 @@ nav .profile a {
 
 .container-tab {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  scroll-snap-type: mandatory;
+}
+
+.container-tab::-webkit-scrollbar {
+  height: 0;
 }
 
 .tab {
@@ -760,7 +775,6 @@ hr {
   justify-content: center;
   padding: 40px 20px;
   gap: 60px 150px;
-  max-width: 1000px;
   margin: 0 auto;
   transform: scale(1);
   opacity: 1;
@@ -803,16 +817,6 @@ hr {
   text-align: center;
   padding: 100px 20px;
   margin: 0;
-}
-
-.testimoni h2 {
-  font-size: 50px;
-  max-width: 600px;
-  margin: 0 auto;
-  font-weight: 400;
-  line-height: 1.4;
-  margin-top: 30px;
-  margin-bottom: 80px;
 }
 
 /* Kartu Testimoni */
@@ -888,23 +892,12 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 150px;
   text-align: center;
-  margin-bottom: 100px;
+  padding: 150px 0;
 }
 
 .news a {
   text-decoration: none;
-}
-
-.news h2 {
-  font-size: 48px;
-  font-weight: 400;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.4;
-  margin-top: 30px;
-  margin-bottom: 80px;
 }
 
 .subtitle {
@@ -1064,11 +1057,14 @@ hr {
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   display: flex;
+  overflow: hidden;
+  position: relative;
 }
 
 .contact h2 {
   font-size: 2.8em;
   font-weight: 400;
+  text-align: center;
 }
 
 .information-contact {
@@ -1283,64 +1279,12 @@ hr {
   margin-top: -8px;
 }
 
-@media (max-width: 1280px) {
-  .reason .title-reason h2 {
-    width: 40%;
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
   }
 
-  .logo-perusahaan {
-    gap: 30px;
-  }
-
-  .perusahaan img.logo-7 {
-    width: 150px;
-  }
-
-  .tentang-container img {
-    width: 500px;
-  }
-
-  .layanan .container-item {
-    width: 100%;
-  }
-
-  .container-item .item {
-    width: 15rem;
-  }
-
-  .right {
-    width: 30%;
-  }
-
-  .reason .container-reason {
-    justify-content: space-around;
-  }
-
-  .products h2,
-  .about h2,
-  .works h2 {
-    width: 60%;
-  }
-
-  .container-contact {
-    width: 80%;
-  }
-
-  .contact .information-contact {
-    width: 45%;
-  }
-
-  .decor-arrow-2 {
-    left: 1rem;
-  }
-
-  .decor-arrow-1 {
-    right: 2rem;
-    top: 7rem;
-  }
-}
-
-@media (max-width: 428px) {
   nav ul {
     height: 100vh;
     width: 50%;
@@ -1365,20 +1309,146 @@ hr {
     transform: scaleX(0.4);
   }
 
+  nav .logo img {
+    width: 6rem;
+    height: 4rem;
+  }
+
+  .nav-buttons .btn-masuk,
+  .nav-buttons .btn-daftar {
+    padding: 3px 14px;
+  }
+
+  .btn-masuk a,
+  .nav-buttons .btn-daftar a {
+    font-size: 0.8em;
+  }
+
+  .nav-buttons i {
+    font-size: 2.2em;
+    display: flex;
+  }
+
   .home-section {
-    flex-direction: column-reverse;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 6rem 2rem;
   }
 
   .home-text {
-    width: 95%;
+    width: 100%;
   }
 
   .home-text h1 {
-    font-size: 1.8rem;
+    font-size: 3rem;
+  }
+
+  .home-image {
+    width: 90%;
+  }
+
+  .home-text p {
+    margin: 3rem 0;
+    width: 80%;
+  }
+
+  .btn-primary,
+  .text-about .btn-full,
+  .layanan .btn-full {
+    padding: 4.5px;
+    font-size: 0.9em;
+  }
+
+  .btn-primary .indikator,
+  .btn-full .indikator {
+    height: 0.3rem;
+  }
+
+  .btn-primary i,
+  .btn-full i {
+    font-size: 1.8em;
+  }
+
+  .home-image .growth {
+    width: 7.5rem;
+    gap: 0.6rem;
+    padding: 0.3rem;
+    left: 35%;
+    transform: translateX(-50%);
+  }
+
+  .growth p {
+    font-size: 0.6em;
+    width: 4rem;
+  }
+
+  .growth span {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8em;
+    padding: 0.1rem;
+  }
+
+  .stats {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .stats .stat-1 h3,
+  .stats .stat-2 h3 {
+    font-size: 0.8em;
+  }
+
+  .stats .stat-1 p,
+  .stats .stat-2 p {
+    font-size: 1.2em;
+  }
+
+  .home-image img {
+    width: 30rem;
+    margin-left: 2rem;
+  }
+
+  .trust-people button a {
+    font-size: 0.8em;
+  }
+
+  .text-trust-people h3 {
+    font-size: 0.7em;
+  }
+
+  .text-trust-people p {
+    font-size: 0.9em;
+  }
+
+  .trust-people {
+    right: 35%;
+    transform: translateX(50%);
+    width: 11rem;
   }
 
   .home-text h1 b {
-    font-size: 2rem;
+    font-size: 3.3rem;
+  }
+
+  .logo-perusahaan {
+    gap: 15px;
+    padding: 30px 10px;
+  }
+
+  .logo-perusahaan img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-perusahaan img.logo-4 {
+    width: 80px;
+    height: 50px;
+  }
+
+  .logo-perusahaan img.logo-7 {
+    width: 100px;
+    height: 40px;
   }
 
   .about .title-about,
@@ -1389,8 +1459,9 @@ hr {
 
   .subtitle,
   .title-reason .subtitle,
-  .products .subtitle {
-    width: 65%;
+  .products .subtitle,
+  .testimoni .subtitle {
+    width: 30%;
     justify-content: center;
     font-size: 0.6em;
     margin-bottom: 2rem;
@@ -1401,11 +1472,12 @@ hr {
   .layanan h2,
   .reason h2,
   .products h2,
-  .works h2 {
+  .works h2,
+  .testimoni h2,
+  .news h2,
+  .contact h2 {
     width: 90%;
-    font-size: 1.7em;
-    font-weight: 400;
-    text-align: center;
+    font-size: 2em;
   }
 
   .about {
@@ -1419,9 +1491,12 @@ hr {
   }
 
   .tentang-container img {
-    width: 90%;
+    width: 100%;
     height: 25rem;
-    margin-left: 1rem;
+  }
+
+  .about-img {
+    width: 90%;
   }
 
   .about .text-about {
@@ -1445,18 +1520,24 @@ hr {
   }
 
   .layanan {
-    padding: 5rem 0 0;
+    padding: 1rem 0 3rem;
+  }
+
+  .layanan .decor,
+  .layanan .decor-2 {
+    display: none;
   }
 
   .layanan .container-item {
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 2rem;
     margin: 1rem 0 1rem;
   }
 
   .container-item .item {
-    width: 18rem;
-    height: 20rem;
+    width: 13rem;
+    height: 17rem;
   }
 
   .reason .title-reason h2 {
@@ -1465,7 +1546,7 @@ hr {
   }
 
   .title-reason .subtitle {
-    width: 70%;
+    width: 40%;
   }
 
   .reason .container-reason {
@@ -1478,52 +1559,854 @@ hr {
   }
 
   .numbered-list li {
-    font-size: 18px;
+    font-size: 16px;
     padding: 16px;
   }
 
   .right {
-    width: 100%;
+    width: 95%;
+    gap: 1rem;
     margin-bottom: 1rem;
     margin-top: 2rem;
+    display: flex;
+    align-items: start;
+  }
+
+  .container-content-right {
+    width: 50%;
   }
 
   .reason {
-    padding: 5rem 1rem 3rem;
+    padding: 5rem 0.5rem 3rem;
     gap: 3rem;
+  }
+
+  .photo-box {
+    width: 50%;
+    height: 16rem;
   }
 
   .badge.light {
     font-size: 0.8em;
+    width: 40%;
     height: 3.5rem;
   }
 
   .badge.blue {
-    font-size: 1em;
+    width: 70%;
+    font-size: 0.9em;
+    text-align: center;
     height: 4rem;
   }
 
   .products {
-    padding: 3rem;
+    padding: 3rem 0.5rem;
   }
 
   .product-grid {
-    row-gap: 4rem;
+    row-gap: 5rem;
   }
 
   .products h2 {
-    width: 100%;
+    width: 90%;
+    margin: 0;
   }
 
   .works {
     padding: 100px 0;
   }
 
+  .works h2 {
+    margin: 0;
+  }
+
+  .works .subtitle {
+    width: 55%;
+  }
+
+  .container-tab {
+    margin-top: 5rem;
+  }
+
+  hr {
+    width: 90%;
+  }
+
+  .tab-container {
+    width: 150%;
+    justify-content: start;
+    padding: 0 1rem;
+  }
+
+  .step {
+    width: 90%;
+  }
+
+  .step h3 {
+    font-size: 17px;
+  }
+
+  .step p {
+    font-size: 14px;
+  }
+
+  .testimoni-cards {
+    padding: 0;
+    margin-top: 5rem;
+  }
+
+  .card {
+    width: 70%;
+    margin-bottom: 0.5rem;
+  }
+
+  .middle-card {
+    transform: translateY(0);
+  }
+
+  .news-cards {
+    margin-top: 4rem;
+  }
+
+  .news-card {
+    width: 100%;
+  }
+
+  .news h2 {
+    width: 95%;
+  }
+
+  .container-contact {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .information-contact {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .information-contact ul {
+    margin-top: 2rem;
+  }
+
+  .information-contact ul li {
+    font-size: 0.8em;
+  }
+
+  .sosial-media {
+    margin-top: 4rem;
+  }
+
+  .sosial-media span {
+    padding: 5px;
+    font-size: 1em;
+  }
+
+  .container-contact .form-contact {
+    width: 100%;
+    padding: 2rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .form-contact label {
+    width: 100%;
+  }
+
+  .form-contact label input,
+  .form-contact label textarea {
+    padding: 14px;
+  }
+
+  .form-contact button {
+    padding: 0.8rem 0;
+    width: 100%;
+    font-size: 0.9em;
+  }
+
+  .footer {
+    padding: 50px 0;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-col h4 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+
+  .footer-col a,
+  .footer-col p {
+    font-size: 13px;
+  }
+
+  .footer-logo {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .footer-logo p {
+    text-wrap: nowrap;
+    font-size: 0.8em;
+    margin-top: 1rem;
+  }
+
+  .decor-arrow-1,
+  .decor-arrow-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 660px) {
+  .right {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .container-content-right {
+    width: 100%;
+    background-color: grey;
+  }
+
+  .photo-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  nav ul {
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    right: -100%;
+    background-color: var(--bg-primary);
+    z-index: -1;
+    top: 0;
+    opacity: 0;
+    bottom: 0;
+    flex-direction: column;
+    padding: 8rem 2rem 0;
+    transition: 0.5s;
+  }
+
+  nav ul.show-navbar {
+    opacity: 1;
+    right: 0;
+  }
+
+  nav ul li a:hover::after {
+    transform: scaleX(0.4);
+  }
+
+  nav .logo img {
+    width: 6rem;
+    height: 4rem;
+  }
+
+  .nav-buttons .btn-masuk,
+  .nav-buttons .btn-daftar {
+    padding: 3px 14px;
+  }
+
+  .btn-masuk a,
+  .nav-buttons .btn-daftar a {
+    font-size: 0.8em;
+  }
+
+  .nav-buttons i {
+    font-size: 2.2em;
+    display: flex;
+  }
+
+  .home-section {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 6rem 2rem;
+  }
+
+  .home-text {
+    width: 100%;
+  }
+
+  .home-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .home-image {
+    width: 90%;
+  }
+
+  .home-text p {
+    margin: 3rem 0;
+  }
+
+  .btn-primary,
+  .text-about .btn-full,
+  .layanan .btn-full {
+    padding: 4.5px;
+    font-size: 0.9em;
+  }
+
+  .btn-primary .indikator,
+  .btn-full .indikator {
+    height: 0.3rem;
+  }
+
+  .btn-primary i,
+  .btn-full i {
+    font-size: 1.8em;
+  }
+
+  .home-image .growth {
+    width: 7.5rem;
+    gap: 0.6rem;
+    padding: 0.3rem;
+    left: 2rem;
+  }
+
+  .growth p {
+    font-size: 0.6em;
+    width: 4rem;
+  }
+
+  .growth span {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8em;
+    padding: 0.1rem;
+  }
+
+  .stats {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .stats .stat-1 h3,
+  .stats .stat-2 h3 {
+    font-size: 0.8em;
+  }
+
+  .stats .stat-1 p,
+  .stats .stat-2 p {
+    font-size: 1.2em;
+  }
+
+  .home-image img {
+    width: 25rem;
+  }
+
+  .trust-people button a {
+    font-size: 0.8em;
+  }
+
+  .text-trust-people h3 {
+    font-size: 0.7em;
+  }
+
+  .text-trust-people p {
+    font-size: 0.9em;
+  }
+
+  .trust-people {
+    right: 1rem;
+    width: 11rem;
+  }
+
+  .home-text h1 b {
+    font-size: 2.4rem;
+  }
+
+  .logo-perusahaan {
+    gap: 15px;
+    padding: 30px 10px;
+  }
+
+  .logo-perusahaan img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-perusahaan img.logo-4 {
+    width: 80px;
+    height: 50px;
+  }
+
+  .logo-perusahaan img.logo-7 {
+    width: 100px;
+    height: 40px;
+  }
+
+  .about .title-about,
+  .reason .title-reason {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .subtitle,
+  .title-reason .subtitle,
+  .products .subtitle,
+  .testimoni .subtitle {
+    width: 40%;
+    justify-content: center;
+    font-size: 0.6em;
+    margin-bottom: 2rem;
+    height: 2.3rem;
+  }
+
+  .title-about h2,
+  .layanan h2,
+  .reason h2,
+  .products h2,
+  .works h2,
+  .testimoni h2,
+  .news h2,
+  .contact h2 {
+    width: 90%;
+    font-size: 2em;
+  }
+
+  .about {
+    padding-bottom: 10rem;
+  }
+
+  .tentang-container {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .tentang-container img {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .about-img {
+    width: 90%;
+  }
+
+  .about .text-about {
+    width: 90%;
+  }
+
+  .text-about .btn-full,
+  .layanan .btn-full {
+    width: 13rem;
+    padding: 0.8rem;
+    gap: 0.5rem;
+    font-size: 0.9em;
+  }
+
+  .layanan .btn-full {
+    width: 14rem;
+  }
+
+  .btn-full i {
+    font-size: 1.4em;
+  }
+
+  .layanan {
+    padding: 1rem 0 3rem;
+  }
+
+  .layanan .decor,
+  .layanan .decor-2 {
+    display: none;
+  }
+
+  .layanan .container-item {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem 0 1rem;
+  }
+
+  .container-item .item {
+    width: 15rem;
+    height: 17rem;
+  }
+
+  .reason .title-reason h2 {
+    width: 90%;
+    text-align: center;
+  }
+
+  .title-reason .subtitle {
+    width: 50%;
+  }
+
+  .reason .container-reason {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left {
+    width: 85%;
+  }
+
+  .numbered-list li {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .right {
+    width: 90%;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+
+  .reason {
+    padding: 5rem 0.5rem 3rem;
+    gap: 3rem;
+  }
+
+  .photo-box {
+    height: 16rem;
+  }
+
+  .badge.light {
+    font-size: 0.8em;
+    width: 25%;
+    padding: 0.5rem 1.5rem;
+    height: 3.5rem;
+  }
+
+  .badge.blue {
+    font-size: 1em;
+    width: 75%;
+    font-size: 1.1em;
+    padding: 0.5rem 3rem;
+    text-align: center;
+    height: 4.5rem;
+  }
+
+  .products {
+    padding: 3rem 0.5rem;
+  }
+
+  .product-grid {
+    row-gap: 5rem;
+  }
+
+  .products h2 {
+    width: 90%;
+    margin: 0;
+  }
+
+  .works {
+    padding: 100px 0;
+  }
+
+  .works h2 {
+    margin: 0;
+  }
+
+  .works .subtitle {
+    width: 55%;
+  }
+
+  .container-tab {
+    margin-top: 5rem;
+  }
+
+  hr {
+    width: 90%;
+  }
+
+  .tab-container {
+    width: 150%;
+    justify-content: start;
+    padding: 0 1rem;
+  }
+
+  .step {
+    width: 90%;
+  }
+
+  .step h3 {
+    font-size: 17px;
+  }
+
+  .step p {
+    font-size: 14px;
+  }
+
+  .testimoni-cards {
+    padding: 0;
+    margin-top: 5rem;
+  }
+
+  .card {
+    width: 70%;
+    margin-bottom: 0.5rem;
+  }
+
+  .middle-card {
+    transform: translateY(0);
+  }
+
+  .news-cards {
+    margin-top: 4rem;
+  }
+
+  .news-card {
+    width: 100%;
+  }
+
+  .news h2 {
+    width: 95%;
+  }
+
+  .container-contact {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .information-contact {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .information-contact ul {
+    margin-top: 2rem;
+  }
+
+  .information-contact ul li {
+    font-size: 0.8em;
+  }
+
+  .sosial-media {
+    margin-top: 4rem;
+  }
+
+  .sosial-media span {
+    padding: 5px;
+    font-size: 1em;
+  }
+
+  .container-contact .form-contact {
+    width: 100%;
+    padding: 2rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .form-contact label {
+    width: 100%;
+  }
+
+  .form-contact label input,
+  .form-contact label textarea {
+    padding: 14px;
+  }
+
+  .form-contact button {
+    padding: 0.8rem 0;
+    width: 100%;
+    font-size: 0.9em;
+  }
+
+  .footer {
+    padding: 50px 0;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-col h4 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+
+  .footer-col a,
+  .footer-col p {
+    font-size: 13px;
+  }
+
+  .footer-logo {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .footer-logo p {
+    text-wrap: nowrap;
+    font-size: 0.8em;
+    margin-top: 1rem;
+  }
+
+  .decor-arrow-1,
+  .decor-arrow-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .badge.light {
+    padding: 0.5rem 1rem;
+  }
+
+  .tab-container {
+    width: 160%;
+  }
+
+  .container-item .item {
+    width: 13rem;
+    height: 17rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .home-img {
+    width: 100%;
+  }
+
+  .trust-people {
+    right: -2rem;
+  }
+
+  .badge.light {
+    width: 25%;
+    padding: 0.5rem 0.5rem;
+    height: 3.5rem;
+  }
+
+  .tab-container {
+    width: 170%;
+  }
+
+  .card {
+    width: 85%;
+  }
+
+  .layanan .container-item {
+    gap: 3rem;
+  }
+
+  .badge.blue {
+    font-size: 1em;
+    width: 75%;
+    font-size: 1.1em;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    height: 4.5rem;
+  }
+
+  .container-item .item {
+    width: 18rem;
+    height: 20rem;
+  }
+
+  .layanan {
+    padding: 5rem 0 0;
+  }
+}
+
+@media (max-width: 428px) {
+  .home-image img {
+    width: 20rem;
+  }
+
+  .home-image .growth {
+    left: 1rem;
+  }
+
+  .subtitle,
+  .title-reason .subtitle,
+  .products .subtitle,
+  .testimoni .subtitle {
+    width: 45%;
+  }
+
+  .logo-perusahaan {
+    gap: 15px;
+    padding: 30px 10px;
+  }
+
+  .logo-perusahaan img {
+    width: 70px;
+  }
+
+  .logo-perusahaan img.logo-1 {
+    width: 140px;
+    height: 50px;
+  }
+
+  .logo-perusahaan img.logo-6 {
+    width: 120px;
+    height: 40px;
+  }
+
+  .title-reason .subtitle {
+    width: 60%;
+  }
+
+  .photo-box {
+    height: 14rem;
+  }
+
+  .badge.light {
+    font-size: 0.7em;
+  }
+
+  .badge.blue {
+    font-size: 0.9em;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-section {
+    padding: 6rem 1rem;
+  }
+
+  .logo-perusahaan {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .tentang-container img {
+    width: 90%;
+    margin-left: 1rem;
+  }
+
+  .subtitle,
+  .title-reason .subtitle,
+  .products .subtitle,
+  .testimoni .subtitle {
+    width: 45%;
+  }
+
+  .title-reason .subtitle,
   .works .subtitle {
     width: 70%;
   }
 
+  .footer {
+    padding: 50px 0;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .photo-box {
+    height: 12rem;
+  }
+
+  .step {
+    width: 100%;
+  }
+
   .tab-container {
-    width: 200%;
+    width: 230%;
+  }
+
+  .card {
+    width: 100%;
   }
 }

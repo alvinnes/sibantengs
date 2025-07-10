@@ -36,8 +36,8 @@ const upload = multer({ storage });
 
 router.get("/login", getAllDataUsers);
 router.post("/login", validateLogin(), postDataUsers);
-router.get("/register", getAllDataRegister);
 
+router.get("/register", getAllDataRegister);
 router.post(
   "/register",
   upload.fields([

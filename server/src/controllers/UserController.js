@@ -25,34 +25,35 @@ export const postDataRegister = (req, res) => {
   const imgKtpPerson = receivedImg.img_ktp_person[0].path;
 
   const result = validationResult(req);
-  if (result.isEmpty()) {
-    const sqlPostData = `INSERT INTO ?? (kk_number,fullname,phone,email,addres,password,repeat_password,birtdate,rekening,ktp_number,img_ktp,img_kk,img_ktp_person) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
-
-    db.query(
-      sqlPostData,
-      [
-        "register",
-        receivedData.kk_number,
-        receivedData.fullname,
-        receivedData.phone,
-        receivedData.email,
-        receivedData.addres,
-        receivedData.password,
-        receivedData.repeat_password,
-        receivedData.birtdate,
-        receivedData.rekening,
-        receivedData.ktp_number,
-        imgKtp,
-        imgKk,
-        imgKtpPerson,
-      ],
-      (err, result) => {
-        if (err) throw err;
-        response(res, result, "Berhasil mengirim data register");
-      }
-    );
+  if (!result.isEmpty()) {
+    res.send("Something error", { errors: result.array().msg });
   }
-  res.send("Something error", { errors: result.array().msg });
+
+  const sqlPostData = `INSERT INTO ?? (kk_number,fullname,phone,email,addres,password,repeat_password,birtdate,rekening,ktp_number,img_ktp,img_kk,img_ktp_person) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+
+  db.query(
+    sqlPostData,
+    [
+      "register",
+      receivedData.kk_number,
+      receivedData.fullname,
+      receivedData.phone,
+      receivedData.email,
+      receivedData.addres,
+      receivedData.password,
+      receivedData.repeat_password,
+      receivedData.birtdate,
+      receivedData.rekening,
+      receivedData.ktp_number,
+      imgKtp,
+      imgKk,
+      imgKtpPerson,
+    ],
+    (err, result) => {
+      if (err) return res.status(500).json({ err: "Gagal membuat data!" });
+      response(res, result, "Berhasil mengirim data register");
+    }
+  );
 };
 
 export const updateDataUser = (req, res) => {

@@ -14,7 +14,7 @@ export const validateRegister = () => {
       .withMessage("Nomor hp tidak boleh kosong!")
       .isMobilePhone("id-ID")
       .withMessage("Format nomor harus indonesia!")
-      .blacklist("e"),
+      .blacklist("e-"),
     // Validasi Email
     body("email")
       .notEmpty()
@@ -36,13 +36,15 @@ export const validateRegister = () => {
       .withMessage("Password tidak boleh kosong!")
       .isLength({ min: 8 })
       .withMessage("Password minimal 8 karakter!")
-      .custom(async () => {
+      .custom(async ({ req }) => {
+        const symbols = req.body.password.match(/[@#$_-]/g);
         const hasSymbol = symbols && symbols.length > 0;
         if (!hasSymbol) {
           throw new error("Password harus memiliki symbol!");
         }
       })
-      .custom(async () => {
+      .custom(async ({ req }) => {
+        const digits = req.body.password.match(/\d/g);
         const hasNumbers = digits && digits.length > 2;
         if (!hasNumbers) {
           throw new error("Password harus memiliki minimal 3 angka");

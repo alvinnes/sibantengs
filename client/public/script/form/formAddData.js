@@ -63,14 +63,14 @@ form.addEventListener("submit", async (e) => {
       img_ktp_person: img_ktp_person,
     };
 
+    const formDatas = new FormData(e.target);
+
     const urlPostData = "http://localhost:3000/data/register";
     const request = await fetch(urlPostData, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
+      body: formDatas,
     });
+
     const response = await request.json();
     console.log(response);
 

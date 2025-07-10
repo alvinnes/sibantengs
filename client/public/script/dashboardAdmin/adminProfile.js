@@ -24,6 +24,8 @@ document.addEventListener("click", (e) => {
   }
 });
 
+import useDeleteSession from "./hooks/useDeleteSession.js";
+
 const btnDelete = document.querySelector(".btn-delete");
 const username = document.getElementById("username");
 const role = document.getElementById("role");
@@ -119,3 +121,6 @@ formEdit.addEventListener("submit", async (e) => {
     console.error(error);
   }
 });
+
+const logout = document.querySelector(".logout");
+logout.addEventListener("click", useDeleteSession);

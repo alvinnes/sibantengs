@@ -36,9 +36,7 @@
         <div class="profile">
           <p class="img-profile"></p>
           <div class="option-logout">
-            <p onclick="deleteSession()">
-              <i class="ph ph-sign-out"></i> Keluar
-            </p>
+            <p class="logout"><i class="ph ph-sign-out"></i> Keluar</p>
           </div>
         </div>
         <div class="info-role">
@@ -116,6 +114,13 @@
       </section>
     </main>
 
-    <script src="../../public/script/dashboardAdmin/adminProfile.js"></script>
+    <script
+      type="module"
+      src="../../public/script/dashboardAdmin/adminProfile.js"
+    ></script>
+    <script
+      type="module"
+      src="/client/public/script/dashboardAdmin/hooks/useDeleteSession.js"
+    ></script>
   </body>
 </html>

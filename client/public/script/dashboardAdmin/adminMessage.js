@@ -30,6 +30,7 @@ import useMonth from "./hooks/useMonth.js";
 import usePaginationMessage from "./hooks/usePaginationMessage.js";
 import useElementMessage from "./hooks/useElementMessage.js";
 import useSearchMessage from "./hooks/useSearchMessage.js";
+import useDeleteSession from "./hooks/useDeleteSession.js";
 
 // Profile di navbar
 const username = document.getElementById("username");
@@ -40,6 +41,7 @@ const infoPagination = document.querySelector(".info-pagination");
 const containerData = document.querySelector(".container-data");
 const btnDelete = document.querySelector(".btn-delete");
 const searchInput = document.getElementById("search");
+const btnPagination = document.querySelector(".btn-pagination");
 
 const dataNull = document.querySelector(".data-null");
 
@@ -87,8 +89,10 @@ window.addEventListener("load", async () => {
       dataNull.style.display = "flex";
       deleteAll.setAttribute("disabled", true);
       searchInput.setAttribute("disabled", true);
+      btnPagination.style.display = "none";
     } else {
       deleteAll.removeAttribute("disabled");
+      btnPagination.style.display = "flex";
       searchInput.removeAttribute("disabled");
       dataNull.style.display = "none";
       result.payload.forEach((message) => {
@@ -207,10 +211,5 @@ btnPrev.onclick = async () => {
 };
 
 // Function untuk menangani logout
-const deleteSession = () => {
-  localStorage.removeItem("nikAdmin");
-  console.log("deleted");
-  setTimeout(() => {
-    window.location.href = "/client/index.html";
-  }, 500);
-};
+const logout = document.querySelector(".logout");
+logout.addEventListener("click", useDeleteSession);
