@@ -26,9 +26,7 @@
   <body>
     <main class="container-dashboard">
       <nav>
-        <span class="hamburger-menu">
-          <i class="ph ph-list"></i>
-        </span>
+        <a class="home" href="/client/index.html"><i class="ph ph-house"></i></a>
         <div class="profile">
           <p class="img-profile"></p>
           <div class="option-logout">
@@ -42,36 +40,6 @@
           <p id="role"></p>
         </div>
       </nav>
-
-      <aside class="sidebar">
-        <div class="logo">
-          <a href="/client/index.html">
-            <img src="../../public/img/logo-bjs.png" alt=""
-          /></a>
-        </div>
-        <ul>
-          <li>
-            <a href="/client/pages/dashboardUser/dashboardUser.html"
-              ><i class="ph ph-squares-four"></i> Beranda</a
-            >
-          </li>
-          <li>
-            <a href=""><i class="ph ph-credit-card"></i> Transaksi</a>
-          </li>
-          <li>
-            <a href="/client/pages/dashboardUserHistory.html"
-              ><i class="ph ph-scroll"></i> Riwayat</a
-            >
-          </li>
-        </ul>
-        <div class="help">
-          <img src="../../public/img/chatbot.svg" alt="" />
-          <div class="btn-cta">
-            <p>Butuh Bantuan ? <a href="">Hubungi Kami</a></p>
-          </div>
-          <span class="decor"></span>
-        </div>
-      </aside>
 
       <section class="main-content">
         <div class="promo">
@@ -135,13 +103,17 @@
         </div>
       </section>
       <section class="debit-card">
-        <h3>Jenis Kartu</h3>
-        <div class="img-card">
-          <img src="../../public/img/bpd-card.png" alt="" />
-        </div>
-        <div class="saldo">
-          <h4>Total Saldo</h4>
-          <p>RP. 200.000</p>
+        <div class="header-debit">
+          <h3>Jenis Kartu</h3>
+          <div class="img-card">
+            <img src="../../public/img/bpd-card.png" alt="" />
+          </div>
+          <div class="saldo">
+            <div class="bg-saldo">
+              <h4>Total Saldo</h4>
+              <p>RP. 200.000</p>
+            </div>
+          </div>
         </div>
         <div class="information-card">
           <div class="title-information">
@@ -172,9 +144,9 @@
             <h4>Max. Transfer antar Bank Kerjasama</h4>
             <p>25 juta</p>
           </div>
-          <button class="btn-transaction">
+          <!-- <button class="btn-transaction">
             <i class="ph ph-plus-circle"></i> Tambah Transaksi
-          </button>
+          </button> -->
         </div>
       </section>
     </main>

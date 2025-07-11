@@ -19,7 +19,6 @@ body {
   align-items: center;
   background-color: rgba(128, 128, 128, 0.07);
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .container-dashboard {
@@ -27,13 +26,16 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
+  padding: 0 1rem;
+  gap: 0.8rem;
 }
 
 .container-dashboard nav {
-  width: 79%;
+  width: 98%;
   border-radius: 1rem;
-  right: 0;
   padding: 0.7rem 3%;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: white;
   position: fixed;
   top: 0.5rem;
@@ -62,6 +64,13 @@ nav .profile {
   font-size: 1.3em;
 }
 
+nav .home {
+  text-decoration: none;
+  font-size: 1.5em;
+  position: absolute;
+  left: 2rem;
+}
+
 nav .profile:hover .option-logout {
   opacity: 100%;
   visibility: visible;
@@ -70,7 +79,7 @@ nav .profile:hover .option-logout {
 
 .profile .option-logout {
   width: 10rem;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
   background-color: white;
   position: absolute;
   top: 2.5rem;
@@ -100,16 +109,6 @@ nav .profile:hover .option-logout {
   color: #ff0000;
 }
 
-nav .hamburger-menu {
-  display: none;
-}
-
-nav i {
-  color: #80808050;
-  font-size: 2em;
-  cursor: pointer;
-}
-
 nav .info-role {
   font-size: 0.85em;
   color: grey;
@@ -123,109 +122,8 @@ nav .info-role p:last-child {
   font-size: 0.8em;
 }
 
-.container-dashboard .sidebar {
-  width: 20%;
-  height: 100vh;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  justify-content: space-between;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar img {
-  width: 9rem;
-  height: 5rem;
-  margin-top: -0.5rem;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  margin-top: -10rem;
-}
-
-.sidebar ul li {
-  width: 100%;
-  padding: 0.8rem 0.5rem;
-  border-radius: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.sidebar ul li a {
-  color: grey;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.sidebar ul li a i {
-  font-size: 1.5em;
-}
-
-.sidebar ul li.active {
-  background-color: #87a2ff;
-  box-shadow: 2px 2px 15px #87a2ff;
-  transition: 0.8s;
-}
-
-.sidebar ul li a.active {
-  color: white;
-}
-
-.sidebar .help {
-  width: 100%;
-  height: 20rem;
-  background-color: #87a2ff;
-  border-radius: 2rem;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  padding-bottom: 3rem;
-}
-
-.help img {
-  width: 20rem;
-  height: 20rem;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  position: absolute;
-  z-index: 2;
-}
-
-.help .btn-cta {
-  background-color: white;
-  text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  width: 10rem;
-  padding: 0.4rem;
-  font-size: 0.8em;
-  border-radius: 0.5rem;
-  color: var(--text-color);
-  position: relative;
-  z-index: 3;
-}
-
-.btn-cta a {
-  color: #a594f9;
-}
-
-.help .decor {
-  width: 15rem;
-  height: 15rem;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  position: absolute;
-  right: -2rem;
-  bottom: -3rem;
-}
-
 .container-dashboard .main-content {
-  width: 48%;
+  width: 64%;
   min-height: 87vh;
   margin-top: 5.5rem;
   display: flex;
@@ -235,7 +133,7 @@ nav .info-role p:last-child {
 
 .main-content .promo {
   width: 100%;
-  height: 13rem;
+  height: 18rem;
   background-color: white;
   border-radius: 1rem;
   overflow: hidden;
@@ -338,6 +236,7 @@ nav .info-role p:last-child {
 
 .chart-circle h3 {
   margin-left: 1rem;
+  text-align: center;
   margin-bottom: 2.5rem;
 }
 
@@ -399,6 +298,7 @@ nav .info-role p:last-child {
   border-radius: 1rem;
   background-color: white;
   padding: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -408,20 +308,39 @@ nav .info-role p:last-child {
 }
 
 .container-dashboard .debit-card {
-  width: 30%;
+  width: 35%;
   min-height: 85vh;
   margin-top: 5.5rem;
   border-radius: 1rem;
   background-color: white;
   padding: 1rem 1.8rem;
   display: flex;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.debit-card .header-debit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-debit h3 {
+  align-self: start;
+  margin-left: 1rem;
 }
 
 .debit-card .img-card {
   width: 100%;
-  height: 11rem;
+  height: 13rem;
   margin: 1rem 0;
   display: flex;
   justify-content: center;
@@ -429,27 +348,40 @@ nav .info-role p:last-child {
 }
 
 .img-card img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   filter: drop-shadow(0 0 15px #87a2ff70);
   object-fit: cover;
   -webkit-filter: drop-shadow(0 0 15px #87a2ff70);
 }
 
 .debit-card .saldo {
-  width: 100%;
+  width: 95%;
+  margin-right: -0.3rem;
+  background-color: #578fca30;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.saldo .bg-saldo {
   display: flex;
+  width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #578fca;
+  border-radius: 0.5rem;
 }
 
 .saldo h4 {
   font-weight: 500;
-  color: grey;
+  color: white;
 }
 
 .saldo p {
-  color: #1d1d1d;
+  color: white;
   font-size: 1.2em;
   font-weight: 600;
 }
@@ -459,6 +391,7 @@ nav .info-role p:last-child {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  width: 90%;
 }
 
 .information-card .title-information {
@@ -523,29 +456,34 @@ nav .info-role p:last-child {
   font-size: 1.8em;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 1190px) {
   html,
   body {
     overflow-x: hidden;
   }
+
   body {
     overflow-y: visible;
   }
+
   .container-dashboard {
-    flex-direction: column-reverse;
     padding: 0;
     align-items: center;
+    justify-content: start;
   }
+
   .container-dashboard nav {
     width: 95%;
     right: 0.7rem;
     top: 0.5rem;
   }
+
   nav .hamburger-menu {
     display: flex;
     position: absolute;
     left: 1rem;
   }
+
   .container-dashboard .sidebar {
     position: fixed;
     width: 80%;
@@ -557,70 +495,372 @@ nav .info-role p:last-child {
     transition: 0.4s;
     z-index: 1000;
   }
+
   .sidebar ul {
     margin-top: -2rem;
   }
+
+  .container-dashboard .main-content {
+    width: 59%;
+    padding-left: 1rem;
+  }
+
   .container-dashboard .sidebar.show-sidebar {
     opacity: 100%;
     left: 0;
   }
+
   .container-dashboard .debit-card {
-    width: 95%;
-    padding: 1rem;
+    width: 39%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
+
+  .main-content .promo {
+    height: 20rem;
+  }
+
+  .container-sub-content .current-transaction {
+    width: 60%;
+    height: 15rem;
+  }
+
+  .chart-circle h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: -0.5rem;
+  }
+
+  .container-sub-content .chart-circle {
+    width: 40%;
+    height: 22rem;
+  }
+
+  .chart-circle .chart {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1.5rem;
+  }
+
+  .container-chart {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .container-chart ul li {
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .current-transaction h3 {
+    margin: 0.5rem 2rem;
+  }
+
+  .container-sub-content {
+    flex-direction: column;
+  }
+
+  .container-chart {
+    flex-direction: row;
+  }
+
+  .container-sub-content .current-transaction {
+    width: 100%;
+    height: 15rem;
+  }
+
+  .current-transaction .transaction-item {
+    justify-content: space-around;
+    padding: 0.8rem;
+  }
+
+  .container-sub-content .chart-circle {
+    width: 100%;
+    height: 13rem;
+  }
+
+  .chart-circle h3 {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .main-content .promo {
+    height: 15rem;
+  }
+
+  .container-dashboard .debit-card {
+    padding: 2rem 0.5rem;
+    gap: 2rem;
+    justify-content: start;
+  }
+
+  .debit-card .saldo {
+    padding: 0.3rem;
+    width: 95%;
+    margin-right: -0.5rem;
+  }
+
+  .saldo .bg-saldo {
+    padding: 0.8rem;
+  }
+
   .title-information h3,
   .debit-card h3 {
-    font-size: 1.1em;
+    font-size: 1em;
   }
+
   .information-item h4 {
+    font-size: 0.7em;
+  }
+
+  .information-item p {
     font-size: 0.8em;
   }
-  .information-item p {
-    font-size: 0.9em;
+
+  .debit-card .header-debit {
+    width: 100%;
+    gap: 0;
   }
+
+  .debit-card .img-card {
+    height: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-dashboard {
+    flex-direction: column-reverse;
+  }
+
+  .container-dashboard .main-content {
+    padding: 0;
+  }
+
+  .container-dashboard .debit-card {
+    width: 95%;
+    padding: 0;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 20rem;
+  }
+
+  .debit-card .saldo {
+    padding: 0.3rem;
+    width: 95%;
+    margin-right: -0.5rem;
+  }
+
+  .saldo .bg-saldo {
+    padding: 0.8rem;
+  }
+
+  .debit-card .header-debit {
+    width: 40%;
+    gap: 0;
+  }
+
+  .saldo p {
+    font-size: 1em;
+  }
+
+  .saldo h4 {
+    font-size: 0.8em;
+  }
+
+  .debit-card .information-card {
+    width: 35%;
+  }
+
+  .debit-card .img-card {
+    height: 10rem;
+  }
+
   .container-dashboard .main-content {
     width: 95%;
     align-items: center;
+    margin-top: 0;
+  }
+
+  .main-content .promo {
+    height: 18rem;
+  }
+
+  .container-sub-content {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .container-sub-content .current-transaction {
+    width: 60%;
+    height: 15rem;
+  }
+
+  .current-transaction .transaction-item {
+    justify-content: space-between;
+    padding: 0.7rem;
+  }
+
+  .container-sub-content .chart-circle {
+    width: 40%;
+    height: 22rem;
+  }
+
+  .chart-circle .chart {
+    width: 8rem;
+    height: 8rem;
+    margin-left: 1.5rem;
+  }
+
+  .container-chart {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .container-chart ul li {
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .container-dashboard .main-content {
     margin-top: 2rem;
   }
-  .main-content .promo {
-    height: 11rem;
-  }
-  .container-sub-content {
+
+  .container-dashboard .debit-card {
     flex-direction: column;
-    width: 100%;
+    min-height: 70vh;
   }
-  .container-sub-content .current-transaction {
-    width: 100%;
-    height: 17rem;
+
+  .debit-card .header-debit {
+    width: 90%;
+  }
+
+  .debit-card .img-card {
+    height: 15rem;
+  }
+
+  .debit-card .information-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 530px) {
+  .main-content .promo {
+    height: 16rem;
+  }
+
+  .container-dashboard .debit-card {
+    padding: 1rem;
+    min-height: 60vh;
+  }
+
+  .debit-card .img-card {
+    height: 13rem;
+  }
+
+  .current-transaction .transaction-item {
     justify-content: space-around;
   }
+
+  .chart-circle h3 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .container-sub-content .current-transaction {
+    width: 100%;
+    height: 16rem;
+  }
+
   .container-sub-content .chart-circle {
     width: 100%;
-    height: 14rem;
+    height: 15rem;
   }
-  .main-content .analytic {
-    height: 20rem;
+
+  .current-transaction h3 {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .current-transaction .transaction-item {
+    justify-content: space-between;
+  }
+
+  .container-sub-content {
+    flex-direction: column;
+  }
+
+  .container-chart {
+    flex-direction: row;
+  }
+
+  .chart-circle .chart {
+    width: 9rem;
+    height: 9rem;
+    margin-left: 0;
   }
 }
 
 @media (max-width: 428px) {
+  .main-content .promo {
+    height: 11rem;
+  }
+
+  .debit-card .information-card {
+    width: 90%;
+  }
+
+  .debit-card .saldo {
+    width: 100%;
+  }
+
   .container-dashboard {
     padding: 0.5rem;
   }
+
   .container-dashboard .debit-card {
     padding: 1.5rem;
   }
+
+  .debit-card .saldo {
+    padding: 0.3rem;
+  }
+
+  .saldo .bg-saldo {
+    padding: 1rem;
+  }
+
+  .saldo p {
+    font-size: 1.1em;
+  }
+
+  .saldo h4 {
+    font-size: 0.9em;
+  }
+
   .container-sub-content .current-transaction {
     padding: 0 2rem;
+    height: 14rem;
   }
+
   .text-transaction p:first-child {
     width: 15ch;
   }
+
   .current-transaction h3,
   .chart-circle h3 {
     margin-top: 0.3rem;
   }
+
   .container-sub-content .chart-circle {
     padding: 0.3rem 1.5rem;
   }
@@ -630,19 +870,37 @@ nav .info-role p:last-child {
     margin-bottom: 2.5rem;
     margin-top: -1rem;
   }
+
+  .current-transaction .transaction-item {
+    justify-content: space-between;
+  }
+
+  .chart-circle .chart {
+    width: 8rem;
+    height: 8rem;
+  }
 }
 
 @media (max-width: 360px) {
   .container-sub-content .current-transaction {
     padding: 0 1rem;
   }
+
   .container-dashboard {
     padding: 0;
   }
+
   .container-sub-content .chart-circle {
     padding: 0.3rem 0.5rem;
   }
+
   .text-transaction p:first-child {
     width: 13ch;
+  }
+}
+
+@media (max-width: 320px) {
+  .debit-card .img-card {
+    height: 9rem;
   }
 }

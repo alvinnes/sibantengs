@@ -1,10 +1,9 @@
 const navButtons = document.querySelector(".nav-buttons");
 const profile = document.querySelector(".profile");
+const nikAdmin = JSON.parse(localStorage.getItem("nikAdmin")) || null;
+const nikUser = JSON.parse(localStorage.getItem("nikUser")) || null;
 
 window.addEventListener("load", async () => {
-  const nikAdmin = JSON.parse(localStorage.getItem("nikAdmin")) || null;
-  const nikUser = JSON.parse(localStorage.getItem("nikUser")) || null;
-
   if (nikAdmin !== null || nikUser !== null) {
     navButtons.style.display = "none";
     profile.style.display = "flex";
@@ -109,6 +108,7 @@ const modalLoading = document.querySelector(".modal-loading");
 const btnSubmit = document.getElementById("btnSubmit");
 
 import validateMessage from "../script/validation/validateMessage.js";
+const errorMessageNullData = document.querySelector(".error-message-null-data");
 
 formContact.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -120,46 +120,88 @@ formContact.addEventListener("submit", async (e) => {
   };
 
   try {
-    if (
-      !validateMessage(
-        e.target.fullname.value,
-        e.target.email.value,
-        e.target.phone.value,
-        e.target.message.value
-      )
-    )
+    // if (
+    //   !validateMessage(
+    //     e.target.fullname.value,
+    //     e.target.email.value,
+    //     e.target.phone.value,
+    //     e.target.message.value
+    //   )
+    // )
+    //   return;
+    console.log(nikAdmin, nikUser);
+    if (nikAdmin !== null) {
+      console.log("Gagal");
+      errorMessageNullData.textContent =
+        "Login terlebih dahulu untuk mengirim pesan!";
       return;
+    } else if (nikUser == null) {
+      console.log("Gagal");
+      errorMessageNullData.textContent =
+        "Login terlebih dahulu untuk mengirim pesan!";
+      return;
+    } else {
+      console.log("Berhasil Login");
+      errorMessageNullData.textContent = "";
+    }
+    // if (nikUser == null || nikAdmin == null) {
+    //   console.log("Gagal");
+    //   errorMessageNullData.textContent =
+    //     "Login terlebih dahulu untuk mengirim pesan!";
+    //   return;
+    // } else {
+    //   console.log("Berhasil Login");
+    //   errorMessageNullData.textContent = "Login";
+    // }
+    // modalLoading.classList.add("show-modal-loading");
+    // btnSubmit.setAttribute("disabled", true);
+    // btnSubmit.style.cursor = "not-allowed";
 
-    modalLoading.classList.add("show-modal-loading");
-    btnSubmit.setAttribute("disabled", true);
-    btnSubmit.style.cursor = "not-allowed";
+    // const url = "http://localhost:3000/data/message";
+    // const request = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+    // const result = await request.json();
+    // console.log(result);
 
-    const url = "http://localhost:3000/data/message";
-    const request = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    const result = await request.json();
-    console.log(result);
-
-    modalLoading.classList.remove("show-modal-loading");
-    modalSucces.classList.add("show-modal");
-    setTimeout(() => {
-      modalSucces.classList.remove("show-modal");
-      btnSubmit.removeAttribute("disabled");
-      btnSubmit.style.cursor = "pointer";
-    }, 1000);
+    // modalLoading.classList.remove("show-modal-loading");
+    // modalSucces.classList.add("show-modal");
+    // setTimeout(() => {
+    //   modalSucces.classList.remove("show-modal");
+    //   btnSubmit.removeAttribute("disabled");
+    //   btnSubmit.style.cursor = "pointer";
+    // }, 1000);
   } catch (error) {
     console.error(error);
   }
 });
 
-const btnIcon = document.querySelector(".icon");
+const btnIcon = document.querySelector(".icons");
 const navbar = document.querySelector("nav ul");
+const navbarItems = document.querySelectorAll("ul li");
 
 btnIcon.addEventListener("click", () => {
-  navbar.classList.toggle("show-navbar")
+  navbar.classList.toggle("show-navbar");
+});
+
+document.addEventListener("click", (e) => {
+  if (!btnIcon.contains(e.target) && !navbar.contains(e.target)) {
+    navbar.classList.remove("show-navbar");
+  }
+});
+
+window.addEventListener("hashchange", () => {
+  navbarItems.forEach((item, index) => {
+    const navLink = "#" + item.textContent.toLowerCase();
+
+    if (window.location.hash == navLink) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
 });

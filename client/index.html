@@ -27,15 +27,16 @@
     <!--Navbar Start-->
     <nav data-aos="fade-down">
       <div class="logo">
+        <i class="ph ph-list icons"></i>
         <a href="/client/index.html">
           <img src="public/img/logo-bjs.png" alt="logo bank jateng syariah" />
         </a>
       </div>
 
       <ul>
-        <li><a href="#about">Tentang</a></li>
+        <li><a href="#tentang">Tentang</a></li>
         <li><a href="#layanan">Layanan</a></li>
-        <li><a href="#products">Product</a></li>
+        <li><a href="#product">Product</a></li>
         <li><a href="#testimoni">Testimoni</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -47,7 +48,6 @@
         <button class="btn-daftar">
           <a href="pages/form/register.html">DAFTAR</a>
         </button>
-        <i class="ph ph-list icon"></i>
       </div>
 
       <div class="profile"></div>
@@ -145,7 +145,7 @@
     <!--Logo End-->
 
     <!-- About Start -->
-    <section class="about" id="about" data-aos="fade-down" data-aos-delay="200">
+    <section class="about" id="tentang" data-aos="fade-down" data-aos-delay="200">
       <div class="title-about">
         <div class="subtitle">
           <span class="bulat"></span>
@@ -347,7 +347,7 @@
 
     <!-- Produk Favorit Start -->
 
-    <section class="products" id="products">
+    <section class="products" id="product">
       <div class="subtitle" data-aos="fade-down">
         <span class="bulat"></span>
         <h3>Produk Favorit</h3>
@@ -591,6 +591,7 @@
         </div>
         <form class="form-contact" method="post">
           <label>
+            <p class="error-message-null-data"></p>
             <p>Nama Lengkap</p>
             <input
               type="text"
@@ -634,18 +635,19 @@
         </form>
         <div class="decor-bg"></div>
         <div class="decor-bg-2"></div>
-        <div class="decor-arrow-1">
-          <img src="public/img/decor.png" alt="" />
-        </div>
-        <div class="decor-arrow-2">
-          <img src="public/img/decor.png" alt="" />
-        </div>
       </div>
       <div class="modal-loading">
         <img src="public/img/loader.svg" alt="" /> Loading...
       </div>
       <div class="modal-succes">
         <i class="ph-fill ph-seal-check"></i> Berhasil mengirim
+      </div>
+
+      <div class="decor-arrow-1">
+        <img src="public/img/decor.png" alt="" />
+      </div>
+      <div class="decor-arrow-2">
+        <img src="public/img/decor.png" alt="" />
       </div>
     </section>
 
