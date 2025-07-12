@@ -19,16 +19,29 @@ import {
   postDataUsers,
 } from "../controllers/UserLoginController.js";
 
+const typeImg = {
+  "image/jpg": "jpg",
+  "image/jpeg": "jpeg",
+  "image/png": "png",
+};
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./public/images");
+    const isValidImg = typeImg[file.mimetype];
+    let errorMessage = new Error("Format gambar harus jpg/jpeg/png!");
+
+    if (isValidImg) {
+      errorMessage = null;
+    }
+
+    cb(errorMessage, "./public/images");
   },
   filename: (req, file, cb) => {
-    const ext = file.mimetype.substring(6);
+    const filename = file.originalname.split(" ").join("-");
+    const ext = typeImg[file.mimetype];
 
-    console.log(ext);
-    const uniqueName = Date.now();
-    cb(null, `${file.fieldname.toUpperCase()}-${uniqueName}.${ext}`);
+    const uniqueName = `${filename.toUpperCase()}-${Date.now()}.${ext}`;
+    cb(null, uniqueName);
   },
 });
 

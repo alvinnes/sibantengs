@@ -6,51 +6,72 @@ import responseMainData from "../utils/responseMainData.js";
 export const getAllDataRegister = (req, res) => {
   const sqlGetData = "SELECT * FROM register;";
   const sqlGetTotalData = "SELECT COUNT(*) as total FROM ??;";
+
   db.query(sqlGetTotalData, ["register"], (err, result) => {
     const totalData = result[0].total;
 
     db.query(sqlGetData, (err, result) => {
       if (err) throw err;
-      response(res, result, totalData, "Berhail mengambil data register");
+      response(res, result, totalData, "Berhasil mengambil data register");
     });
   });
 };
 
 export const postDataRegister = (req, res) => {
-  const receivedData = req.body;
   const receivedImg = req.files;
+
+  const {
+    kk_number,
+    fullname,
+    phone,
+    email,
+    addres,
+    password,
+    repeat_password,
+    birtdate,
+    rekening,
+    ktp_number,
+  } = req.body;
 
   const imgKtp = receivedImg.img_ktp[0].path;
   const imgKk = receivedImg.img_kk[0].path;
   const imgKtpPerson = receivedImg.img_ktp_person[0].path;
 
-  const result = validationResult(req);
-  if (!result.isEmpty()) {
-    res.send("Something error", { errors: result.array().msg });
-  }
+  const pathImgKtp = `${req.protocol}://${req.get("host")}/${imgKtp}`;
+  const pathImgKk = `${req.protocol}://${req.get("host")}/${imgKk}`;
+  const pathImgKtpPerson = `${req.protocol}://${req.get(
+    "host"
+  )}/${imgKtpPerson}`;
 
   const sqlPostData = `INSERT INTO ?? (kk_number,fullname,phone,email,addres,password,repeat_password,birtdate,rekening,ktp_number,img_ktp,img_kk,img_ktp_person) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
+  if (!receivedImg) return;
+
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    res.json("Something error", { errors: result.array().msg });
+  }
+  
   db.query(
     sqlPostData,
     [
       "register",
-      receivedData.kk_number,
-      receivedData.fullname,
-      receivedData.phone,
-      receivedData.email,
-      receivedData.addres,
-      receivedData.password,
-      receivedData.repeat_password,
-      receivedData.birtdate,
-      receivedData.rekening,
-      receivedData.ktp_number,
-      imgKtp,
-      imgKk,
-      imgKtpPerson,
+      kk_number,
+      fullname,
+      phone,
+      email,
+      addres,
+      password,
+      repeat_password,
+      birtdate,
+      rekening,
+      ktp_number,
+      pathImgKtp,
+      pathImgKk,
+      pathImgKtpPerson,
     ],
     (err, result) => {
-      if (err) return res.status(500).json({ err: "Gagal membuat data!" });
+      if (err) return res.status(500).json({ err: "Gagal mengirim data!" });
       response(res, result, "Berhasil mengirim data register");
     }
   );

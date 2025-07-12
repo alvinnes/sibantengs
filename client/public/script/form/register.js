@@ -35,6 +35,8 @@ const modalLoading = document.querySelector(".modal-loading");
 const modalSucces = document.querySelector(".modal-succes");
 
 form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   const fullname = e.target.fullname.value;
   const phone = e.target.phone.value;
   const email = e.target.email.value;
@@ -44,8 +46,7 @@ form.addEventListener("submit", async (e) => {
   const ktp_number = e.target.ktp_number.value;
   const kk_number = e.target.kk_number.value;
 
-  e.preventDefault();
-
+  console.log("submitted");
   const datasForm = new FormData(e.target);
   try {
     if (!validateFullname(fullname)) return;
@@ -60,7 +61,6 @@ form.addEventListener("submit", async (e) => {
     if (!validateImgKk(e.target.img_kk.value)) return;
     if (!validateImgKtpPerson(e.target.img_ktp_person.value)) return;
 
-    console.log("Submitted");
     modalLoading.classList.add("show-modal-loading");
 
     const urlPostData = "http://localhost:3000/data/register";
@@ -69,16 +69,23 @@ form.addEventListener("submit", async (e) => {
       body: datasForm,
     });
 
+    if (!request.ok) {
+      const err = await request.text();
+      console.log(err);
+      alert(err);
+      return;
+    }
     const response = await request.json();
     console.log(response);
 
     modalLoading.classList.remove("show-modal-loading");
     modalSucces.classList.add("show-modal-succes");
-    setTimeout(() => {
-      modalSucces.classList.remove("show-modal-succes");
-      window.location.href = "/client/pages/form/login.html";
-    }, 1000);
+    // setTimeout(() => {
+    //   modalSucces.classList.remove("show-modal-succes");
+    //   window.location.href = "/client/pages/form/login.html";
+    // }, 1000);
   } catch (err) {
     console.error(err);
+    alert(err);
   }
 });

@@ -66,14 +66,6 @@ export const validateRegister = () => {
       .notEmpty()
       .withMessage("Nomor kk tidak boleh kosong!")
       .isLength({ max: 16 })
-      .withMessage("Format kk salah!"),
-    // Validasi File KTP
-    body("img_ktp").notEmpty().withMessage("Foto ktp tidak boleh kosong!"),
-    // Validasi File KK
-    body("img_kk").notEmpty().withMessage("Foto kk tidak boleh kosong!"),
-    // Validasi File Selfie Dengan KTP
-    body("img_ktp_person")
-      .notEmpty()
-      .withMessage("Foto selfie dengan ktp tidak boleh kosong!")
+      .withMessage("Format kk salah!")
   );
 };

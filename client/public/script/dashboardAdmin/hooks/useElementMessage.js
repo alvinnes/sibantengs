@@ -7,7 +7,6 @@ const useElementMessage = (data, time) => {
           <div class="profile-user">
           <p>${firstLetter}</p>
           </div>
-          <i class="ph ph-star" id="star" data-message=${data.created_at}></i>
           <h3 id="fullname">${data.fullname}</h3>
           </div>
             <p class="message"><a href="/client/pages/dashboardAdmin/detailMessage.html?fullname=${data.fullname}">s${data.message}</a></p>  

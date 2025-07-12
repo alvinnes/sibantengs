@@ -61,15 +61,12 @@ window.addEventListener("load", async () => {
     const nik = JSON.parse(localStorage.getItem("nikAdmin")) || null;
     const urlProfile = `http://localhost:3000/data/userNikAdmin?nik=${nik}`;
     const url = `http://localhost:3000/data/message?page=${page}`;
-    const urlStarMsg = "http://localhost:3000/data/starMessage";
 
     const response = await fetch(url);
     const responseProfile = await fetch(urlProfile);
-    const responseStarMsg = await fetch(urlStarMsg);
 
     const result = await response.json();
     const resultProfile = await responseProfile.json();
-    const resultMsg = await responseStarMsg.json();
 
     // Mapping data admin
     resultProfile.payload.forEach((item) => {
@@ -102,29 +99,6 @@ window.addEventListener("load", async () => {
 
         containerData.innerHTML += useElementMessage(message, time);
         dataMessages.push(message);
-      });
-
-      const btnStar = document.querySelectorAll("#star");
-
-      btnStar.forEach((star) => {
-        star.addEventListener("click", async (e) => {
-          e.target.style.color = "orange";
-          e.target.classList.toggle("ph-fill", "ph-star");
-          try {
-            const url = "http://localhost:3000/data/starMessage";
-            const request = await fetch(url, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ date: e.target.dataset.message }),
-            });
-            const response = await request.json();
-            console.log(response);
-          } catch (error) {
-            console.error(error);
-          }
-        });
       });
 
       useCheckbox();
