@@ -318,7 +318,7 @@ nav .info-role p:last-child {
   position: fixed;
   right: 0;
   bottom: 0;
-  top: 0;
+  top: -5rem;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;

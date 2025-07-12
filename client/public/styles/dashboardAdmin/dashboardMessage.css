@@ -1,3 +1,7 @@
+html body {
+  overflow-y: visible;
+}
+
 .container-dashboard .main-content {
   width: 80%;
   display: flex;
@@ -406,6 +410,9 @@
   background-color: lightseagreen;
 }
 
+@media (max-width: 1632px) {
+}
+
 @media (max-width: 1190px) {
   .container-dashboard .main-content {
     padding: 0 1rem;
@@ -479,19 +486,6 @@
 
   .wrapper-item .date {
     width: 7%;
-  }
-
-  .main-content .data-not-found,
-  .main-content .data-null {
-    position: absolute;
-    top: 100%;
-    transform: translateY(0);
-  }
-
-  .data-not-found img,
-  .data-null img {
-    width: 20rem;
-    height: 20rem;
   }
 
   .btn-actions .delete-all {

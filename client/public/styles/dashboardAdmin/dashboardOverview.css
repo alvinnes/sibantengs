@@ -1,3 +1,7 @@
+html body {
+  overflow-y: visible;
+}
+
 .container-card {
   display: flex;
   width: 100%;
@@ -6,7 +10,7 @@
 
 .container-card .card-item {
   background-color: white;
-  width: 15rem;
+  width: 25%;
   height: 7rem;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);

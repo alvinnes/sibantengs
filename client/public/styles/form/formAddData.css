@@ -13,8 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(220, 220, 220, 0.2); */
-  background-color: lightskyblue;
+  background-color: rgba(220, 220, 220, 0.2);
   color: #1d1d1d;
   position: relative;
   overflow-y: hidden;
@@ -205,7 +204,22 @@ form .btn-submit {
   align-items: center;
 }
 
-@media (max-width:1120px) {
+.decor-1 {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
+}
+
+.decor-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+  z-index: -1;
+}
+
+@media (max-width: 1120px) {
   form {
     margin: 2rem 0;
   }

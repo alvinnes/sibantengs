@@ -110,6 +110,11 @@ const btnSubmit = document.getElementById("btnSubmit");
 import validateMessage from "../script/validation/validateMessage.js";
 const errorMessageNullData = document.querySelector(".error-message-null-data");
 
+const inputFullname = document.getElementById("fullname");
+const inputPhone = document.getElementById("phone");
+const inputEmail = document.getElementById("email");
+const inputMessage = document.getElementById("message");
+
 formContact.addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = {
@@ -120,61 +125,43 @@ formContact.addEventListener("submit", async (e) => {
   };
 
   try {
-    // if (
-    //   !validateMessage(
-    //     e.target.fullname.value,
-    //     e.target.email.value,
-    //     e.target.phone.value,
-    //     e.target.message.value
-    //   )
-    // )
-    //   return;
-    console.log(nikAdmin, nikUser);
-    if (nikAdmin !== null) {
-      console.log("Gagal");
-      errorMessageNullData.textContent =
-        "Login terlebih dahulu untuk mengirim pesan!";
+    if (
+      !validateMessage(
+        e.target.fullname.value,
+        e.target.email.value,
+        e.target.phone.value,
+        e.target.message.value
+      )
+    )
       return;
-    } else if (nikUser == null) {
-      console.log("Gagal");
-      errorMessageNullData.textContent =
-        "Login terlebih dahulu untuk mengirim pesan!";
-      return;
-    } else {
-      console.log("Berhasil Login");
-      errorMessageNullData.textContent = "";
-    }
-    // if (nikUser == null || nikAdmin == null) {
-    //   console.log("Gagal");
-    //   errorMessageNullData.textContent =
-    //     "Login terlebih dahulu untuk mengirim pesan!";
-    //   return;
-    // } else {
-    //   console.log("Berhasil Login");
-    //   errorMessageNullData.textContent = "Login";
-    // }
-    // modalLoading.classList.add("show-modal-loading");
-    // btnSubmit.setAttribute("disabled", true);
-    // btnSubmit.style.cursor = "not-allowed";
 
-    // const url = "http://localhost:3000/data/message";
-    // const request = await fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // });
-    // const result = await request.json();
-    // console.log(result);
+    modalLoading.classList.add("show-modal-loading");
+    btnSubmit.setAttribute("disabled", true);
+    btnSubmit.style.cursor = "not-allowed";
 
-    // modalLoading.classList.remove("show-modal-loading");
-    // modalSucces.classList.add("show-modal");
-    // setTimeout(() => {
-    //   modalSucces.classList.remove("show-modal");
-    //   btnSubmit.removeAttribute("disabled");
-    //   btnSubmit.style.cursor = "pointer";
-    // }, 1000);
+    const url = "http://localhost:3000/data/message";
+    const request = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await request.json();
+    console.log(result);
+
+    modalLoading.classList.remove("show-modal-loading");
+    modalSucces.classList.add("show-modal");
+    setTimeout(() => {
+      modalSucces.classList.remove("show-modal");
+      btnSubmit.removeAttribute("disabled");
+      btnSubmit.style.cursor = "pointer";
+    }, 1000);
+
+    inputFullname.value = "";
+    inputEmail.value = "";
+    inputPhone.value = "";
+    inputMessage.value = "";
   } catch (error) {
     console.error(error);
   }

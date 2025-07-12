@@ -28,8 +28,7 @@ app.use((err, req, res, next) => {
     return res.status(400).json({ errors: err });
   }
 
-  console.log("Error umum");
-  return res.status(400).json({ errors: err });
+  next();
 });
 
 app.listen(PORT, () => {

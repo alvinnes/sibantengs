@@ -51,7 +51,7 @@ export const postDataRegister = (req, res) => {
   if (!result.isEmpty()) {
     res.json("Something error", { errors: result.array().msg });
   }
-  
+
   db.query(
     sqlPostData,
     [

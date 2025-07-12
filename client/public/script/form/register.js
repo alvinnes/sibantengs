@@ -46,7 +46,6 @@ form.addEventListener("submit", async (e) => {
   const ktp_number = e.target.ktp_number.value;
   const kk_number = e.target.kk_number.value;
 
-  console.log("submitted");
   const datasForm = new FormData(e.target);
   try {
     if (!validateFullname(fullname)) return;
@@ -69,12 +68,6 @@ form.addEventListener("submit", async (e) => {
       body: datasForm,
     });
 
-    if (!request.ok) {
-      const err = await request.text();
-      console.log(err);
-      alert(err);
-      return;
-    }
     const response = await request.json();
     console.log(response);
 

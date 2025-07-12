@@ -781,7 +781,7 @@ hr {
   flex-wrap: wrap;
   justify-content: center;
   padding: 40px 20px;
-  gap: 60px 150px;
+  gap: 60px 180px;
   margin: 0 auto;
   transform: scale(1);
   opacity: 1;
@@ -1631,7 +1631,7 @@ hr {
 @media (max-width: 900px) {
   nav ul {
     gap: 1.5rem;
-    font-size: .85em;
+    font-size: 0.85em;
   }
 
   .nav-buttons .btn-masuk,
@@ -1643,7 +1643,6 @@ hr {
   .nav-buttons .btn-daftar a {
     font-size: 0.8em;
   }
-
 
   .home-section {
     flex-direction: column;
@@ -1726,6 +1725,8 @@ hr {
 
   .about .text-about {
     width: 90%;
+    height: 23rem;
+    padding-bottom: 0;
   }
 
   .layanan .decor {
