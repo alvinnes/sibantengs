@@ -8,6 +8,7 @@ export const getAllDataRegister = (req, res) => {
   const sqlGetTotalData = "SELECT COUNT(*) as total FROM ??;";
 
   db.query(sqlGetTotalData, ["register"], (err, result) => {
+    if (err) throw err;
     const totalData = result[0].total;
 
     db.query(sqlGetData, (err, result) => {
@@ -108,7 +109,7 @@ export const updateDataUser = (req, res) => {
 };
 
 export const getDataByNikUser = (req, res) => {
-  const nik = req.query.nik;
+  const nik = parseInt(req.query.nik);
   const sqlGetDataByNik = "SELECT * FROM ?? WHERE ?? = ?;";
   db.query(sqlGetDataByNik, ["register", "kk_number", nik], (err, result) => {
     if (err) throw err;
@@ -120,13 +121,16 @@ export const getAllUser = (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 7;
   const offset = (page - 1) * limit;
+
   const sqlGetAllData = "SELECT * FROM register LIMIT ? OFFSET ?;";
   const countRows = "SELECT COUNT(*) AS total FROM ??;";
+
   db.query(countRows, ["register"], (err, result) => {
     if (err) throw err;
 
     const totalRows = result[0].total;
     const totalPages = Math.ceil(totalRows / limit);
+
     db.query(sqlGetAllData, [limit, offset], (err, result) => {
       if (err) throw err;
       responseMainData(

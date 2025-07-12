@@ -21,21 +21,12 @@ export const getDataByNikAdmin = (req, res) => {
 };
 
 export const updateAdmin = (req, res) => {
-  const editedData = req.body;
-  console.log(editedData);
+  const { username, nik, password, email } = req.body;
   const sqlUpdateData =
     "UPDATE ?? SET username = ?,nik = ?,password = ?,email = ? where ?? = ?;";
   db.query(
     sqlUpdateData,
-    [
-      "admin",
-      editedData.username,
-      editedData.nik,
-      editedData.password,
-      editedData.email,
-      "nik",
-      req.query.nik,
-    ],
+    ["admin", username, nik, password, email, "nik", req.query.nik],
     (err, result) => {
       if (err) return res.status(500).json({ error: "Terjadi kesalahan" });
       response(res, result, "Berhasil update data admin");

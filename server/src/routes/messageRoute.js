@@ -3,6 +3,7 @@ import {
   deleteAllMessage,
   deleteMessage,
   getMessage,
+  getMessageById,
   postMessage,
   searchMessage,
 } from "../controllers/MessageController.js";
@@ -13,6 +14,7 @@ const router = express.Router();
 router.get("/message", getMessage);
 router.post("/message", validateMessage(), postMessage);
 router.get("/queryMessage", searchMessage);
+router.get("/messageId", getMessageById);
 router.delete("/messageOne", deleteMessage);
 router.delete("/message", deleteAllMessage);
 

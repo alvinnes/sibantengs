@@ -32,7 +32,7 @@ export const postMessage = (req, res) => {
   const receivedData = req.body;
   const result = validationResult(req);
   if (!result.isEmpty()) {
-    return res.status(500).send({ errors: result.array() });
+    return res.status(500).json({ errors: result.array() });
   }
   const sqlPostMessage = `INSERT INTO message (fullname, email, phone, message) VALUES ("${receivedData.fullname}", "${receivedData.email}", ${receivedData.phone}, "${receivedData.message}");`;
   db.query(sqlPostMessage, (err, result) => {
@@ -74,10 +74,11 @@ export const searchMessage = (req, res) => {
 export const deleteMessage = (req, res) => {
   const date = new Date(req.query.date);
   const sqlDeleteData = "DELETE FROM ?? WHERE ?? IN (?)";
+
   db.query(sqlDeleteData, ["message", "created_at", date], (err, result) => {
     if (err) return res.status(500).json({ error: "Gagal menghapus data" });
+    response(res, result, "Berhasil menghapus pesan");
   });
-  res.send("berhasil menghapus");
 };
 
 export const deleteAllMessage = (req, res) => {
@@ -85,5 +86,14 @@ export const deleteAllMessage = (req, res) => {
   db.query(sqlDeleteAll, ["message"], (err, result) => {
     if (err) throw err;
     response(res, result, "Berhasil menghapus semua data");
+  });
+};
+
+export const getMessageById = (req, res) => {
+  const date = new Date(req.query.created_at);
+  const sql = "SELECT * FROM ?? WHERE ?? = ?";
+  db.query(sql, ["message", "created_at", date], (err, result) => {
+    if (err) return res.status(400).json({ errors: "Gagal mengambil data" });
+    response(res, result, "Berhasil mengambil data");
   });
 };
