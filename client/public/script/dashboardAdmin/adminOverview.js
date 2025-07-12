@@ -34,9 +34,9 @@ const totalUser = document.querySelector(".total-user");
 window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
-    const url = `http://localhost:3000/data/userNikAdmin?nik=${nik}`;
-    const urlMessage = "http://localhost:3000/data/message";
-    const urlRegister = "http://localhost:3000/data/register";
+    const url = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
+    const urlMessage = "http://localhost:3000/api/v1/message";
+    const urlRegister = "http://localhost:3000/api/v1/register";
 
     const responseMessage = await fetch(urlMessage);
     const response = await fetch(url);

@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
 
     if (nikAdmin) {
       try {
-        const urlAdmin = "http://localhost:3000/data/admin";
+        const urlAdmin = "http://localhost:3000/api/v1/admin";
         const responseAdmin = await fetch(urlAdmin);
         const resultAdmin = await responseAdmin.json();
         if (resultAdmin.payload[0].nik === nikAdmin) {
@@ -22,7 +22,7 @@ window.addEventListener("load", async () => {
       }
     } else {
       try {
-        const urlUser = "http://localhost:3000/data/register";
+        const urlUser = "http://localhost:3000/api/v1/register";
         const responseUser = await fetch(urlUser);
         const resultUser = await responseUser.json();
         if (resultUser.payload[0].kk_number === nikUser) {
@@ -62,26 +62,21 @@ fetch("./public/data/dataServices.json")
   .then((result) => {
     result.forEach((service) => {
       stepsContainer.innerHTML += elementServices(service);
-      const steps = document.querySelectorAll(".step");
 
-      steps.forEach((step) => {
-        step.classList.add("active-step");
-      });
-    });
+      btnTab.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          btnTab.forEach((el) => el.classList.remove("active"));
+          item.classList.add("active");
 
-    btnTab.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        btnTab.forEach((el) => el.classList.remove("active"));
-        item.classList.add("active");
+          const filteredData = dataSteps.filter(
+            (data) => data.category === e.target.textContent
+          );
 
-        const filteredData = dataSteps.filter(
-          (data) => data.category === e.target.textContent
-        );
-
-        stepsContainer.innerHTML = "";
-        filteredData.forEach((data) => {
-          result = { ...data };
-          stepsContainer.innerHTML += elementServices(data);
+          stepsContainer.innerHTML = "";
+          filteredData.forEach((data) => {
+            result = { ...data };
+            stepsContainer.innerHTML += elementServices(data);
+          });
         });
       });
     });
@@ -125,6 +120,16 @@ formContact.addEventListener("submit", async (e) => {
   };
 
   try {
+    if (nikUser == null) {
+      console.log("Login dulu");
+      errorMessageNullData.textContent =
+        "Login terlebih dahulu untuk mengirim pesan!";
+      return;
+    } else {
+      console.log("Berhasil");
+      errorMessageNullData.textContent = "";
+    }
+
     if (
       !validateMessage(
         e.target.fullname.value,
@@ -139,7 +144,7 @@ formContact.addEventListener("submit", async (e) => {
     btnSubmit.setAttribute("disabled", true);
     btnSubmit.style.cursor = "not-allowed";
 
-    const url = "http://localhost:3000/data/message";
+    const url = "http://localhost:3000/api/v1/message";
     const request = await fetch(url, {
       method: "POST",
       headers: {

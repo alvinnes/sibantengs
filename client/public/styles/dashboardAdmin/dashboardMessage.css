@@ -207,7 +207,7 @@ html body {
 }
 
 .wrapper-item .first-content {
-  width: 28%;
+  width: 25%;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -426,6 +426,18 @@ html body {
     font-size: 1em;
   }
 
+  .main-content .data-not-found,
+  .main-content .data-null {
+    transform: translateY(0);
+    top: 80%;
+  }
+
+  .data-not-found img,
+  .data-null img {
+    width: 20rem;
+    height: 20rem;
+  }
+
   .btn-actions .delete-all {
     font-size: 0.7em;
     padding: 0.4rem;
@@ -519,6 +531,12 @@ html body {
   .search-item .input-search {
     width: 45%;
   }
+
+  .data-not-found img,
+  .data-null img {
+    width: 25rem;
+    height: 25rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -540,6 +558,12 @@ html body {
 @media (max-width: 576px) {
   .container-dashboard .main-content {
     padding: 0 1rem;
+  }
+
+  .data-not-found img,
+  .data-null img {
+    width: 20rem;
+    height: 20rem;
   }
 
   .input-select .option {
@@ -567,7 +591,7 @@ html body {
   }
 
   .container-data {
-    width: 160%;
+    width: 120%;
   }
 }
 

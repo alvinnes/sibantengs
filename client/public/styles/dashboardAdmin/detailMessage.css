@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --text-color: #1d1d1d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #80808005;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.main-content {
+  width: 70%;
+  min-height: 70vh;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  background-color: white;
+}
+
+.main-content .header-message {
+  width: 100%;
+  height: 7rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+hr {
+  width: 90%;
+  background-color: #80808010;
+  color: #80808010;
+  margin: 1rem auto 2rem;
+}
+
+.header-message .first-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.header-message .profile {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #80808010;
+}
+
+.general-information h3 {
+  font-weight: 500;
+}
+
+.general-information p {
+  color: #808080;
+  margin-top: -0.1rem;
+  font-size: 0.9em;
+}
+
+.header-message .date {
+  font-size: 0.8em;
+  margin-top: -1.2rem;
+  color: grey;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.profile p {
+  font-size: 2em;
+}
+
+.main-content .message-content {
+  height: 70%;
+  overflow-y: auto;
+  width: 80%;
+  margin: auto;
+}
+
+.message-content p {
+  font-size: 0.9em;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    width: 90%;
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding: 1rem 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .main-content .header-message {
+    padding: 0 1.5rem;
+  }
+
+  .header-message .first-content {
+    gap: 1rem;
+    width: 70%;
+  }
+
+  .header-message .profile {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .header-message .date {
+    font-size: 0.7em;
+  }
+
+  .main-content .message-content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-content .header-message {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 428px) {
+  .main-content .header-message {
+    flex-direction: column;
+    padding: 0;
+    justify-content: start;
+  }
+
+  .header-message .first-content {
+    gap: 1rem;
+    width: 90%;
+  }
+
+  .header-message .date {
+    margin-left: 6.3rem;
+    align-self: start;
+  }
+}

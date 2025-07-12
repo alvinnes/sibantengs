@@ -73,7 +73,7 @@ export const postDataRegister = (req, res) => {
     ],
     (err, result) => {
       if (err) return res.status(500).json({ err: "Gagal mengirim data!" });
-      response(res, result, "Berhasil mengirim data register");
+      response(res, result, "Berhasil mengirim data");
     }
   );
 };

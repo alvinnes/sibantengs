@@ -33,7 +33,7 @@ const previewKtp = document.getElementById("preview-ktp");
 const nik = parseInt(window.location.search.substring(5));
 window.addEventListener("load", async () => {
   try {
-    const url = `http://localhost:3000/data/userNik?nik=${nik}`;
+    const url = `http://localhost:3000/api/v1/userNik?nik=${nik}`;
     const response = await fetch(url);
     const result = await response.json();
     const data = result.payload[0];
@@ -101,7 +101,7 @@ form.addEventListener("submit", async (e) => {
       img_ktp_person: img_ktp_person,
     };
 
-    const urlPostData = `http://localhost:3000/data/userAll?nik=${nik}`;
+    const urlPostData = `http://localhost:3000/api/v1/userAll?nik=${nik}`;
     const request = await fetch(urlPostData, {
       method: "PATCH",
       headers: {

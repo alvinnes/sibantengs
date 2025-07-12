@@ -15,8 +15,8 @@ let existDataAdmin = "";
 
 window.addEventListener("load", async () => {
   try {
-    const urlAdmin = "http://localhost:3000/data/admin";
-    const url = "http://localhost:3000/data/register";
+    const urlAdmin = "http://localhost:3000/api/v1/admin";
+    const url = "http://localhost:3000/api/v1/register";
     const responseAdmin = await fetch(urlAdmin);
     const response = await fetch(url);
     const resultAdmin = await responseAdmin.json();

@@ -33,17 +33,30 @@ const dataChartLine = {
   datasets: [
     {
       label: "",
-      data: [100, 180, 130, 160, 180, 100],
-      borderWidth: 0,
+      data: [500, 680, 230, 460, 380, 800],
+      borderWidth: 2,
+      tension: 0.3,
+      borderColor: "#87a2ff",
       fill: true,
-      backgroundColor: ["#03346E", "#578FCA"],
-      barPercentage: 0.7,
+      backgroundColor: (context) => {
+        if (!context.chart.chartArea) return;
+
+        const {
+          ctx,
+          chartArea: { top, height },
+        } = context.chart;
+
+        const bgGradient = ctx.createLinearGradient(0, top, 0, height);
+        bgGradient.addColorStop(0, "white");
+        bgGradient.addColorStop(1, "#87a2ff10");
+        return bgGradient;
+      },
     },
   ],
 };
 
 new Chart(chartLine, {
-  type: "bar",
+  type: "line",
   data: dataChartLine,
   options: {
     maintainAspectRatio: false,
@@ -51,14 +64,15 @@ new Chart(chartLine, {
     scales: {
       y: {
         min: 0,
-        max: 200,
+        max: 1000,
         grid: {
           color: "#80808020",
         },
         ticks: {
-          stepSize: 50,
+          stepSize: 200,
           font: {
             family: "Poppins",
+            size: 10,
           },
         },
       },
@@ -69,6 +83,7 @@ new Chart(chartLine, {
         ticks: {
           font: {
             family: "Poppins",
+            size: 10,
           },
         },
       },

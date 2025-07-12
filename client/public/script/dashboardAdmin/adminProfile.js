@@ -26,7 +26,6 @@ document.addEventListener("click", (e) => {
 
 import useDeleteSession from "./hooks/useDeleteSession.js";
 
-const btnDelete = document.querySelector(".btn-delete");
 const username = document.getElementById("username");
 const role = document.getElementById("role");
 const imgProfile = document.querySelector(".img-profile");
@@ -40,7 +39,7 @@ const inputPassword = document.getElementById("inputPassword");
 window.addEventListener("load", async () => {
   try {
     const nik = JSON.parse(localStorage.getItem("nikAdmin")) || null;
-    const urlProfile = `http://localhost:3000/data/userNikAdmin?nik=${nik}`;
+    const urlProfile = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
 
     const responseProfile = await fetch(urlProfile);
     const resultProfile = await responseProfile.json();
@@ -98,7 +97,7 @@ formEdit.addEventListener("submit", async (e) => {
   };
 
   try {
-    const url = `http://localhost:3000/data/admin?nik=${nik}`;
+    const url = `http://localhost:3000/api/v1/admin?nik=${nik}`;
     const request = await fetch(url, {
       method: "PATCH",
       headers: {

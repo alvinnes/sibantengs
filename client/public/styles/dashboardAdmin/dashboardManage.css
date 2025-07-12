@@ -280,6 +280,7 @@ table tbody tr #check.show-checkbox {
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .btn-pagination .container-btn-page {
@@ -645,6 +646,10 @@ table tbody tr #check.show-checkbox {
   table {
     width: 280%;
   }
+
+  .main-content .btn-pagination {
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 340px) {
@@ -656,5 +661,11 @@ table tbody tr #check.show-checkbox {
   .data-null img {
     width: 15rem;
     height: 15rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .container-modal-confirm .modal-confirm {
+    width: 90%;
   }
 }

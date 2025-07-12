@@ -12,7 +12,6 @@ const useCheckbox = () => {
   const checkbox = document.querySelectorAll("#check");
   checkbox.forEach((btn) => {
     const wrapperItem = document.querySelectorAll(`[data-item="${btn.value}"]`);
-
     btn.onclick = (e) => {
       if (e.target.checked == true) {
         sortByDate.setAttribute("disabled", true);
@@ -38,7 +37,7 @@ const useCheckbox = () => {
         containerModal.classList.add("show-modal");
         wrapperItem.forEach((item) => {
           btnDeleteAgree(item);
-          btnDeleteDisagree(btn, wrapperItem);
+          btnDeleteDisagree(checkbox, wrapperItem);
           btnDeleteDoc(btn, wrapperItem);
         });
       }
@@ -51,7 +50,7 @@ const btnDeleteAgree = (item) => {
     item.remove();
     try {
       containerModal.classList.remove("show-modal");
-      const url = `http://localhost:3000/data/messageOne?date=${item.dataset.item}`;
+      const url = `http://localhost:3000/api/v1/messageOne?date=${item.dataset.item}`;
       const request = await fetch(url, { method: "DELETE" });
       const response = await request.json();
       console.log(response);
@@ -62,9 +61,9 @@ const btnDeleteAgree = (item) => {
   };
 };
 
-const btnDeleteDisagree = (btn, wrapperItem) => {
+const btnDeleteDisagree = (checkbox, wrapperItem) => {
   btnDisagree.onclick = () => {
-    btn.checked = false;
+    checkbox.forEach((btn) => (btn.checked = false));
     btnNext.removeAttribute("disabled");
     btnPrev.removeAttribute("disabled");
     sortByAlpha.removeAttribute("disabled");

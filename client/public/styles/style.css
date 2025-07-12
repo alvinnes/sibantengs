@@ -783,12 +783,9 @@ hr {
   padding: 40px 20px;
   gap: 60px 180px;
   margin: 0 auto;
-  transform: scale(1);
-  opacity: 1;
-  transition: 0.4s;
 }
 
-.steps-container.hide-step {
+.step.hide-step {
   opacity: 0;
   transform: scale(0.9);
 }
@@ -796,6 +793,9 @@ hr {
 .step {
   width: 400px;
   text-align: center;
+  transform: scale(1);
+  opacity: 1;
+  transition: 0.4s;
 }
 
 .step img {
@@ -2110,7 +2110,7 @@ hr {
   }
 
   .tab-container {
-    width: 120%;
+    width: 140%;
     justify-content: start;
     padding: 0 2rem;
   }

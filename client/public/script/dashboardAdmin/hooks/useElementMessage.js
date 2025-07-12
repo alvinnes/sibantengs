@@ -9,7 +9,7 @@ const useElementMessage = (data, time) => {
           </div>
           <h3 id="fullname">${data.fullname}</h3>
           </div>
-            <p class="message"><a href="/client/pages/dashboardAdmin/detailMessage.html?fullname=${data.fullname}">s${data.message}</a></p>  
+            <p class="message"><a href="/client/pages/dashboardAdmin/detailMessage.html?created_at=${data.created_at}">s${data.message}</a></p>  
             <p class="date">${time}</p>
           </div>
     `;

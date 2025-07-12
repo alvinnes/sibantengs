@@ -245,8 +245,8 @@
   }
 
   .main-content .decor-2 {
-    bottom: -5rem;
-    left: -2rem;
+    bottom: -5.5rem;
+    left: -4rem;
   }
 }
 
@@ -274,13 +274,11 @@
   }
 
   .main-content .decor-1 {
-    bottom: -29.5rem;
-    right: 0;
+    display: none;
   }
 
   .main-content .decor-2 {
-    bottom: -27rem;
-    left: -2rem;
+    display: none;
   }
 }
 
@@ -369,12 +367,11 @@
   }
 
   .main-content .decor-1 {
-    bottom: -5rem;
+    bottom: -4.5rem;
     right: 0;
   }
 
   .main-content .decor-2 {
-    bottom: -3rem;
-    left: -2rem;
+    bottom: -2.2rem;
   }
 }

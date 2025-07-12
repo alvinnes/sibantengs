@@ -45,9 +45,12 @@ body {
 .card-img-profile .img-profile {
   width: 6rem;
   height: 6rem;
-  background-color: #80808030;
+  background-color: #87cefa30;
   border-radius: 50%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-card {
@@ -56,6 +59,10 @@ body {
   height: 60vh;
   flex-direction: column;
   justify-content: center;
+}
+
+.img-profile .letter {
+  font-size: 2em;
 }
 
 .img-profile .status {

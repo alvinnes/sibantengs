@@ -28,6 +28,11 @@ html body {
   margin-left: 0.5rem;
 }
 
+.card-item:nth-child(3) .text-card h3,
+.card-item:nth-child(3) .text-card p {
+  margin-left: 1rem;
+}
+
 .text-card p {
   font-weight: 400;
   color: #1d1d1d;
@@ -212,6 +217,11 @@ html body {
 
   .container-pie-chart ul {
     font-size: 0.7em;
+  }
+
+  .card-item:nth-child(3) .text-card h3,
+  .card-item:nth-child(3) .text-card p {
+    margin-left: 0.5rem;
   }
 }
 
@@ -401,8 +411,8 @@ html body {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 330px) {
   .container-content-pie .pie-chart {
-    height: 65%;
+    height: 60%;
   }
 }

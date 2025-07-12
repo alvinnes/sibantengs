@@ -47,25 +47,10 @@ form.addEventListener("submit", async (e) => {
     if (!validateImgKtpPerson(img_ktp_person)) return;
 
     modalLoading.classList.add("show-modal-loading");
-    const data = {
-      fullname: fullname,
-      phone: phone,
-      email: email,
-      addres: address,
-      password: password,
-      repeat_password: repeat_password,
-      birtdate: e.target.birtdate.value,
-      rekening: e.target.rekening.value,
-      ktp_number: ktp_number,
-      kk_number: kk_number,
-      img_ktp: img_ktp,
-      img_kk: img_kk,
-      img_ktp_person: img_ktp_person,
-    };
 
     const formDatas = new FormData(e.target);
 
-    const urlPostData = "http://localhost:3000/data/register";
+    const urlPostData = "http://localhost:3000/api/v1/register";
     const request = await fetch(urlPostData, {
       method: "POST",
       body: formDatas,
@@ -78,11 +63,25 @@ form.addEventListener("submit", async (e) => {
     modalSucces.classList.add("show-modal-succes");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal-succes");
-    }, 1000);
-    setTimeout(() => {
       window.location.href = "/client/pages/dashboardAdmin/adminManage.html";
     }, 1000);
   } catch (err) {
     console.error(err);
   }
 });
+
+// const data = {
+//   fullname: fullname,
+//   phone: phone,
+//   email: email,
+//   addres: address,
+//   password: password,
+//   repeat_password: repeat_password,
+//   birtdate: e.target.birtdate.value,
+//   rekening: e.target.rekening.value,
+//   ktp_number: ktp_number,
+//   kk_number: kk_number,
+//   img_ktp: img_ktp,
+//   img_kk: img_kk,
+//   img_ktp_person: img_ktp_person,
+// };

@@ -7,7 +7,7 @@ const infoPagination = document.querySelector(".info-pagination");
 
 const usePaginationMessage = async (page, totalPage, currentPagination) => {
   try {
-    const url = `http://localhost:3000/data/message?page=${page}`;
+    const url = `http://localhost:3000/api/v1/message?page=${page}`;
     const response = await fetch(url);
     const result = await response.json();
 

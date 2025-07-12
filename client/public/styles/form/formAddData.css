@@ -219,9 +219,14 @@ form .btn-submit {
   z-index: -1;
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1190px) {
   form {
     margin: 2rem 0;
+  }
+
+  .decor-1,
+  .decor-2 {
+    width: 40%;
   }
 }
 
@@ -232,6 +237,11 @@ form .btn-submit {
 
   form .btn-submit {
     font-size: 0.9em;
+  }
+
+  .decor-1,
+  .decor-2 {
+    width: 50%;
   }
 }
 
@@ -295,6 +305,11 @@ form .btn-submit {
   form .btn-submit {
     width: 94%;
   }
+
+  .decor-1,
+  .decor-2 {
+    width: 40%;
+  }
 }
 
 @media (max-width: 660px) {
@@ -339,6 +354,10 @@ form .btn-submit {
     flex-direction: column;
     width: 96%;
   }
+
+  .file-item {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 428px) {
@@ -353,5 +372,10 @@ form .btn-submit {
 
   .container-input-file {
     width: 98%;
+  }
+
+  .decor-1,
+  .decor-2 {
+    display: none;
   }
 }

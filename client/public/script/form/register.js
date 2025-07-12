@@ -36,7 +36,7 @@ const modalSucces = document.querySelector(".modal-succes");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
+  console.log("submitted");
   const fullname = e.target.fullname.value;
   const phone = e.target.phone.value;
   const email = e.target.email.value;
@@ -62,23 +62,26 @@ form.addEventListener("submit", async (e) => {
 
     modalLoading.classList.add("show-modal-loading");
 
-    const urlPostData = "http://localhost:3000/data/register";
+    const urlPostData = "http://localhost:3000/api/v1/register";
     const request = await fetch(urlPostData, {
       method: "POST",
       body: datasForm,
     });
+
+    if (!request.ok) {
+      alert("error");
+    }
 
     const response = await request.json();
     console.log(response);
 
     modalLoading.classList.remove("show-modal-loading");
     modalSucces.classList.add("show-modal-succes");
-    // setTimeout(() => {
-    //   modalSucces.classList.remove("show-modal-succes");
-    //   window.location.href = "/client/pages/form/login.html";
-    // }, 1000);
+    setTimeout(() => {
+      modalSucces.classList.remove("show-modal-succes");
+      window.location.href = "/client/pages/form/login.html";
+    }, 1000);
   } catch (err) {
     console.error(err);
-    alert(err);
   }
 });
