@@ -786,9 +786,12 @@ hr {
   padding: 40px 20px;
   gap: 60px 180px;
   margin: 0 auto;
+  opacity: 1;
+  transform: scale(1);
+  transition: .5s;
 }
 
-.step.hide-step {
+.steps-container.hide-step {
   opacity: 0;
   transform: scale(0.9);
 }

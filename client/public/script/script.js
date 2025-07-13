@@ -73,6 +73,12 @@ fetch("./public/data/dataServices.json")
           btnTab.forEach((el) => el.classList.remove("active"));
           item.classList.add("active");
 
+          stepsContainer.classList.add("hide-step");
+          
+          setTimeout(() => {
+            stepsContainer.classList.remove("hide-step");
+          }, 500);
+
           const filteredData = dataSteps.filter(
             (data) => data.category === e.target.textContent
           );
