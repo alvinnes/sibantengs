@@ -7,6 +7,13 @@
     <!-- Link Css -->
     <link rel="stylesheet" href="../../public/styles/form/formAddData.css" />
 
+    <!-- Link Favicon -->
+    <link
+      rel="shortcut icon"
+      href="/client/public/img/slice-logo.png"
+      type="image/x-icon"
+    />
+
     <!-- Link Phosphor Icons -->
     <link
       rel="stylesheet"
@@ -90,6 +97,7 @@
           <label class="input-date">
             <p class="label-form">Tanggal Lahir</p>
             <input type="date" name="birtdate" id="birtdate" />
+            <p class="error-message error-message-date"></p>
           </label>
           <label class="input-rekening">
             <p class="label-form">Pilih Jenis Rekening</p>
@@ -220,6 +228,10 @@
     <script
       type="module"
       src="../../public/script/validation/validateImgFile.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateDate.js"
     ></script>
   </body>
 </html>

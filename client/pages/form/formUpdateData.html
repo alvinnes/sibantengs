@@ -8,6 +8,13 @@
     <!-- Link Css -->
     <link rel="stylesheet" href="../../public/styles/form/formAddData.css" />
 
+    <!-- Link Favicon -->
+    <link
+      rel="shortcut icon"
+      href="/client/public/img/slice-logo.png"
+      type="image/x-icon"
+    />
+
     <!-- Link Phosphor Icons -->
     <link
       rel="stylesheet"
@@ -22,7 +29,7 @@
   </head>
 
   <body>
-    <form method="post">
+    <form enctype="multipart/form-data">
       <h1>Update Data Nasabah</h1>
       <div class="container-form">
         <div class="container-input">
@@ -70,6 +77,7 @@
           <label class="input-date">
             <p class="label-form">Tanggal Lahir</p>
             <input type="date" name="birtdate" id="birtdate" />
+            <p class="error-message error-message-date"></p>
           </label>
           <label class="input-rekening">
             <p class="label-form">Pilih Jenis Rekening</p>
@@ -94,7 +102,7 @@
           </label>
           <label class="input-item">
             <p class="label-form">Nomor KTP</p>
-            <input type="number" name="ktp" id="ktp_number" />
+            <input type="number" name="ktp_number" id="ktp_number" />
             <p class="error-message error-message-ktp"></p>
           </label>
           <label class="input-item">
@@ -109,7 +117,7 @@
               <i class="ph ph-identification-card"></i>
               <p class="label-file">Upload Foto KTP</p>
               <img src="" alt="" id="preview-ktp" />
-              <input type="file" name="img-ktp" id="img_ktp" accept="image/*" />
+              <input type="file" name="img_ktp" id="img_ktp" accept="image/*" />
             </div>
             <p class="error-message error-message-img-ktp"></p>
           </div>
@@ -118,7 +126,7 @@
               <i class="ph ph-cards"></i>
               <p class="label-file">Upload Foto KK</p>
               <img src="" alt="" id="preview-kk" />
-              <input type="file" name="img-kk" id="img_kk" accept="image/*" />
+              <input type="file" name="img_kk" id="img_kk" accept="image/*" />
             </div>
             <p class="error-message error-message-img-kk"></p>
           </div>
@@ -129,7 +137,7 @@
               <img src="" alt="" id="preview-ktp-person" />
               <input
                 type="file"
-                name="img-ktp-person"
+                name="img_ktp_person"
                 id="img_ktp_person"
                 accept="image/*"
               />
@@ -190,6 +198,10 @@
     <script
       type="module"
       src="../../public/script/validation/validateImgFile.js"
+    ></script>
+    <script
+      type="module"
+      src="../../public/script/validation/validateDate.js"
     ></script>
   </body>
 </html>

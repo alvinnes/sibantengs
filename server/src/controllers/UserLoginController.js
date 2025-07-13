@@ -2,8 +2,8 @@ import db from "../config/connection.js";
 import response from "../utils/response.js";
 
 export const getAllDataUsers = (req, res) => {
-  const sqlGetData = "SELECT * FROM users;";
-  db.query(sqlGetData, (err, result) => {
+  const sqlGetData = "SELECT * FROM ??;";
+  db.query(sqlGetData, ["users"], (err, result) => {
     if (err) throw err;
     response(res, result, "Berhasil mengambil data");
   });

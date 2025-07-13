@@ -4,6 +4,7 @@ import validatePhone from "../validation/validatePhone.js";
 import validateEmail from "../validation/validateEmail.js";
 import validateKtpNumber from "../validation/validateKtpNumber.js";
 import validateKkNumber from "../validation/validateKkNumber.js";
+import { validateDate } from "../validation/validateDate.js";
 import {
   validateImgKk,
   validateImgKtp,
@@ -40,6 +41,7 @@ form.addEventListener("submit", async (e) => {
     if (!validateAddress(address)) return;
     if (!validatePassword(password)) return;
     if (!validateRepeatPassword(password, repeat_password)) return;
+    if (!validateDate(e.target.birtdate.value)) return;
     if (!validateKtpNumber(ktp_number)) return;
     if (!validateKkNumber(kk_number)) return;
     if (!validateImgKtp(img_ktp)) return;
@@ -63,25 +65,11 @@ form.addEventListener("submit", async (e) => {
     modalSucces.classList.add("show-modal-succes");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal-succes");
+    }, 800);
+    setTimeout(() => {
       window.location.href = "/client/pages/dashboardAdmin/adminManage.html";
     }, 1000);
   } catch (err) {
     console.error(err);
   }
 });
-
-// const data = {
-//   fullname: fullname,
-//   phone: phone,
-//   email: email,
-//   addres: address,
-//   password: password,
-//   repeat_password: repeat_password,
-//   birtdate: e.target.birtdate.value,
-//   rekening: e.target.rekening.value,
-//   ktp_number: ktp_number,
-//   kk_number: kk_number,
-//   img_ktp: img_ktp,
-//   img_kk: img_kk,
-//   img_ktp_person: img_ktp_person,
-// };

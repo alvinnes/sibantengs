@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bg-primary: #5db996;
+  --bg-secondary: #ace238;
+  --text-color: #1d1d1d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  color: #1d1d1d;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 5em;
+  font-weight: 500;
+}
+
+.header .subtitle-info-header {
+  width: 50%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.header .container-card {
+  display: flex;
+  gap: 3rem;
+  margin-top: 7rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.container-card .card {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  text-align: center;
+  gap: 0.5rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-card a:nth-child(1) .card {
+  background-color: #5db99630;
+  color: #5db996;
+}
+
+.container-card a:nth-child(2) .card {
+  background-color: #ffa50030;
+  color: #ffa500;
+}
+
+.container-card a:nth-child(3) .card {
+  background-color: #ed1b2430;
+  color: #ed1b24;
+}
+
+.container-card a:nth-child(4) .card {
+  background-color: #1e90ff30;
+  color: dodgerblue;
+}
+
+.card i {
+  font-size: 7em;
+}
+
+.header .decor {
+  background-color: var(--bg-secondary);
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  filter: blur(15rem);
+  z-index: -1;
+}
+
+.header .decor-2 {
+  background-color: #ace23850;
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  filter: blur(10rem);
+  z-index: -1;
+}
+
+.main-content {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: auto;
+}
+
+.container-history .subtitle-info,
+.container-visi-misi .subtitle-info {
+  background-color: var(--text-color);
+  color: white;
+  width: fit-content;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.subtitle-info h3 {
+  font-size: 1em;
+}
+
+.subtitle-info .bullet {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+}
+
+.container-history .content-history {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.visi .content-visi {
+  width: 100%;
+  height: 6rem;
+  background-color: #5db99640;
+  margin: auto;
+  color: white;
+  margin-bottom: 3rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-visi p {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.content-misi {
+  width: 100%;
+  margin: auto;
+  list-style-position: inside;
+}
+
+.content-misi li {
+  margin-bottom: 0.8rem;
+  background-color: #80808010;
+  padding: 1.3rem;
+  border-radius: 0.8rem;
+}
+
+.main-content .value-bjs {
+  width: 100%;
+}
+
+.value-bjs .container-value {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container-value .value {
+  width: 100%;
+  background-color: #80808010;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.value .title-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.value .content-value {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 0.3s;
+  margin-left: 1rem;
+  margin-top: -1rem;
+
+  > p {
+    overflow: hidden;
+  }
+}
+
+.value .content-value.show-value {
+  grid-template-rows: 1fr;
+}
+
+.profile-bjs .img-bjs {
+  width: 100%;
+  height: 30rem;
+  background-color: #80808020;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-bjs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: white;
+}
+
+.profile-bjs .text-profile {
+  margin: 2rem 0;
+}
+
+.profile-bjs .container-color {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0 10rem;
+}
+
+.container-color .profile-color {
+  background-color: #80808010;
+  border-radius: 0.5rem;
+  height: 100%;
+}
+
+.profile-color p {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1.1em;
+}
+
+.profile-color .yellow {
+  background-color: #ffa500;
+}
+
+.profile-color .blue {
+  background-color: #0d406f;
+}
+
+.profile-color .red {
+  background-color: #ed1b24;
+}
+
+@media (max-width: 1190px) {
+  .main-content {
+    width: 85%;
+  }
+
+  .visi .content-visi {
+    height: auto;
+  }
+
+  .profile-bjs .img-bjs {
+    height: auto;
+    padding: 0.3rem;
+  }
+
+  .img-bjs img {
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 1120px) {
+  .header {
+    padding: 4rem 0 6rem;
+  }
+
+  .header .container-card {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .header h1 {
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .header .container-card {
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 5rem;
+  }
+
+  .container-card .card {
+    width: 17rem;
+    height: 17rem;
+  }
+
+  .header .subtitle-info-header {
+    width: 70%;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    width: 90%;
+  }
+
+  .header .container-card {
+    gap: 2.5rem;
+  }
+
+  .container-card .card {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  .header .decor,
+  .header .decor-2 {
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 3em;
+  }
+
+  .header .subtitle-info-header {
+    width: 90%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .header .container-card {
+    flex-direction: column;
+  }
+
+  .container-card .card {
+    width: 15rem;
+    height: 15rem;
+  }
+}

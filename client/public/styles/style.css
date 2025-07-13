@@ -245,7 +245,7 @@ nav .profile a {
 
 .growth p {
   width: 7rem;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 .trust-people {
@@ -501,6 +501,7 @@ nav .profile a {
   padding: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .item h4 {
   font-weight: 500;
   font-size: 1.1em;
@@ -534,9 +535,11 @@ nav .profile a {
   -webkit-box-orient: vertical;
 }
 
-.layanan .item img.layanan-img {
+.layanan .item img {
   width: 100%;
-  height: auto;
+  height: 10.5rem;
+  object-fit: cover;
+  background-color: #ace23830;
 }
 
 .reason {
@@ -2183,6 +2186,10 @@ hr {
     margin-bottom: 10px;
   }
 
+  .footer-logo {
+    width: 100%;
+  }
+
   .footer-col a,
   .footer-col p {
     font-size: 13px;
@@ -2251,6 +2258,17 @@ hr {
 
   .reason .title-reason h2 {
     text-align: center;
+  }
+
+  .footer-logo {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .footer-logo p {
+    margin-left: 3rem;
+    font-size: 0.9em;
+    text-wrap: nowrap;
   }
 
   .footer-col {
@@ -2438,10 +2456,6 @@ hr {
     margin-left: 3rem;
   }
 
-  .footer-logo p {
-    align-self: center;
-  }
-
   .home-text p {
     width: 100%;
   }
@@ -2601,5 +2615,9 @@ hr {
 
   .card {
     width: 100%;
+  }
+
+  .footer-logo {
+    margin-left: 1rem;
   }
 }

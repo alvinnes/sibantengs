@@ -37,7 +37,16 @@ router.post(
 router.get("/user", getUserByName);
 router.get("/userAll", getAllUser);
 router.get("/userNik", getDataByNikUser);
-router.patch("/userAll", updateDataUser);
 router.delete("/userAll", deleteDataByNik);
+
+router.patch(
+  "/userAll",
+  upload.fields([
+    { name: "img_ktp", maxCount: 1 },
+    { name: "img_kk", maxCount: 1 },
+    { name: "img_ktp_person", maxCount: 1 },
+  ]),
+  updateDataUser
+);
 
 export default router;

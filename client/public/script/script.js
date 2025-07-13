@@ -1,5 +1,7 @@
 const navButtons = document.querySelector(".nav-buttons");
 const profile = document.querySelector(".profile");
+const trustPeople = document.querySelector(".trust-people");
+
 const nikAdmin = JSON.parse(localStorage.getItem("nikAdmin")) || null;
 const nikUser = JSON.parse(localStorage.getItem("nikUser")) || null;
 
@@ -9,6 +11,7 @@ window.addEventListener("load", async () => {
     profile.style.display = "flex";
 
     if (nikAdmin) {
+      trustPeople.style.display = "none";
       try {
         const urlAdmin = "http://localhost:3000/api/v1/admin";
         const responseAdmin = await fetch(urlAdmin);
@@ -21,6 +24,7 @@ window.addEventListener("load", async () => {
         console.error(err);
       }
     } else {
+      trustPeople.style.display = "none";
       try {
         const urlUser = "http://localhost:3000/api/v1/register";
         const responseUser = await fetch(urlUser);
@@ -35,6 +39,7 @@ window.addEventListener("load", async () => {
     }
   } else {
     navButtons.style.display = "flex";
+    trustPeople.style.display = "flex";
     profile.style.display = "none";
   }
 });
@@ -120,10 +125,13 @@ formContact.addEventListener("submit", async (e) => {
   };
 
   try {
-    if (nikUser == null) {
+    if (nikUser == null && nikAdmin == null) {
       console.log("Login dulu");
       errorMessageNullData.textContent =
         "Login terlebih dahulu untuk mengirim pesan!";
+      return;
+    } else if (nikAdmin !== null) {
+      errorMessageNullData.textContent = "admin tidak dapat mengirim pesan!";
       return;
     } else {
       console.log("Berhasil");

@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #80808005;
+  background: linear-gradient(to top, dodgerblue, lightskyblue);
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
@@ -34,7 +34,7 @@ body {
 
 .main-content .header-message {
   width: 100%;
-  height: 7rem;
+  height: 5rem;
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,6 @@ body {
 hr {
   width: 90%;
   background-color: #80808010;
-  color: #80808010;
   margin: 1rem auto 2rem;
 }
 
@@ -62,7 +61,7 @@ hr {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #80808010;
+  background-color: #87cefa50;
 }
 
 .general-information h3 {
@@ -89,10 +88,13 @@ hr {
 }
 
 .main-content .message-content {
-  height: 70%;
+  height: 70vh;
   overflow-y: auto;
-  width: 80%;
+  width: 90%;
   margin: auto;
+  background-color: #80808010;
+  padding: 1rem;
+  border-radius: 0.3rem;
 }
 
 .message-content p {
@@ -112,6 +114,7 @@ hr {
     padding: 1rem 0;
     width: 100%;
     min-height: 100vh;
+    border-radius: 0;
   }
 
   .main-content .header-message {

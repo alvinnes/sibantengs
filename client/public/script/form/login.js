@@ -35,21 +35,25 @@ form.addEventListener("submit", async (e) => {
     const matchedNik = existData.find(
       (item) => item.kk_number === e.target.nik.value
     );
+
     const matchedPassword = existData.find(
       (item) => item.password === e.target.password.value
     );
+
     const matchedNikAdmin = existDataAdmin.find(
       (item) => item.nik == e.target.nik.value
     );
+
     const matchedPasswordAdmin = existDataAdmin.find(
       (item) => item.password === e.target.password.value
     );
+
     if (matchedNikAdmin && matchedPasswordAdmin) {
       console.log("Berhasil Login");
       localStorage.setItem("nikAdmin", JSON.stringify(nik));
       setTimeout(() => {
         window.location.href = `/client/pages/dashboardAdmin/adminOverview.html`;
-      }, 2000);
+      }, 1000);
     } else {
       if (!matchedNik && !matchedPassword) {
         errorMessageNik.textContent = "NIK tidak ditemukan!";
@@ -62,7 +66,7 @@ form.addEventListener("submit", async (e) => {
         errorMessagePassword.textContent = "";
         setTimeout(() => {
           window.location.href = `/client/pages/dashboardUser/dashboardUser.html`;
-        }, 2000);
+        }, 1000);
       }
     }
 
@@ -75,13 +79,13 @@ form.addEventListener("submit", async (e) => {
     modalSucces.classList.add("show-modal");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal");
-    }, 1000);
-  } catch (err) {
-    console.error(err);
-  } finally {
+    }, 800);
+
     btnSubmit.removeAttribute("disabled");
     btnSubmit.classList.remove("btn-disabled");
     btnSubmit.textContent = "Submit";
+  } catch (err) {
+    console.error(err);
   }
 });
 

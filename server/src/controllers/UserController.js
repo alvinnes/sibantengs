@@ -79,26 +79,50 @@ export const postDataRegister = (req, res) => {
 };
 
 export const updateDataUser = (req, res) => {
-  const receivedData = req.body;
+  const receivedImg = req.files;
+
+  const {
+    kk_number,
+    fullname,
+    phone,
+    email,
+    addres,
+    password,
+    repeat_password,
+    birtdate,
+    rekening,
+    ktp_number,
+  } = req.body;
+
+  const imgKtp = receivedImg.img_ktp[0].path;
+  const imgKk = receivedImg.img_kk[0].path;
+  const imgKtpPerson = receivedImg.img_ktp_person[0].path;
+
+  const pathImgKtp = `${req.protocol}://${req.get("host")}/${imgKtp}`;
+  const pathImgKk = `${req.protocol}://${req.get("host")}/${imgKk}`;
+  const pathImgKtpPerson = `${req.protocol}://${req.get(
+    "host"
+  )}/${imgKtpPerson}`;
+
   const query =
     "UPDATE register SET fullname = ?,phone = ?,email = ?,addres = ?,password = ?,repeat_password = ?,birtdate = ?,rekening = ?,ktp_number = ?,kk_number = ?,img_ktp = ?,img_kk = ?,img_ktp_person = ? where kk_number = ?;";
   db.query(
     query,
     [
-      receivedData.fullname,
-      receivedData.phone,
-      receivedData.email,
-      receivedData.addres,
-      receivedData.password,
-      receivedData.repeat_password,
-      receivedData.birtdate,
-      receivedData.rekening,
-      receivedData.ktp_number,
-      receivedData.kk_number,
-      receivedData.img_ktp,
-      receivedData.img_kk,
-      receivedData.img_ktp_person,
-      req.query.nik,
+      fullname,
+      phone,
+      email,
+      addres,
+      password,
+      repeat_password,
+      birtdate,
+      rekening,
+      ktp_number,
+      kk_number,
+      pathImgKtp,
+      pathImgKk,
+      pathImgKtpPerson,
+      parseInt(req.query.nik),
     ],
     (err, result) => {
       if (err) throw err;

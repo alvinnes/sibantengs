@@ -13,6 +13,7 @@ import {
   validatePassword,
   validateRepeatPassword,
 } from "../validation/validatePassword.js";
+import { validateDate } from "../validation/validateDate.js";
 
 const form = document.querySelector("form");
 const agree = document.getElementById("agree");
@@ -36,7 +37,7 @@ const modalSucces = document.querySelector(".modal-succes");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log("submitted");
+
   const fullname = e.target.fullname.value;
   const phone = e.target.phone.value;
   const email = e.target.email.value;
@@ -54,6 +55,7 @@ form.addEventListener("submit", async (e) => {
     if (!validateAddress(address)) return;
     if (!validatePassword(password)) return;
     if (!validateRepeatPassword(password, repeat_password)) return;
+    if (!validateDate(e.target.birtdate.value)) return;
     if (!validateKtpNumber(ktp_number)) return;
     if (!validateKkNumber(kk_number)) return;
     if (!validateImgKtp(e.target.img_ktp.value)) return;
@@ -79,6 +81,8 @@ form.addEventListener("submit", async (e) => {
     modalSucces.classList.add("show-modal-succes");
     setTimeout(() => {
       modalSucces.classList.remove("show-modal-succes");
+    }, 800);
+    setTimeout(() => {
       window.location.href = "/client/pages/form/login.html";
     }, 1000);
   } catch (err) {
