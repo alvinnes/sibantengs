@@ -3,7 +3,7 @@ const useDeleteSession = () => {
   localStorage.removeItem("nikAdmin");
 
   setTimeout(() => {
-    window.location.href = "/client/index.html";
+    window.location.href = "../../index.html";
   }, 500);
 };
 
