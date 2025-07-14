@@ -16,7 +16,6 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname, "../public")));
-app.use("/", express.static(path.join(__dirname, "../../client")));
 
 app.use("/api/v1", usersRoute);
 app.use("/api/v1", adminRoute);

@@ -54,8 +54,8 @@ const dataNull = document.querySelector(".data-null");
 window.addEventListener("load", async () => {
   try {
     const nik = JSON.parse(localStorage.getItem("nikAdmin")) || null;
-    const urlProfile = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
-    const url = `http://localhost:3000/api/v1/userAll?page=${page}`;
+    const urlProfile = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
+    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userAll?page=${page}`;
 
     const response = await fetch(url);
     const responseProfile = await fetch(urlProfile);
@@ -109,7 +109,7 @@ window.addEventListener("load", async () => {
 searchInput.addEventListener("input", async (e) => {
   try {
     if (e.target.value === "") {
-      const url = `http://localhost:3000/api/v1/userAll`;
+      const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userAll`;
       useSearchManage(url);
     }
   } catch (error) {
@@ -121,7 +121,7 @@ searchInput.addEventListener("keydown", async (e) => {
   if (e.key === "Enter") {
     try {
       if (e.target.value !== "") {
-        const url = `http://localhost:3000/api/v1/user?nama=${e.target.value}`;
+        const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/user?nama=${e.target.value}`;
         useSearchManage(url);
       }
     } catch (error) {

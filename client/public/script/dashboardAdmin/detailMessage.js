@@ -7,7 +7,7 @@ const letter = document.querySelector(".letter");
 window.addEventListener("load", async () => {
   const id = window.location.search.substring(12);
 
-  const url = `http://localhost:3000/api/v1/messageId?created_at=${id}`;
+  const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/messageId?created_at=${id}`;
   const request = await fetch(url);
   const response = await request.json();
   const data = response.payload[0];

@@ -59,8 +59,8 @@ let totalPage = null;
 window.addEventListener("load", async () => {
   try {
     const nik = JSON.parse(localStorage.getItem("nikAdmin")) || null;
-    const urlProfile = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
-    const url = `http://localhost:3000/api/v1/message?page=${page}`;
+    const urlProfile = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
+    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/message?page=${page}`;
 
     const response = await fetch(url);
     const responseProfile = await fetch(urlProfile);
@@ -129,7 +129,7 @@ deleteAll.addEventListener("click", () => {
     containerData.innerHTML = "";
     try {
       containerModal.classList.remove("show-modal");
-      const url = `http://localhost:3000/api/v1/message`;
+      const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/message`;
       const request = await fetch(url, { method: "DELETE" });
       const response = await request.json();
       console.log(response);
@@ -141,7 +141,7 @@ deleteAll.addEventListener("click", () => {
 searchInput.oninput = async (e) => {
   try {
     if (e.target.value == "") {
-      const url = "http://localhost:3000/api/v1/message";
+      const url = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
       useSearchMessage(url);
     }
   } catch (error) {
@@ -153,7 +153,7 @@ searchInput.onkeydown = async (e) => {
   if (e.key === "Enter") {
     try {
       if (e.target.value !== "") {
-        const url = `http://localhost:3000/api/v1/queryMessage?q=${e.target.value}&page=${page}`;
+        const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/queryMessage?q=${e.target.value}&page=${page}`;
         useSearchMessage(url);
       }
     } catch (error) {
