@@ -788,7 +788,7 @@ hr {
   margin: 0 auto;
   opacity: 1;
   transform: scale(1);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .steps-container.hide-step {
@@ -1802,15 +1802,13 @@ hr {
     align-self: start;
   }
 }
-
 @media (max-width: 768px) {
   nav ul {
     height: 100vh;
-    width: 40%;
+    width: 20%;
     position: absolute;
     left: -100%;
     background-color: mediumaquamarine;
-    z-index: -1;
     top: 0;
     opacity: 0;
     bottom: 0;
@@ -2285,7 +2283,7 @@ hr {
 
 @media (max-width: 576px) {
   nav ul {
-    width: 70%;
+    width: 55%;
   }
 
   .home-text h1 {
@@ -2571,6 +2569,9 @@ hr {
 }
 
 @media (max-width: 360px) {
+  nav ul {
+    width: 50%;
+  }
   .home-section {
     padding: 6rem 1rem;
   }
