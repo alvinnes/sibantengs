@@ -23,6 +23,6 @@ const deleteSession = () => {
   localStorage.removeItem("nikUser");
   console.log("deleted");
   setTimeout(() => {
-    window.location.href = "/client/index.html";
+    window.location.href = "../../index.html";
   }, 500);
 };

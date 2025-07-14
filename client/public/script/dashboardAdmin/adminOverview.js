@@ -35,8 +35,10 @@ window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
     const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
-    const urlMessage = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
-    const urlRegister = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
+    const urlMessage =
+      "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
+    const urlRegister =
+      "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
 
     const responseMessage = await fetch(urlMessage);
     const response = await fetch(url);
@@ -65,6 +67,6 @@ const deleteSession = () => {
   localStorage.removeItem("nikAdmin");
   console.log("deleted");
   setTimeout(() => {
-    window.location.href = "/client/index.html";
+    window.location.href = "../../index.html";
   }, 500);
 };
