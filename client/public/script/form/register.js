@@ -64,7 +64,8 @@ form.addEventListener("submit", async (e) => {
 
     modalLoading.classList.add("show-modal-loading");
 
-    const urlPostData = "http://localhost:3000/api/v1/register";
+    const urlPostData =
+      "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
     const request = await fetch(urlPostData, {
       method: "POST",
       body: datasForm,
@@ -79,7 +80,7 @@ form.addEventListener("submit", async (e) => {
       modalSucces.classList.remove("show-modal-succes");
     }, 800);
     setTimeout(() => {
-      window.location.href = "/client/pages/form/login.html";
+      window.location.href = "../../pages/form/login.html";
     }, 1000);
   } catch (err) {
     console.error(err);

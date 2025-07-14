@@ -160,7 +160,7 @@ formContact.addEventListener("submit", async (e) => {
     btnSubmit.setAttribute("disabled", true);
     btnSubmit.style.cursor = "not-allowed";
 
-    const url = "http://localhost:3000/api/v1/message";
+    const url = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
     const request = await fetch(url, {
       method: "POST",
       headers: {
@@ -203,7 +203,7 @@ document.addEventListener("click", (e) => {
 });
 
 window.addEventListener("hashchange", () => {
-  navbarItems.forEach((item, index) => {
+  navbarItems.forEach((item) => {
     const navLink = "#" + item.textContent.toLowerCase();
 
     if (window.location.hash == navLink) {

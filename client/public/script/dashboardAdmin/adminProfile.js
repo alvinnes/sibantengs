@@ -1,4 +1,4 @@
-const windowLocation = "../../pages/dashboardAdmin/adminProfile.html";
+const windowLocation = "/pages/dashboardAdmin/adminProfile.html";
 
 const navItem = document.querySelectorAll("aside ul li");
 const navLink = document.querySelectorAll("aside ul li a");
@@ -39,7 +39,7 @@ const inputPassword = document.getElementById("inputPassword");
 window.addEventListener("load", async () => {
   try {
     const nik = JSON.parse(localStorage.getItem("nikAdmin")) || null;
-    const urlProfile = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
+    const urlProfile = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
 
     const responseProfile = await fetch(urlProfile);
     const resultProfile = await responseProfile.json();
@@ -97,7 +97,7 @@ formEdit.addEventListener("submit", async (e) => {
   };
 
   try {
-    const url = `http://localhost:3000/api/v1/admin?nik=${nik}`;
+    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/admin?nik=${nik}`;
     const request = await fetch(url, {
       method: "PATCH",
       headers: {
