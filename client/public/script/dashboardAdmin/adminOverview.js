@@ -34,9 +34,9 @@ const totalUser = document.querySelector(".total-user");
 window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
-    const url = `http://localhost:3000/api/v1/userNikAdmin?nik=${nik}`;
-    const urlMessage = "http://localhost:3000/api/v1/message";
-    const urlRegister = "http://localhost:3000/api/v1/register";
+    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
+    const urlMessage = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
+    const urlRegister = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
 
     const responseMessage = await fetch(urlMessage);
     const response = await fetch(url);

@@ -52,7 +52,7 @@ form.addEventListener("submit", async (e) => {
 
     const formDatas = new FormData(e.target);
 
-    const urlPostData = "http://localhost:3000/api/v1/register";
+    const urlPostData = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
     const request = await fetch(urlPostData, {
       method: "POST",
       body: formDatas,
