@@ -28,7 +28,7 @@ const useDeleteDataManage = (nik, datasNasabah, btn) => {
         tableData.innerHTML += element;
       });
       containerModalConfirm.classList.remove("show-modal");
-      const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userAll?nik=${nik}`;
+      const url = `http://localhost:3000/api/v1/userAll?nik=${nik}`;
       const request = await fetch(url, { method: "DELETE" });
       const result = await request.json();
       console.log(result);

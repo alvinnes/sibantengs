@@ -13,7 +13,7 @@ window.addEventListener("load", async () => {
     if (nikAdmin) {
       trustPeople.style.display = "none";
       try {
-        const urlAdmin = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/admin";
+        const urlAdmin = "http://localhost:3000/api/v1/admin";
         const responseAdmin = await fetch(urlAdmin);
         const resultAdmin = await responseAdmin.json();
         if (resultAdmin.payload[0].nik === nikAdmin) {
@@ -26,7 +26,7 @@ window.addEventListener("load", async () => {
     } else {
       trustPeople.style.display = "none";
       try {
-        const urlUser = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
+        const urlUser = "http://localhost:3000/api/v1/register";
         const responseUser = await fetch(urlUser);
         const resultUser = await responseUser.json();
         if (resultUser.payload[0].kk_number === nikUser) {
@@ -158,7 +158,7 @@ formContact.addEventListener("submit", async (e) => {
     btnSubmit.setAttribute("disabled", true);
     btnSubmit.style.cursor = "not-allowed";
 
-    const url = "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
+    const url = "http://localhost:3000/api/v1/message";
     const request = await fetch(url, {
       method: "POST",
       headers: {
