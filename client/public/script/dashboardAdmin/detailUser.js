@@ -17,7 +17,7 @@ const letter = document.querySelector(".letter");
 
 window.addEventListener("load", async () => {
   try {
-    const url = `http://localhost:3000/api/v1/userNik?nik=${nik}`;
+    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNik?nik=${nik}`;
     const response = await fetch(url);
     const result = await response.json();
     const data = result.payload[0];

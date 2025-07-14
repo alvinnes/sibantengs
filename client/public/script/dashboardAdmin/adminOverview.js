@@ -1,4 +1,4 @@
-const windowLocation = "/client/pages/dashboardAdmin/adminOverview.html";
+const windowLocation = "/pages/dashboardAdmin/adminOverview.html";
 
 const navItem = document.querySelectorAll("aside ul li");
 const navLink = document.querySelectorAll("aside ul li a");
@@ -34,7 +34,6 @@ const totalUser = document.querySelector(".total-user");
 window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikAdmin")) || [];
   try {
-
     const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nik}`;
     const urlMessage =
       "https://api-sibantengs.smkw9jepara.sch.id/api/v1/message";
