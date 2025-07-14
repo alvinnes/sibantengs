@@ -50,7 +50,7 @@ const btnDeleteAgree = (item) => {
     item.remove();
     try {
       containerModal.classList.remove("show-modal");
-      const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/messageOne?date=${item.dataset.item}`;
+      const url = `http://localhost:3000/api/v1/messageOne?date=${item.dataset.item}`;
       const request = await fetch(url, { method: "DELETE" });
       const response = await request.json();
       console.log(response);

@@ -5,7 +5,7 @@ const imgProfile = document.querySelector(".img-profile");
 window.addEventListener("load", async () => {
   const nik = JSON.parse(localStorage.getItem("nikUser"));
   try {
-    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNik?nik=${nik}`;
+    const url = `http://localhost:3000/api/v1/userNik?nik=${nik}`;
     const response = await fetch(url);
     const result = await response.json();
     result.payload.forEach((item) => {
