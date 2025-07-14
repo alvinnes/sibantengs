@@ -134,9 +134,10 @@ nav .info-role p:last-child {
   padding: 2rem 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: fixed;
-  z-index: 9;
   top: 0;
   left: 0;
+  bottom: 0;
+  z-index: 1000;
 }
 
 .sidebar img {
@@ -232,13 +233,10 @@ nav .info-role p:last-child {
   }
 
   .container-dashboard .sidebar {
-    position: absolute;
     left: -100%;
     opacity: 0;
     transition: 0.5s;
-    top: 0;
-    z-index: 1000;
-    width: 45%;
+    width: 40%;
   }
 
   .container-dashboard .sidebar.show-sidebar {
