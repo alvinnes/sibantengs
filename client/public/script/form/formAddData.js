@@ -52,8 +52,7 @@ form.addEventListener("submit", async (e) => {
 
     const formDatas = new FormData(e.target);
 
-    const urlPostData =
-      "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
+    const urlPostData = "http://localhost:3000/api/v1/register";
     const request = await fetch(urlPostData, {
       method: "POST",
       body: formDatas,
@@ -68,7 +67,7 @@ form.addEventListener("submit", async (e) => {
       modalSucces.classList.remove("show-modal-succes");
     }, 800);
     setTimeout(() => {
-      window.location.href = "../../pages/dashboardAdmin/adminManage.html";
+      window.location.href = "/client/pages/dashboardAdmin/adminManage.html";
     }, 1000);
   } catch (err) {
     console.error(err);

@@ -32,7 +32,7 @@ const inputRepeatPassword = document.getElementById("repeat_password");
 const nik = parseInt(window.location.search.substring(5));
 window.addEventListener("load", async () => {
   try {
-    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNik?nik=${nik}`;
+    const url = `http://localhost:3000/api/v1/userNik?nik=${nik}`;
     const response = await fetch(url);
     const result = await response.json();
     const data = result.payload[0];
@@ -87,7 +87,7 @@ form.addEventListener("submit", async (e) => {
     modalLoading.classList.add("show-modal-loading");
     const fromDatas = new FormData(e.target);
 
-    const urlPostData = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userAll?nik=${nik}`;
+    const urlPostData = `http://localhost:3000/api/v1/userAll?nik=${nik}`;
     const request = await fetch(urlPostData, {
       method: "PATCH",
       body: fromDatas,

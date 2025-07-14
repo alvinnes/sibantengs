@@ -5,7 +5,7 @@ const infoPagination = document.querySelector(".info-pagination");
 
 const usePaginationManage = async (page, totalPage, currentPagination) => {
   try {
-    const url = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/register?page=${page}`;
+    const url = `http://localhost:3000/api/v1/register?page=${page}`;
     const response = await fetch(url);
     const result = await response.json();
 
