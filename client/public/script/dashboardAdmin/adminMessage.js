@@ -1,4 +1,4 @@
-const windowLocation = "/client/pages/dashboardAdmin/adminMessage.html";
+const windowLocation = "../../dashboardAdmin/adminMessage.html";
 
 const navItem = document.querySelectorAll("aside ul li");
 const navLink = document.querySelectorAll("aside ul li a");

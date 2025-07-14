@@ -9,7 +9,7 @@ import {
   sortedDataByNik,
 } from "./hooks/useSortManage.js";
 
-const windowLocation = "/client/pages/dashboardAdmin/adminManage.html";
+const windowLocation = "../../dashboardAdmin/adminManage.html";
 
 const navItem = document.querySelectorAll("aside ul li");
 const navLink = document.querySelectorAll("aside ul li a");

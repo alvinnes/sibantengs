@@ -13,7 +13,8 @@ window.addEventListener("load", async () => {
     if (nikAdmin) {
       trustPeople.style.display = "none";
       try {
-        const urlAdmin = "http://localhost:3000/api/v1/admin";
+        const urlAdmin =
+          "https://api-sibantengs.smkw9jepara.sch.id/api/v1/admin";
         const responseAdmin = await fetch(urlAdmin);
         const resultAdmin = await responseAdmin.json();
         if (resultAdmin.payload[0].nik === nikAdmin) {
@@ -26,7 +27,8 @@ window.addEventListener("load", async () => {
     } else {
       trustPeople.style.display = "none";
       try {
-        const urlUser = "http://localhost:3000/api/v1/register";
+        const urlUser =
+          "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
         const responseUser = await fetch(urlUser);
         const resultUser = await responseUser.json();
         if (resultUser.payload[0].kk_number === nikUser) {
@@ -47,14 +49,14 @@ window.addEventListener("load", async () => {
 const elementProfileAdmin = (data) => {
   const firstLetter = data.username.slice(0, 1);
   return `
-  <a href="pages/dashboardAdmin/adminOverview.html">${firstLetter.toUpperCase()}</a>
+  <a href="./pages/dashboardAdmin/adminOverview.html">${firstLetter.toUpperCase()}</a>
   `;
 };
 
 const elementProfileUser = (data) => {
   const firstLetter = data.fullname.slice(0, 1);
   return `
-      <a href="pages/dashboardUser/dashboardUser.html">${firstLetter.toUpperCase()}</a>
+      <a href="./pages/dashboardUser/dashboardUser.html">${firstLetter.toUpperCase()}</a>
       `;
 };
 
@@ -74,7 +76,7 @@ fetch("./public/data/dataServices.json")
           item.classList.add("active");
 
           stepsContainer.classList.add("hide-step");
-          
+
           setTimeout(() => {
             stepsContainer.classList.remove("hide-step");
           }, 500);

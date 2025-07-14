@@ -52,7 +52,7 @@ form.addEventListener("submit", async (e) => {
       console.log("Berhasil Login");
       localStorage.setItem("nikAdmin", JSON.stringify(nik));
       setTimeout(() => {
-        window.location.href = `/client/pages/dashboardAdmin/adminOverview.html`;
+        window.location.href = `../../pages/dashboardAdmin/adminOverview.html`;
       }, 1000);
     } else {
       if (!matchedNik && !matchedPassword) {
@@ -65,7 +65,7 @@ form.addEventListener("submit", async (e) => {
         errorMessageNik.textContent = "";
         errorMessagePassword.textContent = "";
         setTimeout(() => {
-          window.location.href = `/client/pages/dashboardUser/dashboardUser.html`;
+          window.location.href = `../../pages/dashboardUser/dashboardUser.html`;
         }, 1000);
       }
     }
