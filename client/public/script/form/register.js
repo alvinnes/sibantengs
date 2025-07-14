@@ -70,10 +70,6 @@ form.addEventListener("submit", async (e) => {
       body: datasForm,
     });
 
-    if (!request.ok) {
-      alert("error");
-    }
-
     const response = await request.json();
     console.log(response);
 
