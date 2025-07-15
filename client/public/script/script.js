@@ -13,8 +13,7 @@ window.addEventListener("load", async () => {
     if (nikAdmin) {
       trustPeople.style.display = "none";
       try {
-        const urlAdmin =
-          "https://api-sibantengs.smkw9jepara.sch.id/api/v1/admin";
+        const urlAdmin = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNikAdmin?nik=${nikAdmin}`;
         const responseAdmin = await fetch(urlAdmin);
         const resultAdmin = await responseAdmin.json();
         if (resultAdmin.payload[0].nik === nikAdmin) {
@@ -27,10 +26,10 @@ window.addEventListener("load", async () => {
     } else {
       trustPeople.style.display = "none";
       try {
-        const urlUser =
-          "https://api-sibantengs.smkw9jepara.sch.id/api/v1/register";
+        const urlUser = `https://api-sibantengs.smkw9jepara.sch.id/api/v1/userNik?nik=${nikUser}`;
         const responseUser = await fetch(urlUser);
         const resultUser = await responseUser.json();
+        console.log(nikUser);
         if (resultUser.payload[0].kk_number === nikUser) {
           const element = elementProfileUser(resultUser.payload[0]);
           profile.innerHTML += element;

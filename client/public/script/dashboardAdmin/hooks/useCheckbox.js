@@ -10,6 +10,7 @@ const sortByDate = document.getElementById("date");
 
 const useCheckbox = () => {
   const checkbox = document.querySelectorAll("#check");
+
   checkbox.forEach((btn) => {
     const wrapperItem = document.querySelectorAll(`[data-item="${btn.value}"]`);
     btn.onclick = (e) => {
@@ -31,6 +32,7 @@ const useCheckbox = () => {
         });
       }
     };
+
     btnDelete.addEventListener("click", () => {
       btn.classList.toggle("show-checkbox");
       if (btn.checked == true) {
