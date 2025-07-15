@@ -100,7 +100,6 @@ window.addEventListener("load", async () => {
         containerData.innerHTML += useElementMessage(message, time);
         dataMessages.push(message);
       });
-
       useCheckbox();
     }
   } catch (err) {

@@ -75,7 +75,7 @@ export const deleteMessage = (req, res) => {
   const date = new Date(req.query.date);
   const sqlDeleteData = "DELETE FROM ?? WHERE ?? IN (?)";
 
-  db.query(sqlDeleteData, ["message", "created_at", date], (err, result) => {
+  db.query(sqlDeleteData, ["message", "created_at", [date]], (err, result) => {
     if (err) return res.status(500).json({ error: "Gagal menghapus data" });
     response(res, result, "Berhasil menghapus pesan");
   });
