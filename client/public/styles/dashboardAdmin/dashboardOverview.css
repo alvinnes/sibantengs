@@ -386,19 +386,18 @@ html body {
   }
 
   .container-pie-chart .container-content-pie {
-    width: 100%;
-  }
-
-  .container-pie-chart .container-content-pie {
     width: 85%;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
   .container-pie-chart .container-content-pie {
-    width: 90%;
+    width: 100%;
+    margin-right: 2rem;
   }
+}
 
+@media (max-width: 360px) {
   .container-card {
     flex-direction: column;
     gap: 0.8rem;
